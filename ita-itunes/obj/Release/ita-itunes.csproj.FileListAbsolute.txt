@@ -1,0 +1,8 @@
+C:\dev\ita-2.0\ita-itunes\obj\Release\ResolveAssemblyReference.cache
+C:\dev\ita-2.0\ita-itunes\obj\Release\Interop.iTunesLib.dll
+C:\dev\ita-2.0\ita-itunes\obj\Release\ita-itunes.csproj.ResolveComReference.cache
+C:\dev\ita-2.0\ita-itunes\bin\Release\ita-itunes.dll
+C:\dev\ita-2.0\ita-itunes\bin\Release\ita-itunes.pdb
+C:\dev\ita-2.0\ita-itunes\bin\Release\Interop.iTunesLib.dll
+C:\dev\ita-2.0\ita-itunes\obj\Release\ita-itunes.dll
+C:\dev\ita-2.0\ita-itunes\obj\Release\ita-itunes.pdb

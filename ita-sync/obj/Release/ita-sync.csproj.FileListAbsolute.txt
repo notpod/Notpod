@@ -1,0 +1,5 @@
+C:\dev\ita-2.0\ita-sync\bin\Release\ita-sync.dll
+C:\dev\ita-2.0\ita-sync\bin\Release\ita-sync.pdb
+C:\dev\ita-2.0\ita-sync\obj\Release\ResolveAssemblyReference.cache
+C:\dev\ita-2.0\ita-sync\obj\Release\ita-sync.dll
+C:\dev\ita-2.0\ita-sync\obj\Release\ita-sync.pdb

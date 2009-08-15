@@ -1,0 +1,5 @@
+C:\dev\ita-2.0\ita-domain-model\bin\Release\ita-domain-model.dll
+C:\dev\ita-2.0\ita-domain-model\bin\Release\ita-domain-model.pdb
+C:\dev\ita-2.0\ita-domain-model\obj\Release\ResolveAssemblyReference.cache
+C:\dev\ita-2.0\ita-domain-model\obj\Release\ita-domain-model.dll
+C:\dev\ita-2.0\ita-domain-model\obj\Release\ita-domain-model.pdb
