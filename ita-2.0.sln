@@ -2,20 +2,37 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C# Express 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-sync", "ita-sync\ita-sync.csproj", "{FDFE7B56-F18D-4041-AA1D-91BBFD5E8A85}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D} = {F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}
+		{9C9C0EA1-306F-415A-B42D-717C02B9CD7E} = {9C9C0EA1-306F-415A-B42D-717C02B9CD7E}
+		{6BB762C5-A39F-4CF1-8B48-C6FA225F80D4} = {6BB762C5-A39F-4CF1-8B48-C6FA225F80D4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-domain-model", "ita-domain-model\ita-domain-model.csproj", "{9C9C0EA1-306F-415A-B42D-717C02B9CD7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-itunes-test", "ita-itunes-test\ita-itunes-test.csproj", "{DA9074FC-E55F-4163-8D62-C224FC2DAB6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-itunes", "ita-itunes\ita-itunes.csproj", "{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C9C0EA1-306F-415A-B42D-717C02B9CD7E} = {9C9C0EA1-306F-415A-B42D-717C02B9CD7E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-media-connectors", "ita-media-connectors\ita-media-connectors.csproj", "{6BB762C5-A39F-4CF1-8B48-C6FA225F80D4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C9C0EA1-306F-415A-B42D-717C02B9CD7E} = {9C9C0EA1-306F-415A-B42D-717C02B9CD7E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-media-connectors-tests", "ita-media-connectors-tests\ita-media-connectors-tests.csproj", "{63D60D22-1A89-44CA-9395-5D2643548E18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-domain-model-tests", "ita-domain-model-tests\ita-domain-model-tests.csproj", "{5E3759A8-79BD-4944-8468-19FE736FFC60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-ui", "ita-ui\ita-ui.csproj", "{F4099758-4C03-488D-B173-AC0BBEBC0478}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D} = {F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}
+		{FDFE7B56-F18D-4041-AA1D-91BBFD5E8A85} = {FDFE7B56-F18D-4041-AA1D-91BBFD5E8A85}
+		{9C9C0EA1-306F-415A-B42D-717C02B9CD7E} = {9C9C0EA1-306F-415A-B42D-717C02B9CD7E}
+		{6BB762C5-A39F-4CF1-8B48-C6FA225F80D4} = {6BB762C5-A39F-4CF1-8B48-C6FA225F80D4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-sync-tests", "ita-sync-tests\ita-sync-tests.csproj", "{E40C8EAD-5D0C-483E-B1AA-12C9C88D08E7}"
 EndProject
