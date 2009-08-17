@@ -17,7 +17,7 @@ namespace iTunesAgent.Service
 
         private string version;
 
-        private List<IiTunesListener> listeners = new List<IiTunesListener>();
+        //private List<IiTunesListener> listeners = new List<IiTunesListener>();
 
         /*!
          * Get the iTunes version.
