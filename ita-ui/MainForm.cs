@@ -41,6 +41,7 @@ namespace iTunesAgent.UI
         private void InitializePanels()
         {
             panels.Add("devices", new DevicesPanel());
+            panels.Add("preferences", new PreferencesPanel());
         }
 
         /// <summary>
@@ -72,6 +73,20 @@ namespace iTunesAgent.UI
         private void trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
+        }
+
+        private void btnPreferences_Click(object sender, EventArgs e)
+        {
+            panViewPlaceholder.Controls.Clear();
+            panViewPlaceholder.Controls.Add(panels["preferences"]);
+            panViewPlaceholder.Invalidate();
+        }
+
+        private void btnMyDevices_Click(object sender, EventArgs e)
+        {
+            panViewPlaceholder.Controls.Clear();
+            panViewPlaceholder.Controls.Add(panels["devices"]);
+            panViewPlaceholder.Invalidate();
         }
     }
 }
