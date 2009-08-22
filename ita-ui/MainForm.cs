@@ -7,10 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ita_ui
+namespace iTunesAgent.UI
 {
     public partial class MainForm : Form
     {
+        //Constants used when intercepting system messages
+        public const int WM_SYSCOMMAND = 0x112;
+        public const int SC_MINIMIZE = 0xF020;
+
+        // List holding the different panels (configuration, my devices etc)
         private Dictionary<String, UserControl> panels = new Dictionary<string, UserControl>();
 
         public MainForm()
@@ -27,12 +32,46 @@ namespace ita_ui
 
         private void LoadPreviousPanel()
         {
+            Control panel = panels["devices"];
             panViewPlaceholder.Controls.Add(panels["devices"]);
+            panel.Dock = DockStyle.Fill;
+            
         }
 
         private void InitializePanels()
         {
             panels.Add("devices", new DevicesPanel());
+        }
+
+        /// <summary>
+        /// WndProc override to enable minimize to tray.
+        /// </summary>
+        /// <param name="m"></param>
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_SYSCOMMAND)
+            {
+                switch (m.WParam.ToInt32())
+                {
+                    case SC_MINIMIZE:
+                        {
+                            Hide();
+                            return;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+
+            //Let the base class handle the rest.
+            base.WndProc(ref m);
+        }
+
+        private void trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
         }
     }
 }
