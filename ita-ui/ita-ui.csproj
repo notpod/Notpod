@@ -8,7 +8,7 @@
     <ProjectGuid>{F4099758-4C03-488D-B173-AC0BBEBC0478}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ita_ui</RootNamespace>
+    <RootNamespace>iTunesAgent.UI</RootNamespace>
     <AssemblyName>ita-ui</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
