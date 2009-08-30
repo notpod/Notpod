@@ -8,7 +8,7 @@
     <ProjectGuid>{6BB762C5-A39F-4CF1-8B48-C6FA225F80D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ita_media_connectors</RootNamespace>
+    <RootNamespace>iTunesAgent.Connectors</RootNamespace>
     <AssemblyName>ita-media-connectors</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -45,8 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="MediaDevicesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowsPortableDevicesService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="PortableDeviceApiLib">
+      <Guid>{1F001332-1A57-4934-BE31-AFFC99F4EE0A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="PortableDeviceTypesLib">
+      <Guid>{2B00BA2F-E750-4BEB-9235-97142EDE1D3E}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
