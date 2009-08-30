@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\dev\itunesagent2\ita-media-connectors-tests\ita-media-connectors-tests.nunit" total="1" errors="0" failures="0" not-run="0" ignored="0" skipped="0" invalid="0" date="2009-08-29" time="13:10:16">
+  <environment nunit-version="2.5.0.9122" clr-version="2.0.50727.3082" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\Program Files\NUnit 2.5\bin\net-2.0" machine-name="JARAN-VBOX" user="Jaran Nilsen" user-domain="JARAN-VBOX" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite name="C:\dev\itunesagent2\ita-media-connectors-tests\ita-media-connectors-tests.nunit" executed="True" success="True" time="0.040" asserts="0">
+    <results>
+      <test-suite name="C:\dev\itunesagent2\ita-media-connectors-tests\bin\Release\ita-media-connectors-tests.dll" executed="True" success="True" time="0.040" asserts="0">
+        <results>
+          <test-suite name="iTunesAgent" executed="True" success="True" time="0.040" asserts="0">
+            <results>
+              <test-suite name="Connectors" executed="True" success="True" time="0.030" asserts="0">
+                <results>
+                  <test-suite name="WindowsPortableDevicesServiceTest" executed="True" success="True" time="0.020" asserts="0">
+                    <results>
+                      <test-case name="iTunesAgent.Connectors.WindowsPortableDevicesServiceTest.TestEnumerate" executed="True" success="True" time="0.010" asserts="0" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
