@@ -6,17 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using log4net;
 
 namespace iTunesAgent.UI
 {
     public partial class MainForm : Form
-    {
+    {        
+
         //Constants used when intercepting system messages
         public const int WM_SYSCOMMAND = 0x112;
         public const int SC_MINIMIZE = 0xF020;
 
         // List holding the different panels (configuration, my devices etc)
         private Dictionary<String, UserControl> panels = new Dictionary<string, UserControl>();
+
+        private ILog l = LogManager.GetLogger(typeof(MainForm));
 
         public MainForm()
         {
@@ -32,16 +36,29 @@ namespace iTunesAgent.UI
 
         private void LoadPreviousPanel()
         {
-            Control panel = panels["devices"];
-            panViewPlaceholder.Controls.Add(panels["devices"]);
+            Control panel = panels["home"];
+            panViewPlaceholder.Controls.Add(panels["home"]);
             panel.Dock = DockStyle.Fill;
+            SetSelectedColor(buttonHome);
             
         }
 
         private void InitializePanels()
-        {
+        {            
+            panels.Add("home", new HomePanel());
             panels.Add("devices", new DevicesPanel());
             panels.Add("preferences", new PreferencesPanel());
+            
+            setCommonPanelProperties();
+        }
+
+        private void setCommonPanelProperties()
+        {
+            foreach (Control c in panels.Values)
+            {
+                l.Debug("Setting commons panel properties for " + c.GetType().FullName);
+                c.Dock = DockStyle.Fill;
+            }
         }
 
         /// <summary>
@@ -77,16 +94,47 @@ namespace iTunesAgent.UI
 
         private void btnPreferences_Click(object sender, EventArgs e)
         {
-            panViewPlaceholder.Controls.Clear();
-            panViewPlaceholder.Controls.Add(panels["preferences"]);
-            panViewPlaceholder.Invalidate();
+            ResetButtonState();
+            SetSelectedColor(sender);
+            switchToPanel("preferences");
         }
 
         private void btnMyDevices_Click(object sender, EventArgs e)
         {
+            ResetButtonState();
+            SetSelectedColor(sender);
+            switchToPanel("devices");
+        }
+
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            ResetButtonState();
+            SetSelectedColor(sender);
+            switchToPanel("home");
+        }
+
+        private void SetSelectedColor(object sender)
+        {
+            ((Button)sender).BackColor = Color.Orange;
+        }
+
+        private void ResetButtonState()
+        {            
+            foreach (Button button in panButtons.Controls.OfType<Button>())            
+                button.BackColor = Color.White;
+        }
+
+        /// <summary>
+        /// Switch to the panel named panel_name.
+        /// </summary>
+        /// <param name="panel_name">Name of panel to switch to. This panel 
+        /// must be loaded into the panels array.</param>
+        private void switchToPanel(string panel_name)
+        {
             panViewPlaceholder.Controls.Clear();
-            panViewPlaceholder.Controls.Add(panels["devices"]);
+            panViewPlaceholder.Controls.Add(panels[panel_name]);
             panViewPlaceholder.Invalidate();
         }
+
     }
 }
