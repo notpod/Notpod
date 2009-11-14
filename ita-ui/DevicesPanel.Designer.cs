@@ -67,7 +67,7 @@
             this.layoutTableMain.Location = new System.Drawing.Point(0, 0);
             this.layoutTableMain.Name = "layoutTableMain";
             this.layoutTableMain.RowCount = 3;
-            this.layoutTableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.layoutTableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.layoutTableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.layoutTableMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.layoutTableMain.Size = new System.Drawing.Size(636, 358);
@@ -77,9 +77,9 @@
             // 
             this.panel1.Controls.Add(this.lvDevices);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 48);
+            this.panel1.Location = new System.Drawing.Point(3, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(630, 267);
+            this.panel1.Size = new System.Drawing.Size(630, 262);
             this.panel1.TabIndex = 0;
             // 
             // lvDevices
@@ -96,7 +96,7 @@
             this.lvDevices.HideSelection = false;
             this.lvDevices.Location = new System.Drawing.Point(0, 0);
             this.lvDevices.Name = "lvDevices";
-            this.lvDevices.Size = new System.Drawing.Size(630, 267);
+            this.lvDevices.Size = new System.Drawing.Size(630, 262);
             this.lvDevices.TabIndex = 7;
             this.lvDevices.UseCompatibleStateImageBehavior = false;
             this.lvDevices.View = System.Windows.Forms.View.Details;
@@ -173,13 +173,15 @@
             this.lblMyDevices.AutoSize = true;
             this.lblMyDevices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMyDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMyDevices.Image = global::iTunesAgent.UI.Properties.Resources.media_players;
+            this.lblMyDevices.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblMyDevices.Location = new System.Drawing.Point(5, 0);
             this.lblMyDevices.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lblMyDevices.Name = "lblMyDevices";
-            this.lblMyDevices.Size = new System.Drawing.Size(628, 45);
+            this.lblMyDevices.Size = new System.Drawing.Size(628, 50);
             this.lblMyDevices.TabIndex = 2;
             this.lblMyDevices.Text = "My devices";
-            this.lblMyDevices.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMyDevices.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DevicesPanel
             // 

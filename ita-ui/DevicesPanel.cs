@@ -11,8 +11,9 @@ namespace iTunesAgent.UI
 {
     public partial class DevicesPanel : UserControl
     {
+        
         public DevicesPanel()
-        {
+        {            
             InitializeComponent();
         }
     }

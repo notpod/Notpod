@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesPanel));
             this.panContainer = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panGroups = new System.Windows.Forms.Panel();
             this.gbBehaviour = new System.Windows.Forms.GroupBox();
             this.cbWarnSystemDrive = new System.Windows.Forms.CheckBox();
@@ -40,6 +38,8 @@
             this.gbITunes = new System.Windows.Forms.GroupBox();
             this.cbAutoExitWithITunes = new System.Windows.Forms.CheckBox();
             this.cbOrganizeInFolder = new System.Windows.Forms.CheckBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panContainer.SuspendLayout();
             this.panGroups.SuspendLayout();
             this.gbBehaviour.SuspendLayout();
@@ -57,27 +57,15 @@
             this.panContainer.Size = new System.Drawing.Size(499, 349);
             this.panContainer.TabIndex = 0;
             // 
-            // lblTitle
-            // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(3);
-            this.lblTitle.Size = new System.Drawing.Size(499, 45);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Preferences";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panGroups
             // 
             this.panGroups.Controls.Add(this.gbBehaviour);
             this.panGroups.Controls.Add(this.gbITunes);
             this.panGroups.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panGroups.Location = new System.Drawing.Point(0, 45);
+            this.panGroups.Location = new System.Drawing.Point(0, 50);
             this.panGroups.Name = "panGroups";
             this.panGroups.Padding = new System.Windows.Forms.Padding(3);
-            this.panGroups.Size = new System.Drawing.Size(499, 304);
+            this.panGroups.Size = new System.Drawing.Size(499, 299);
             this.panGroups.TabIndex = 1;
             // 
             // gbBehaviour
@@ -150,6 +138,20 @@
                     "under one top level folder named \'iTunes Agent\'. This may be preferrable if you " +
                     "have a lot of playlists and devices.");
             this.cbOrganizeInFolder.UseVisualStyleBackColor = true;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Image = global::iTunesAgent.UI.Properties.Resources.preferences;
+            this.lblTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(3);
+            this.lblTitle.Size = new System.Drawing.Size(499, 50);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Preferences";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PreferencesPanel
             // 
