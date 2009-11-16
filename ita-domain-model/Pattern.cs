@@ -13,6 +13,18 @@ namespace iTunesAgent.Domain
 
         private string format;
 
+        private Pattern()
+        {
+        }
+
+        public static Pattern Instance(string id, string format)
+        {
+            Pattern pattern = new Pattern();
+            pattern.id = id;
+            pattern.format = format;
+            return pattern;
+        }
+
         [XmlElement("id")]
         public string Id
         {

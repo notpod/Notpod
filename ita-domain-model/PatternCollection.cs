@@ -9,8 +9,8 @@ namespace iTunesAgent.Domain
     [XmlRoot("patterncollection")]
     public class PatternCollection
     {
-        private List<Pattern> patterns;
-
+        private List<Pattern> patterns = new List<Pattern>();
+           
         [XmlElement("patterns")]
         public List<Pattern> Patterns
         {
