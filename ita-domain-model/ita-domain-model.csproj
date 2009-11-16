@@ -8,7 +8,7 @@
     <ProjectGuid>{9C9C0EA1-306F-415A-B42D-717C02B9CD7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ita_domain_model</RootNamespace>
+    <RootNamespace>iTunesAgent.Domain</RootNamespace>
     <AssemblyName>ita-domain-model</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -45,7 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Device.cs" />
+    <Compile Include="DeviceCollection.cs" />
+    <Compile Include="MassStorageDevice.cs" />
+    <Compile Include="Pattern.cs" />
+    <Compile Include="PatternCollection.cs" />
+    <Compile Include="PlaylistAssociation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WPDDevice.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
