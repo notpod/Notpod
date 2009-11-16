@@ -33,6 +33,7 @@
             this.panContainer = new System.Windows.Forms.Panel();
             this.panGroups = new System.Windows.Forms.Panel();
             this.gbBehaviour = new System.Windows.Forms.GroupBox();
+            this.cbCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.cbWarnSystemDrive = new System.Windows.Forms.CheckBox();
             this.cbBaloonNotifications = new System.Windows.Forms.CheckBox();
             this.gbITunes = new System.Windows.Forms.GroupBox();
@@ -40,6 +41,8 @@
             this.cbOrganizeInFolder = new System.Windows.Forms.CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.panContainer.SuspendLayout();
             this.panGroups.SuspendLayout();
             this.gbBehaviour.SuspendLayout();
@@ -59,6 +62,8 @@
             // 
             // panGroups
             // 
+            this.panGroups.Controls.Add(this.buttonReset);
+            this.panGroups.Controls.Add(this.buttonSave);
             this.panGroups.Controls.Add(this.gbBehaviour);
             this.panGroups.Controls.Add(this.gbITunes);
             this.panGroups.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -70,15 +75,26 @@
             // 
             // gbBehaviour
             // 
+            this.gbBehaviour.Controls.Add(this.cbCheckForUpdates);
             this.gbBehaviour.Controls.Add(this.cbWarnSystemDrive);
             this.gbBehaviour.Controls.Add(this.cbBaloonNotifications);
             this.gbBehaviour.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbBehaviour.Location = new System.Drawing.Point(3, 75);
             this.gbBehaviour.Name = "gbBehaviour";
-            this.gbBehaviour.Size = new System.Drawing.Size(493, 50);
+            this.gbBehaviour.Size = new System.Drawing.Size(493, 73);
             this.gbBehaviour.TabIndex = 7;
             this.gbBehaviour.TabStop = false;
             this.gbBehaviour.Text = "Behaviour";
+            // 
+            // cbCheckForUpdates
+            // 
+            this.cbCheckForUpdates.AutoSize = true;
+            this.cbCheckForUpdates.Location = new System.Drawing.Point(6, 42);
+            this.cbCheckForUpdates.Name = "cbCheckForUpdates";
+            this.cbCheckForUpdates.Size = new System.Drawing.Size(177, 17);
+            this.cbCheckForUpdates.TabIndex = 9;
+            this.cbCheckForUpdates.Text = "Check for updates automatically";
+            this.cbCheckForUpdates.UseVisualStyleBackColor = true;
             // 
             // cbWarnSystemDrive
             // 
@@ -153,6 +169,27 @@
             this.lblTitle.Text = "Preferences";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(98, 265);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(87, 28);
+            this.buttonReset.TabIndex = 13;
+            this.buttonReset.Text = "Reset";
+            this.toolTip.SetToolTip(this.buttonReset, "Reset back to previously saved preferences.");
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Enabled = false;
+            this.buttonSave.Location = new System.Drawing.Point(5, 265);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(86, 28);
+            this.buttonSave.TabIndex = 12;
+            this.buttonSave.Text = "Save";
+            this.toolTip.SetToolTip(this.buttonSave, "Save your preferences.");
+            this.buttonSave.UseVisualStyleBackColor = true;
+            // 
             // PreferencesPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,5 +219,8 @@
         private System.Windows.Forms.GroupBox gbITunes;
         private System.Windows.Forms.CheckBox cbAutoExitWithITunes;
         private System.Windows.Forms.CheckBox cbOrganizeInFolder;
+        private System.Windows.Forms.CheckBox cbCheckForUpdates;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
