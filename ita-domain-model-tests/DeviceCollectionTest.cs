@@ -53,7 +53,7 @@ namespace iTunesAgent.Domain
                 read = new FileStream("test.xml", FileMode.Open);
                 DeviceCollection deserializedCollection =
                     (DeviceCollection)serializer.Deserialize(read);
-                
+
                 Assert.NotNull(deserializedCollection);
                 Assert.AreEqual(2, deserializedCollection.Devices.Count);
 
@@ -90,9 +90,7 @@ namespace iTunesAgent.Domain
                 }
             }
 
-
-
-           File.Delete("test.xml");
+            File.Delete("test.xml");
         }
 
     }
