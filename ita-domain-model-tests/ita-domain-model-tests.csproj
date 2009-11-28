@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationTest.cs" />
     <Compile Include="DeviceCollectionTest.cs" />
     <Compile Include="PatternCollectionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
