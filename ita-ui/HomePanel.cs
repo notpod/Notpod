@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using iTunesAgent.UI.Properties;
 
 namespace iTunesAgent.UI
 {
@@ -14,6 +15,8 @@ namespace iTunesAgent.UI
         public HomePanel()
         {
             InitializeComponent();
+            labelITunesStatus.Text = Resources.StrNoITunesDetected;
+            labelDevicesStatus.Text = Resources.StrNoDevicesManaged;
         }
     }
 }

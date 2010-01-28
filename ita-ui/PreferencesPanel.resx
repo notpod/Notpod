@@ -117,10 +117,517 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="labelLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 265</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cbCheckForUpdates.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;gbITunes.Parent" xml:space="preserve">
+    <value>panGroups</value>
+  </data>
+  <data name="&gt;&gt;cbOrganizeInFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxLanguage.Parent" xml:space="preserve">
+    <value>gbUserInterface</value>
+  </data>
+  <data name="cbCheckForUpdates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 42</value>
+  </data>
+  <data name="&gt;&gt;gbUserInterface.Name" xml:space="preserve">
+    <value>gbUserInterface</value>
+  </data>
+  <data name="&gt;&gt;panContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbBaloonNotifications.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;cbWarnSystemDrive.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbBaloonNotifications.Parent" xml:space="preserve">
+    <value>gbBehaviour</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbAutoExitWithITunes.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cbWarnSystemDrive.Parent" xml:space="preserve">
+    <value>gbBehaviour</value>
+  </data>
+  <data name="gbUserInterface.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 73</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
+    <value>lblTitle</value>
+  </data>
+  <data name="&gt;&gt;cbBaloonNotifications.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbWarnSystemDrive.Name" xml:space="preserve">
+    <value>cbWarnSystemDrive</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="cbBaloonNotifications.Text" xml:space="preserve">
+    <value>Use baloon notifications for events</value>
+  </data>
+  <data name="cbOrganizeInFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="&gt;&gt;toolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gbUserInterface.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="cbWarnSystemDrive.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cbAutoExitWithITunes.Parent" xml:space="preserve">
+    <value>gbITunes</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.Name" xml:space="preserve">
+    <value>buttonReset</value>
+  </data>
+  <data name="gbITunes.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gbBehaviour.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="cbCheckForUpdates.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="panContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gbBehaviour.Parent" xml:space="preserve">
+    <value>panGroups</value>
+  </data>
+  <data name="&gt;&gt;panGroups.Name" xml:space="preserve">
+    <value>panGroups</value>
+  </data>
+  <data name="&gt;&gt;gbUserInterface.Parent" xml:space="preserve">
+    <value>panGroups</value>
+  </data>
+  <data name="cbWarnSystemDrive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 17</value>
+  </data>
+  <data name="lblTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cbxLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.Name" xml:space="preserve">
+    <value>labelLanguage</value>
+  </data>
+  <data name="cbBaloonNotifications.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 17</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panContainer.Name" xml:space="preserve">
+    <value>panContainer</value>
+  </data>
+  <data name="gbBehaviour.Text" xml:space="preserve">
+    <value>Behaviour</value>
+  </data>
+  <data name="labelLanguage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>499, 349</value>
+  </data>
+  <data name="panGroups.Size" type="System.Drawing.Size, System.Drawing">
+    <value>499, 299</value>
+  </data>
+  <data name="&gt;&gt;cbCheckForUpdates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
+    <value>panGroups</value>
+  </data>
+  <data name="&gt;&gt;cbOrganizeInFolder.Parent" xml:space="preserve">
+    <value>gbITunes</value>
+  </data>
+  <data name="gbBehaviour.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.Parent" xml:space="preserve">
+    <value>gbUserInterface</value>
+  </data>
+  <data name="&gt;&gt;panGroups.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCheckForUpdates.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbWarnSystemDrive.Text" xml:space="preserve">
+    <value>Warn if device looks like a system drive</value>
+  </data>
+  <data name="cbWarnSystemDrive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 19</value>
+  </data>
+  <data name="cbxLanguage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTitle.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="labelLanguage.Text" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="lblTitle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="gbITunes.Text" xml:space="preserve">
+    <value>iTunes</value>
+  </data>
+  <data name="&gt;&gt;cbxLanguage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbOrganizeInFolder.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 28</value>
+  </data>
+  <data name="cbOrganizeInFolder.Text" xml:space="preserve">
+    <value>Organize custom playlists in iTunes in an 'iTunes Agent' folder</value>
+  </data>
+  <data name="panGroups.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="panContainer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;cbBaloonNotifications.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gbUserInterface.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;gbBehaviour.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbITunes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cbCheckForUpdates.Parent" xml:space="preserve">
+    <value>gbBehaviour</value>
+  </data>
+  <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gbUserInterface.Text" xml:space="preserve">
+    <value>User interface</value>
+  </data>
+  <data name="&gt;&gt;cbCheckForUpdates.Name" xml:space="preserve">
+    <value>cbCheckForUpdates</value>
+  </data>
+  <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 265</value>
+  </data>
   <data name="cbWarnSystemDrive.ToolTip" xml:space="preserve">
     <value>Checking this will make iTunes Agent look for specific folders and files on your device before synchronizing to make sure you have not misconfigured one of your devices to match a system drive and potentially harm your system.</value>
   </data>
+  <data name="&gt;&gt;gbUserInterface.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonReset.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="&gt;&gt;cbAutoExitWithITunes.Name" xml:space="preserve">
+    <value>cbAutoExitWithITunes</value>
+  </data>
+  <data name="buttonReset.ToolTip" xml:space="preserve">
+    <value>Reset back to previously saved preferences.</value>
+  </data>
+  <data name="&gt;&gt;cbxLanguage.Name" xml:space="preserve">
+    <value>cbxLanguage</value>
+  </data>
+  <data name="panGroups.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 50</value>
+  </data>
+  <data name="labelLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gbITunes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="cbOrganizeInFolder.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="&gt;&gt;gbITunes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbAutoExitWithITunes.Text" xml:space="preserve">
+    <value>Automatically close iTunes Agent when iTunes is closing</value>
+  </data>
+  <data name="lblTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;cbOrganizeInFolder.Name" xml:space="preserve">
+    <value>cbOrganizeInFolder</value>
+  </data>
+  <data name="&gt;&gt;gbITunes.Name" xml:space="preserve">
+    <value>gbITunes</value>
+  </data>
+  <data name="buttonReset.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="buttonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 28</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="panGroups.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="cbWarnSystemDrive.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;cbAutoExitWithITunes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Parent" xml:space="preserve">
+    <value>panContainer</value>
+  </data>
+  <data name="&gt;&gt;panGroups.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cbOrganizeInFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbBaloonNotifications.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>499, 349</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.Parent" xml:space="preserve">
+    <value>panGroups</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbAutoExitWithITunes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbOrganizeInFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="labelLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>PreferencesPanel</value>
+  </data>
+  <data name="buttonSave.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbBaloonNotifications.ToolTip" xml:space="preserve">
+    <value>When checked, iTunes Agent will show notifications in the system tray on events such as connected/disconnected devices, synchronization status etc.</value>
+  </data>
+  <data name="&gt;&gt;gbUserInterface.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cbAutoExitWithITunes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblTitle.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="cbOrganizeInFolder.ToolTip" xml:space="preserve">
+    <value>If checked, iTunes Agent will organize all playlists associated with your device under one top level folder named 'iTunes Agent'. This may be preferrable if you have a lot of playlists and devices.</value>
+  </data>
+  <data name="panGroups.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="cbCheckForUpdates.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;panGroups.Parent" xml:space="preserve">
+    <value>panContainer</value>
+  </data>
+  <data name="&gt;&gt;panContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="gbITunes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 72</value>
+  </data>
+  <data name="gbUserInterface.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;gbBehaviour.Name" xml:space="preserve">
+    <value>gbBehaviour</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbWarnSystemDrive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbOrganizeInFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>473, 20</value>
+  </data>
+  <data name="cbxLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 21</value>
+  </data>
+  <data name="cbBaloonNotifications.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="buttonSave.ToolTip" xml:space="preserve">
+    <value>Save your preferences.</value>
+  </data>
+  <data name="cbOrganizeInFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="gbBehaviour.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 75</value>
+  </data>
+  <data name="cbCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 17</value>
+  </data>
+  <data name="cbCheckForUpdates.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="panContainer.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
+    <value>buttonSave</value>
+  </data>
+  <data name="cbAutoExitWithITunes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="&gt;&gt;gbBehaviour.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="panContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="panGroups.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="cbCheckForUpdates.Text" xml:space="preserve">
+    <value>Check for updates automatically</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="&gt;&gt;cbxLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbAutoExitWithITunes.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gbBehaviour.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cbBaloonNotifications.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbxLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 19</value>
+  </data>
+  <data name="gbUserInterface.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 148</value>
+  </data>
+  <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>499, 50</value>
+  </data>
+  <data name="gbITunes.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelLanguage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="gbBehaviour.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 73</value>
+  </data>
+  <data name="&gt;&gt;toolTip.Name" xml:space="preserve">
+    <value>toolTip</value>
+  </data>
+  <data name="cbAutoExitWithITunes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;cbBaloonNotifications.Name" xml:space="preserve">
+    <value>cbBaloonNotifications</value>
+  </data>
+  <data name="buttonReset.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="gbITunes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="cbAutoExitWithITunes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 17</value>
+  </data>
+  <data name="cbWarnSystemDrive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>German</value>
+  </metadata>
 </root>

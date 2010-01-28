@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,44 +117,86 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="labelLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 13</value>
   </data>
-  <data name="devices_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\devices-icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="labelLanguage.Text" xml:space="preserve">
+    <value>Sprache:</value>
   </data>
-  <data name="globe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\globe.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="labelLanguage.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cbxLanguage.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gbUserInterface.Text" xml:space="preserve">
+    <value>Benutzeroberfläche</value>
   </data>
-  <data name="ita_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ita-new.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gbUserInterface.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="LangEnglish" xml:space="preserve">
-    <value>English</value>
+  <data name="buttonReset.Text" xml:space="preserve">
+    <value>Zurücksetzen</value>
   </data>
-  <data name="LangGerman" xml:space="preserve">
-    <value>German (Deutsch)</value>
+  <data name="buttonSave.Text" xml:space="preserve">
+    <value>Speichern</value>
   </data>
-  <data name="media_players" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media_players.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cbCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 17</value>
   </data>
-  <data name="preferences" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\preferences.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cbCheckForUpdates.Text" xml:space="preserve">
+    <value>Automatisch nach Updates suchen</value>
   </data>
-  <data name="StrNoDevicesManaged" xml:space="preserve">
-    <value>I am currenty not managing any devices for you.</value>
+  <data name="cbCheckForUpdates.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="StrNoITunesDetected" xml:space="preserve">
-    <value>I have not been able to detect any installation of iTunes on your computer. Please make sure iTunes is installed, then restart me.</value>
+  <data name="cbWarnSystemDrive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 17</value>
   </data>
-  <data name="StrRestartApplicationSoSettingsTakeEffect" xml:space="preserve">
-    <value>Restart the application so the new settings can take effect</value>
+  <data name="cbWarnSystemDrive.Text" xml:space="preserve">
+    <value>Warnung, wenn ein Gerät wie ein Systemlaufwerk aussieht</value>
+  </data>
+  <data name="cbBaloonNotifications.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 17</value>
+  </data>
+  <data name="cbBaloonNotifications.Text" xml:space="preserve">
+    <value>Verwende Ballon-Tooltips für Ereignisse</value>
+  </data>
+  <data name="gbBehaviour.Text" xml:space="preserve">
+    <value>Verhalten</value>
+  </data>
+  <data name="gbBehaviour.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cbAutoExitWithITunes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>353, 17</value>
+  </data>
+  <data name="cbAutoExitWithITunes.Text" xml:space="preserve">
+    <value>Schliesse iTunes Agent automatisch, sobald iTunes geschlossen wird</value>
+  </data>
+  <data name="cbAutoExitWithITunes.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cbOrganizeInFolder.Text" xml:space="preserve">
+    <value>Organisiere eigene Wiedergabelisten in iTunes in einem 'iTunes Agent' Ordner</value>
+  </data>
+  <data name="gbITunes.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="panGroups.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="lblTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="panContainer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>
