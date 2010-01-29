@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using iTunesAgent.UI.Properties;
 using System.Threading;
 using System.Globalization;
-using iTunesAgent.Domain;
 
 namespace iTunesAgent.UI
 {
@@ -23,11 +22,13 @@ namespace iTunesAgent.UI
 
         private void ChangeLanguage(string language)
         {
-            if (Application.CurrentCulture.Parent.ToString()  == new CultureInfo(language).Parent.ToString())
+            if (Application.CurrentCulture.Parent.ToString() == new CultureInfo(language).Parent.ToString())
                 return;
             Application.CurrentCulture = new CultureInfo(language);
 
-            Configuration.Instance().Language = language;
+            Settings.Default.Language = language;
+            Settings.Default.Save();
+
             MessageBox.Show(Resources.StrRestartApplicationSoSettingsTakeEffect);
             Application.Exit();
         }
@@ -37,11 +38,13 @@ namespace iTunesAgent.UI
             cbxLanguage.Items.Clear();
             cbxLanguage.Items.Add(Resources.LangEnglish);
             cbxLanguage.Items.Add(Resources.LangGerman);
-            cbxLanguage.SelectedIndex = 0;
-            if (Configuration.Instance().Language == "en-GB")
+            if (Settings.Default.Language == "en-GB")
                 cbxLanguage.SelectedIndex = 0;
-            if (Configuration.Instance().Language == "de-DE")
+            else if (Settings.Default.Language == "de-DE")
                 cbxLanguage.SelectedIndex = 1;
+            else
+                cbxLanguage.SelectedIndex = 0;
+
         }
 
         private void cbxLanguage_SelectedIndexChanged(object sender, EventArgs e)

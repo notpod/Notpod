@@ -144,12 +144,6 @@
     <None Include="app.config" />
     <None Include="Resources\globe.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ita-domain-model\ita-domain-model.csproj">
-      <Project>{9C9C0EA1-306F-415A-B42D-717C02B9CD7E}</Project>
-      <Name>ita-domain-model</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

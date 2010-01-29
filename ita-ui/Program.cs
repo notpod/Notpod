@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
 using iTunesAgent.UI.Properties;
-using iTunesAgent.Domain;
 
 namespace iTunesAgent.UI
 {
@@ -19,10 +18,16 @@ namespace iTunesAgent.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           
-            if (String.IsNullOrEmpty(Configuration.Instance().Language ))
-                Configuration.Instance().Language = "en-GB";
-            Application.CurrentCulture = new CultureInfo(Configuration.Instance().Language);
+             
+            if (Properties.Settings.Default.UpgradeSettings)
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.UpgradeSettings = false;
+            }
+
+            if (String.IsNullOrEmpty(Settings.Default.Language ))
+                Settings.Default.Language = "en-GB";
+            Application.CurrentCulture = new CultureInfo(Settings.Default.Language);
             Thread.CurrentThread.CurrentUICulture = Application.CurrentCulture;
             
             Application.Run(new MainForm());
