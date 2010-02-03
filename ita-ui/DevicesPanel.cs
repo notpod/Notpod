@@ -15,6 +15,7 @@ namespace iTunesAgent.UI
         public DevicesPanel()
         {            
             InitializeComponent();
+            TranslationMgr.Attach(this);
         }
     }
 }

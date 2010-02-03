@@ -25,6 +25,7 @@ namespace iTunesAgent.UI
         public MainForm()
         {
             InitializeComponent();
+            TranslationMgr.Attach(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

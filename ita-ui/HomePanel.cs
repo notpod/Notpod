@@ -10,13 +10,22 @@ using iTunesAgent.UI.Properties;
 
 namespace iTunesAgent.UI
 {
-    public partial class HomePanel : UserControl
+    public partial class HomePanel : UserControl, ITranslatable
     {
         public HomePanel()
         {
             InitializeComponent();
+            TranslationMgr.Attach(this);
+        }
+
+        #region ITranslatable Members
+
+        public void OnTranslate()
+        {
             labelITunesStatus.Text = Resources.StrNoITunesDetected;
             labelDevicesStatus.Text = Resources.StrNoDevicesManaged;
         }
+
+        #endregion
     }
 }

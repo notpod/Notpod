@@ -12,25 +12,21 @@ using System.Globalization;
 
 namespace iTunesAgent.UI
 {
-    public partial class PreferencesPanel : UserControl
+    public partial class PreferencesPanel : UserControl, ITranslatable
     {
         public PreferencesPanel()
         {
             InitializeComponent();
-            FillLanguages();
+            TranslationMgr.Attach(this);
         }
 
         private void ChangeLanguage(string language)
         {
             if (Application.CurrentCulture.Parent.ToString() == new CultureInfo(language).Parent.ToString())
                 return;
-            Application.CurrentCulture = new CultureInfo(language);
 
-            Settings.Default.Language = language;
-            Settings.Default.Save();
-
-            MessageBox.Show(Resources.StrRestartApplicationSoSettingsTakeEffect);
-            Application.Exit();
+            TranslationMgr.ChangeLanguage(language);
+            FillLanguages();
         }
 
         private void FillLanguages()
@@ -58,5 +54,14 @@ namespace iTunesAgent.UI
         }
 
 
+
+        #region ITranslatable Members
+
+        public void OnTranslate()
+        {
+            FillLanguages();
+        }
+
+        #endregion
     }
 }
