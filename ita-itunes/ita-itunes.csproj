@@ -8,7 +8,7 @@
     <ProjectGuid>{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>iTunesAgent.Service</RootNamespace>
+    <RootNamespace>iTunesAgent.Services</RootNamespace>
     <AssemblyName>ita-itunes</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractMediaSoftwareConnectionFactory.cs" />
+    <Compile Include="ITunesConnectionFactory.cs" />
     <Compile Include="MediaSoftwareService.cs" />
-    <Compile Include="iTunesServiceException.cs" />
-    <Compile Include="iTunesServiceImpl.cs" />
+    <Compile Include="ITunesServiceException.cs" />
+    <Compile Include="ITunesServiceImpl.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
