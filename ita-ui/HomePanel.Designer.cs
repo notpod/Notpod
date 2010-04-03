@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.tableLayoutHome = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbITunesStatus = new System.Windows.Forms.GroupBox();
+            this.labelVersionInformation = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.labelDevicesStatus = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelITunesStatus = new System.Windows.Forms.Label();
             this.gbTools = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelVersionInformation = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.buttonWWW = new System.Windows.Forms.Button();
             this.buttonToolHelp = new System.Windows.Forms.Button();
             this.buttonToolAddDevice = new System.Windows.Forms.Button();
-            this.buttonWWW = new System.Windows.Forms.Button();
             this.tableLayoutHome.SuspendLayout();
             this.gbITunesStatus.SuspendLayout();
             this.gbTools.SuspendLayout();
@@ -63,6 +63,20 @@
             this.tableLayoutHome.Size = new System.Drawing.Size(477, 342);
             this.tableLayoutHome.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::iTunesAgent.UI.Properties.Resources.home;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(471, 50);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Home";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // gbITunesStatus
             // 
             this.gbITunesStatus.AutoSize = true;
@@ -79,6 +93,24 @@
             this.gbITunesStatus.Size = new System.Drawing.Size(471, 140);
             this.gbITunesStatus.TabIndex = 1;
             this.gbITunesStatus.TabStop = false;
+            // 
+            // labelVersionInformation
+            // 
+            this.labelVersionInformation.Location = new System.Drawing.Point(131, 95);
+            this.labelVersionInformation.Name = "labelVersionInformation";
+            this.labelVersionInformation.Size = new System.Drawing.Size(322, 33);
+            this.labelVersionInformation.TabIndex = 5;
+            this.labelVersionInformation.Text = "You are currently running version x.x. This is the newest version.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Version information:";
             // 
             // labelDevicesStatus
             // 
@@ -130,37 +162,22 @@
             this.gbTools.TabStop = false;
             this.gbTools.Text = "Tools";
             // 
-            // label2
+            // buttonWWW
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Version information:";
-            // 
-            // labelVersionInformation
-            // 
-            this.labelVersionInformation.Location = new System.Drawing.Point(131, 95);
-            this.labelVersionInformation.Name = "labelVersionInformation";
-            this.labelVersionInformation.Size = new System.Drawing.Size(322, 33);
-            this.labelVersionInformation.TabIndex = 5;
-            this.labelVersionInformation.Text = "You are currently running version x.x. This is the newest version.";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::iTunesAgent.UI.Properties.Resources.home;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(471, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Home";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonWWW.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonWWW.FlatAppearance.BorderSize = 0;
+            this.buttonWWW.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.buttonWWW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWWW.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWWW.Image = global::iTunesAgent.UI.Properties.Resources.globe;
+            this.buttonWWW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonWWW.Location = new System.Drawing.Point(234, 19);
+            this.buttonWWW.Name = "buttonWWW";
+            this.buttonWWW.Size = new System.Drawing.Size(106, 76);
+            this.buttonWWW.TabIndex = 2;
+            this.buttonWWW.Text = "Go to web site";
+            this.buttonWWW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonWWW.UseVisualStyleBackColor = true;
             // 
             // buttonToolHelp
             // 
@@ -196,23 +213,6 @@
             this.buttonToolAddDevice.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonToolAddDevice.UseVisualStyleBackColor = true;
             // 
-            // buttonWWW
-            // 
-            this.buttonWWW.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonWWW.FlatAppearance.BorderSize = 0;
-            this.buttonWWW.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.buttonWWW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWWW.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWWW.Image = global::iTunesAgent.UI.Properties.Resources.globe;
-            this.buttonWWW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonWWW.Location = new System.Drawing.Point(234, 19);
-            this.buttonWWW.Name = "buttonWWW";
-            this.buttonWWW.Size = new System.Drawing.Size(106, 76);
-            this.buttonWWW.TabIndex = 2;
-            this.buttonWWW.Text = "Go to web site";
-            this.buttonWWW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonWWW.UseVisualStyleBackColor = true;
-            // 
             // HomePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +221,7 @@
             this.Controls.Add(this.tableLayoutHome);
             this.Name = "HomePanel";
             this.Size = new System.Drawing.Size(477, 342);
+            this.Load += new System.EventHandler(this.HomePanel_Load);
             this.tableLayoutHome.ResumeLayout(false);
             this.tableLayoutHome.PerformLayout();
             this.gbITunesStatus.ResumeLayout(false);
