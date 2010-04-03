@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace iTunesAgent.Service
+namespace iTunesAgent.Services.iTunes
 {
+    using iTunesAgent.Services;
     using iTunesLib;
     /*!
-     * Implementation of the IiTunesService interface - providing iTunes Agent with access to iTunes' facilities.
+     * Implementation of the MediaSoftwareService interface - providing iTunes Agent with access to iTunes' facilities.
      */
-    public class iTunesServiceImpl : MediaSoftwareService
+    public class ITunesServiceImpl : MediaSoftwareService
     {
+        private AbstractMediaSoftwareConnectionFactory softwareConnectionFactory;
+        
         private iTunesApp itunesCom;
 
         private bool initialized = false;
 
         private string version;
 
-        //private List<IiTunesListener> listeners = new List<IiTunesListener>();
 
         /*!
          * Get the iTunes version.
@@ -26,23 +28,39 @@ namespace iTunesAgent.Service
         {
             get
             {
+                ValidateState();
                 return version;
             }
         }
 
-        #region IiTunesService Members
+        /*!
+         * \return A boolean indicating whether the service has been initialized 
+         * or not.
+         */
+        public bool Initialized
+        {            
+            get
+            {
+                return initialized;
+            }
+        }
+
+        #region MediaSoftwareService Members
 
         /*!
-         * \copydoc IiTunesService::Initialize()
+         * \copydoc MediaSoftwareService::Initialize()
          */
-        void MediaSoftwareService.Initialize()
+        public void Initialize()
         {
+
+            ValidateFields();
+
             if (initialized)
-                throw new iTunesServiceException("You tried to initialize me twice.");
+                throw new ITunesServiceException("You tried to initialize me twice.");
 
             try
             {
-                itunesCom = new iTunesAppClass();
+                itunesCom = (iTunesApp)softwareConnectionFactory.CreateMediaSoftwareConnection();
                 version = itunesCom.Version;
                 initialized = true;
                 
@@ -50,28 +68,57 @@ namespace iTunesAgent.Service
             }
             catch (Exception e)
             {
-                throw new iTunesServiceException("Unable to instantiate iTunes adapter.", e);
+                throw new ITunesServiceException("Unable to instantiate iTunes adapter.", e);
             }
 
         }
 
+        private void ValidateFields()
+        {
+            if (softwareConnectionFactory == null)
+            {
+                throw new MissingFieldException("Required field is not set.", "softwareConnectionFactory");
+            }
+        }
+
+        private void ValidateState()
+        {
+            if (!initialized)
+            {
+                throw new ITunesServiceException("Service instance not initialized. Please call Initialize() first.");
+            }
+        }
+
         /*!
          * 
-         * \copydoc IiTunesService::GetPlaylists()
+         * \copydoc MediaSoftwareService::GetPlaylists()
          */
-        List<Playlist> MediaSoftwareService.GetPlaylists()
+        public List<Playlist> GetPlaylists()
         {
+            ValidateState();
             throw new NotImplementedException();
         }
 
         /*!
-         * \copydoc IiTunesService::GetPlaylist(string)
+         * \copydoc MediaSoftwareService::GetPlaylist(string)
          */
-        Playlist MediaSoftwareService.GetPlaylist(string name)
+        public Playlist GetPlaylist(string name)
         {
+            ValidateState();
             throw new NotImplementedException();
         }
 
         #endregion
+
+        /*!
+         * \copydoc MediaSoftwareService::MediaSoftwareConnectionFactory{set}
+         */
+        public AbstractMediaSoftwareConnectionFactory MediaSoftwareConnectionFactory
+        {
+            set
+            {
+                softwareConnectionFactory = value;
+            }
+        }
     }
 }
