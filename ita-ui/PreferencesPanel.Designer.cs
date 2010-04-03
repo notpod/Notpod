@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesPanel));
             this.panContainer = new System.Windows.Forms.Panel();
             this.panGroups = new System.Windows.Forms.Panel();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.gbBehaviour = new System.Windows.Forms.GroupBox();
             this.cbCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.cbWarnSystemDrive = new System.Windows.Forms.CheckBox();
@@ -41,8 +43,6 @@
             this.cbOrganizeInFolder = new System.Windows.Forms.CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonReset = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.panContainer.SuspendLayout();
             this.panGroups.SuspendLayout();
             this.gbBehaviour.SuspendLayout();
@@ -72,6 +72,27 @@
             this.panGroups.Padding = new System.Windows.Forms.Padding(3);
             this.panGroups.Size = new System.Drawing.Size(499, 299);
             this.panGroups.TabIndex = 1;
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(98, 265);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(87, 28);
+            this.buttonReset.TabIndex = 13;
+            this.buttonReset.Text = "Reset";
+            this.toolTip.SetToolTip(this.buttonReset, "Reset back to previously saved preferences.");
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Enabled = false;
+            this.buttonSave.Location = new System.Drawing.Point(5, 265);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(86, 28);
+            this.buttonSave.TabIndex = 12;
+            this.buttonSave.Text = "Save";
+            this.toolTip.SetToolTip(this.buttonSave, "Save your preferences.");
+            this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // gbBehaviour
             // 
@@ -169,27 +190,6 @@
             this.lblTitle.Text = "Preferences";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonReset
-            // 
-            this.buttonReset.Location = new System.Drawing.Point(98, 265);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(87, 28);
-            this.buttonReset.TabIndex = 13;
-            this.buttonReset.Text = "Reset";
-            this.toolTip.SetToolTip(this.buttonReset, "Reset back to previously saved preferences.");
-            this.buttonReset.UseVisualStyleBackColor = true;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(5, 265);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(86, 28);
-            this.buttonSave.TabIndex = 12;
-            this.buttonSave.Text = "Save";
-            this.toolTip.SetToolTip(this.buttonSave, "Save your preferences.");
-            this.buttonSave.UseVisualStyleBackColor = true;
-            // 
             // PreferencesPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +197,7 @@
             this.Controls.Add(this.panContainer);
             this.Name = "PreferencesPanel";
             this.Size = new System.Drawing.Size(499, 349);
+            this.Load += new System.EventHandler(this.PreferencesPanel_Load);
             this.panContainer.ResumeLayout(false);
             this.panGroups.ResumeLayout(false);
             this.gbBehaviour.ResumeLayout(false);
