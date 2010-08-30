@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F4099758-4C03-488D-B173-AC0BBEBC0478}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -12,6 +12,7 @@
     <AssemblyName>ita-ui</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Resources\ita-new.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,7 +35,7 @@
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files\incubating-log4net-1.2.10\log4net-1.2.10\bin\net\2.0\release\log4net.dll</HintPath>
+      <HintPath>..\..\..\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -64,6 +66,7 @@
     <Compile Include="HomePanel.Designer.cs">
       <DependentUpon>HomePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITranslatable.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,11 +85,17 @@
     <EmbeddedResource Include="DevicesPanel.resx">
       <DependentUpon>DevicesPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HomePanel.de.resx">
+      <DependentUpon>HomePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePanel.resx">
       <DependentUpon>HomePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreferencesPanel.de.resx">
+      <DependentUpon>PreferencesPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreferencesPanel.resx">
       <DependentUpon>PreferencesPanel.cs</DependentUpon>
@@ -96,6 +105,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -110,6 +120,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TranslationMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ita-new.ico" />
@@ -133,6 +144,7 @@
     <None Include="Resources\help.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Resources\globe.png" />
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,8 @@ namespace iTunesAgent.Domain
 
         private bool checkForUpdates = true;
 
+        private string language = "en-GB";
+
         private Configuration()
         {
         }
@@ -56,6 +58,13 @@ namespace iTunesAgent.Domain
         {
             get { return checkForUpdates; }
             set { checkForUpdates = value; }
+        }
+
+        [XmlElement("language")]
+        public string Language
+        {
+            get { return language; }
+            set { language = value; }
         }
                 
         /// <summary>

@@ -117,44 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="devices_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\devices-icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="globe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\globe.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ita_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ita-new.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="LangEnglish" xml:space="preserve">
-    <value>English</value>
+    <value>Englisch (English)</value>
   </data>
   <data name="LangGerman" xml:space="preserve">
-    <value>German (Deutsch)</value>
-  </data>
-  <data name="media_players" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\media_players.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="preferences" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\preferences.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Deutsch (German)</value>
   </data>
   <data name="StrNoDevicesManaged" xml:space="preserve">
-    <value>I am currenty not managing any devices for you.</value>
+    <value>Im Moment werden keine Geräte verwaltet.</value>
   </data>
   <data name="StrNoITunesDetected" xml:space="preserve">
-    <value>I have not been able to detect any installation of iTunes on your computer. Please make sure iTunes is installed, then restart me.</value>
+    <value>Es wurde kein installiertes ITunes gefunden. Bitte installieren Sie ITunes und starten Sie die Software neu.</value>
   </data>
   <data name="StrRestartApplicationSoSettingsTakeEffect" xml:space="preserve">
-    <value>Restart the application so the new settings can take effect</value>
+    <value>Bitte starten Sie die Anwendung neu, damit die Einstellungen aktiv werden.</value>
   </data>
 </root>

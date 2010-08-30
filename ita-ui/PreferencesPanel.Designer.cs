@@ -34,6 +34,11 @@
             this.panGroups = new System.Windows.Forms.Panel();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.gbUserInterface = new System.Windows.Forms.GroupBox();
+            this.labelLanguage = new System.Windows.Forms.Label();
+            this.cbxLanguage = new System.Windows.Forms.ComboBox();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.gbBehaviour = new System.Windows.Forms.GroupBox();
             this.cbCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.cbWarnSystemDrive = new System.Windows.Forms.CheckBox();
@@ -45,33 +50,37 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panContainer.SuspendLayout();
             this.panGroups.SuspendLayout();
+            this.gbUserInterface.SuspendLayout();
             this.gbBehaviour.SuspendLayout();
             this.gbITunes.SuspendLayout();
             this.SuspendLayout();
             // 
             // panContainer
             // 
-            this.panContainer.AutoScroll = true;
+            this.panContainer.AccessibleDescription = null;
+            this.panContainer.AccessibleName = null;
+            resources.ApplyResources(this.panContainer, "panContainer");
+            this.panContainer.BackgroundImage = null;
             this.panContainer.Controls.Add(this.panGroups);
             this.panContainer.Controls.Add(this.lblTitle);
-            this.panContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panContainer.Location = new System.Drawing.Point(0, 0);
+            this.panContainer.Font = null;
             this.panContainer.Name = "panContainer";
-            this.panContainer.Size = new System.Drawing.Size(499, 349);
-            this.panContainer.TabIndex = 0;
+            this.toolTip.SetToolTip(this.panContainer, resources.GetString("panContainer.ToolTip"));
             // 
             // panGroups
             // 
+            this.panGroups.AccessibleDescription = null;
+            this.panGroups.AccessibleName = null;
+            resources.ApplyResources(this.panGroups, "panGroups");
+            this.panGroups.BackgroundImage = null;
+            this.panGroups.Controls.Add(this.gbUserInterface);
             this.panGroups.Controls.Add(this.buttonReset);
             this.panGroups.Controls.Add(this.buttonSave);
             this.panGroups.Controls.Add(this.gbBehaviour);
             this.panGroups.Controls.Add(this.gbITunes);
-            this.panGroups.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panGroups.Location = new System.Drawing.Point(0, 50);
+            this.panGroups.Font = null;
             this.panGroups.Name = "panGroups";
-            this.panGroups.Padding = new System.Windows.Forms.Padding(3);
-            this.panGroups.Size = new System.Drawing.Size(499, 299);
-            this.panGroups.TabIndex = 1;
+            this.toolTip.SetToolTip(this.panGroups, resources.GetString("panGroups.ToolTip"));
             // 
             // buttonReset
             // 
@@ -94,112 +103,170 @@
             this.toolTip.SetToolTip(this.buttonSave, "Save your preferences.");
             this.buttonSave.UseVisualStyleBackColor = true;
             // 
+            // gbUserInterface
+            // 
+            this.gbUserInterface.AccessibleDescription = null;
+            this.gbUserInterface.AccessibleName = null;
+            resources.ApplyResources(this.gbUserInterface, "gbUserInterface");
+            this.gbUserInterface.BackgroundImage = null;
+            this.gbUserInterface.Controls.Add(this.labelLanguage);
+            this.gbUserInterface.Controls.Add(this.cbxLanguage);
+            this.gbUserInterface.Font = null;
+            this.gbUserInterface.Name = "gbUserInterface";
+            this.gbUserInterface.TabStop = false;
+            this.toolTip.SetToolTip(this.gbUserInterface, resources.GetString("gbUserInterface.ToolTip"));
+            // 
+            // labelLanguage
+            // 
+            this.labelLanguage.AccessibleDescription = null;
+            this.labelLanguage.AccessibleName = null;
+            resources.ApplyResources(this.labelLanguage, "labelLanguage");
+            this.labelLanguage.Font = null;
+            this.labelLanguage.Name = "labelLanguage";
+            this.toolTip.SetToolTip(this.labelLanguage, resources.GetString("labelLanguage.ToolTip"));
+            // 
+            // cbxLanguage
+            // 
+            this.cbxLanguage.AccessibleDescription = null;
+            this.cbxLanguage.AccessibleName = null;
+            resources.ApplyResources(this.cbxLanguage, "cbxLanguage");
+            this.cbxLanguage.BackgroundImage = null;
+            this.cbxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxLanguage.Font = null;
+            this.cbxLanguage.FormattingEnabled = true;
+            this.cbxLanguage.Name = "cbxLanguage";
+            this.toolTip.SetToolTip(this.cbxLanguage, resources.GetString("cbxLanguage.ToolTip"));
+            this.cbxLanguage.SelectedIndexChanged += new System.EventHandler(this.cbxLanguage_SelectedIndexChanged);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.AccessibleDescription = null;
+            this.buttonReset.AccessibleName = null;
+            resources.ApplyResources(this.buttonReset, "buttonReset");
+            this.buttonReset.BackgroundImage = null;
+            this.buttonReset.Font = null;
+            this.buttonReset.Name = "buttonReset";
+            this.toolTip.SetToolTip(this.buttonReset, resources.GetString("buttonReset.ToolTip"));
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.AccessibleDescription = null;
+            this.buttonSave.AccessibleName = null;
+            resources.ApplyResources(this.buttonSave, "buttonSave");
+            this.buttonSave.BackgroundImage = null;
+            this.buttonSave.Font = null;
+            this.buttonSave.Name = "buttonSave";
+            this.toolTip.SetToolTip(this.buttonSave, resources.GetString("buttonSave.ToolTip"));
+            this.buttonSave.UseVisualStyleBackColor = true;
+            // 
             // gbBehaviour
             // 
+            this.gbBehaviour.AccessibleDescription = null;
+            this.gbBehaviour.AccessibleName = null;
+            resources.ApplyResources(this.gbBehaviour, "gbBehaviour");
+            this.gbBehaviour.BackgroundImage = null;
             this.gbBehaviour.Controls.Add(this.cbCheckForUpdates);
             this.gbBehaviour.Controls.Add(this.cbWarnSystemDrive);
             this.gbBehaviour.Controls.Add(this.cbBaloonNotifications);
-            this.gbBehaviour.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbBehaviour.Location = new System.Drawing.Point(3, 75);
+            this.gbBehaviour.Font = null;
             this.gbBehaviour.Name = "gbBehaviour";
-            this.gbBehaviour.Size = new System.Drawing.Size(493, 73);
-            this.gbBehaviour.TabIndex = 7;
             this.gbBehaviour.TabStop = false;
-            this.gbBehaviour.Text = "Behaviour";
+            this.toolTip.SetToolTip(this.gbBehaviour, resources.GetString("gbBehaviour.ToolTip"));
             // 
             // cbCheckForUpdates
             // 
-            this.cbCheckForUpdates.AutoSize = true;
-            this.cbCheckForUpdates.Location = new System.Drawing.Point(6, 42);
+            this.cbCheckForUpdates.AccessibleDescription = null;
+            this.cbCheckForUpdates.AccessibleName = null;
+            resources.ApplyResources(this.cbCheckForUpdates, "cbCheckForUpdates");
+            this.cbCheckForUpdates.BackgroundImage = null;
+            this.cbCheckForUpdates.Font = null;
             this.cbCheckForUpdates.Name = "cbCheckForUpdates";
-            this.cbCheckForUpdates.Size = new System.Drawing.Size(177, 17);
-            this.cbCheckForUpdates.TabIndex = 9;
-            this.cbCheckForUpdates.Text = "Check for updates automatically";
+            this.toolTip.SetToolTip(this.cbCheckForUpdates, resources.GetString("cbCheckForUpdates.ToolTip"));
             this.cbCheckForUpdates.UseVisualStyleBackColor = true;
             // 
             // cbWarnSystemDrive
             // 
-            this.cbWarnSystemDrive.AutoSize = true;
-            this.cbWarnSystemDrive.Location = new System.Drawing.Point(216, 19);
+            this.cbWarnSystemDrive.AccessibleDescription = null;
+            this.cbWarnSystemDrive.AccessibleName = null;
+            resources.ApplyResources(this.cbWarnSystemDrive, "cbWarnSystemDrive");
+            this.cbWarnSystemDrive.BackgroundImage = null;
+            this.cbWarnSystemDrive.Font = null;
             this.cbWarnSystemDrive.Name = "cbWarnSystemDrive";
-            this.cbWarnSystemDrive.Size = new System.Drawing.Size(212, 17);
-            this.cbWarnSystemDrive.TabIndex = 8;
-            this.cbWarnSystemDrive.Text = "Warn if device looks like a system drive";
             this.toolTip.SetToolTip(this.cbWarnSystemDrive, resources.GetString("cbWarnSystemDrive.ToolTip"));
             this.cbWarnSystemDrive.UseVisualStyleBackColor = true;
             // 
             // cbBaloonNotifications
             // 
-            this.cbBaloonNotifications.AutoSize = true;
-            this.cbBaloonNotifications.Location = new System.Drawing.Point(6, 19);
+            this.cbBaloonNotifications.AccessibleDescription = null;
+            this.cbBaloonNotifications.AccessibleName = null;
+            resources.ApplyResources(this.cbBaloonNotifications, "cbBaloonNotifications");
+            this.cbBaloonNotifications.BackgroundImage = null;
+            this.cbBaloonNotifications.Font = null;
             this.cbBaloonNotifications.Name = "cbBaloonNotifications";
-            this.cbBaloonNotifications.Size = new System.Drawing.Size(189, 17);
-            this.cbBaloonNotifications.TabIndex = 7;
-            this.cbBaloonNotifications.Text = "Use baloon notifications for events";
-            this.toolTip.SetToolTip(this.cbBaloonNotifications, "When checked, iTunes Agent will show notifications in the system tray on events s" +
-                    "uch as connected/disconnected devices, synchronization status etc.");
+            this.toolTip.SetToolTip(this.cbBaloonNotifications, resources.GetString("cbBaloonNotifications.ToolTip"));
             this.cbBaloonNotifications.UseVisualStyleBackColor = true;
             // 
             // gbITunes
             // 
+            this.gbITunes.AccessibleDescription = null;
+            this.gbITunes.AccessibleName = null;
+            resources.ApplyResources(this.gbITunes, "gbITunes");
+            this.gbITunes.BackgroundImage = null;
             this.gbITunes.Controls.Add(this.cbAutoExitWithITunes);
             this.gbITunes.Controls.Add(this.cbOrganizeInFolder);
-            this.gbITunes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbITunes.Location = new System.Drawing.Point(3, 3);
+            this.gbITunes.Font = null;
             this.gbITunes.Name = "gbITunes";
-            this.gbITunes.Size = new System.Drawing.Size(493, 72);
-            this.gbITunes.TabIndex = 6;
             this.gbITunes.TabStop = false;
-            this.gbITunes.Text = "iTunes";
+            this.toolTip.SetToolTip(this.gbITunes, resources.GetString("gbITunes.ToolTip"));
             // 
             // cbAutoExitWithITunes
             // 
-            this.cbAutoExitWithITunes.AutoSize = true;
-            this.cbAutoExitWithITunes.Location = new System.Drawing.Point(6, 45);
+            this.cbAutoExitWithITunes.AccessibleDescription = null;
+            this.cbAutoExitWithITunes.AccessibleName = null;
+            resources.ApplyResources(this.cbAutoExitWithITunes, "cbAutoExitWithITunes");
+            this.cbAutoExitWithITunes.BackgroundImage = null;
+            this.cbAutoExitWithITunes.Font = null;
             this.cbAutoExitWithITunes.Name = "cbAutoExitWithITunes";
-            this.cbAutoExitWithITunes.Size = new System.Drawing.Size(292, 17);
-            this.cbAutoExitWithITunes.TabIndex = 6;
-            this.cbAutoExitWithITunes.Text = "Automatically close iTunes Agent when iTunes is closing";
+            this.toolTip.SetToolTip(this.cbAutoExitWithITunes, resources.GetString("cbAutoExitWithITunes.ToolTip"));
             this.cbAutoExitWithITunes.UseVisualStyleBackColor = true;
             // 
             // cbOrganizeInFolder
             // 
-            this.cbOrganizeInFolder.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.cbOrganizeInFolder.Location = new System.Drawing.Point(6, 19);
+            this.cbOrganizeInFolder.AccessibleDescription = null;
+            this.cbOrganizeInFolder.AccessibleName = null;
+            resources.ApplyResources(this.cbOrganizeInFolder, "cbOrganizeInFolder");
+            this.cbOrganizeInFolder.BackgroundImage = null;
+            this.cbOrganizeInFolder.Font = null;
             this.cbOrganizeInFolder.Name = "cbOrganizeInFolder";
-            this.cbOrganizeInFolder.Size = new System.Drawing.Size(473, 20);
-            this.cbOrganizeInFolder.TabIndex = 5;
-            this.cbOrganizeInFolder.Text = "Organize custom playlists in iTunes in an \'iTunes Agent\' folder";
-            this.cbOrganizeInFolder.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip.SetToolTip(this.cbOrganizeInFolder, "If checked, iTunes Agent will organize all playlists associated with your device " +
-                    "under one top level folder named \'iTunes Agent\'. This may be preferrable if you " +
-                    "have a lot of playlists and devices.");
+            this.toolTip.SetToolTip(this.cbOrganizeInFolder, resources.GetString("cbOrganizeInFolder.ToolTip"));
             this.cbOrganizeInFolder.UseVisualStyleBackColor = true;
             // 
             // lblTitle
             // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.AccessibleDescription = null;
+            this.lblTitle.AccessibleName = null;
+            resources.ApplyResources(this.lblTitle, "lblTitle");
             this.lblTitle.Image = global::iTunesAgent.UI.Properties.Resources.preferences;
-            this.lblTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(3);
-            this.lblTitle.Size = new System.Drawing.Size(499, 50);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Preferences";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip.SetToolTip(this.lblTitle, resources.GetString("lblTitle.ToolTip"));
             // 
             // PreferencesPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.Controls.Add(this.panContainer);
+            this.Font = null;
             this.Name = "PreferencesPanel";
-            this.Size = new System.Drawing.Size(499, 349);
+            this.toolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.Load += new System.EventHandler(this.PreferencesPanel_Load);
             this.panContainer.ResumeLayout(false);
             this.panGroups.ResumeLayout(false);
+            this.gbUserInterface.ResumeLayout(false);
+            this.gbUserInterface.PerformLayout();
             this.gbBehaviour.ResumeLayout(false);
             this.gbBehaviour.PerformLayout();
             this.gbITunes.ResumeLayout(false);
@@ -223,5 +290,8 @@
         private System.Windows.Forms.CheckBox cbCheckForUpdates;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.GroupBox gbUserInterface;
+        private System.Windows.Forms.Label labelLanguage;
+        private System.Windows.Forms.ComboBox cbxLanguage;
     }
 }

@@ -102,6 +102,24 @@ namespace iTunesAgent.UI.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string LangEnglish {
+            get {
+                return ResourceManager.GetString("LangEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to German (Deutsch).
+        /// </summary>
+        internal static string LangGerman {
+            get {
+                return ResourceManager.GetString("LangGerman", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap media_players {
             get {
                 object obj = ResourceManager.GetObject("media_players", resourceCulture);
@@ -113,6 +131,33 @@ namespace iTunesAgent.UI.Properties {
             get {
                 object obj = ResourceManager.GetObject("preferences", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I am currenty not managing any devices for you..
+        /// </summary>
+        internal static string StrNoDevicesManaged {
+            get {
+                return ResourceManager.GetString("StrNoDevicesManaged", resourceCulture);
+    }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I have not been able to detect any installation of iTunes on your computer. Please make sure iTunes is installed, then restart me..
+        /// </summary>
+        internal static string StrNoITunesDetected {
+            get {
+                return ResourceManager.GetString("StrNoITunesDetected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart the application so the new settings can take effect.
+        /// </summary>
+        internal static string StrRestartApplicationSoSettingsTakeEffect {
+            get {
+                return ResourceManager.GetString("StrRestartApplicationSoSettingsTakeEffect", resourceCulture);
             }
         }
     }
