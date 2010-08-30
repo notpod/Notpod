@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
+using log4net.Config;
 using System.Globalization;
 using System.Threading;
 using iTunesAgent.UI.Properties;
@@ -16,6 +18,9 @@ namespace iTunesAgent.UI
         [STAThread]
         static void Main()
         {
+            
+            XmlConfigurator.Configure(new FileInfo("logging.xml"));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
              
@@ -29,8 +34,12 @@ namespace iTunesAgent.UI
                 Settings.Default.Language = "en-GB";
             Application.CurrentCulture = new CultureInfo(Settings.Default.Language);
             Thread.CurrentThread.CurrentUICulture = Application.CurrentCulture;
+
+            MainForm form = new MainForm();
+            ModelRepository repo = new ModelRepository();
             
-            Application.Run(new MainForm());
+            Application.Run(form);
+                                  
         }
     }
 }

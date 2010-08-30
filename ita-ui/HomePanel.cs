@@ -18,6 +18,16 @@ namespace iTunesAgent.UI
             TranslationMgr.Attach(this);
         }
 
+        private void HomePanel_Load(object sender, EventArgs e)
+        {
+            updateVersionInformation();
+        }
+
+        private void updateVersionInformation()
+        {
+            labelVersionInformation.Text = "You are running the newest version, " + Application.ProductVersion;
+        }
+
         #region ITranslatable Members
 
         public void OnTranslate()

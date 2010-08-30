@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace iTunesAgent.Service
+namespace iTunesAgent.Services
 {
     /*!
      * Interface for services providing the iTunes Agent application with access to media software facilities.
@@ -31,5 +31,12 @@ namespace iTunesAgent.Service
          * Initialize the iTunesService.
          */
         void Initialize();
+
+        /*!
+         * Set the AbstractMediaSoftwareConnetionFactory to use for obtaining a 
+         * reference to the media software in use by this service.
+         * 
+         */
+        AbstractMediaSoftwareConnectionFactory MediaSoftwareConnectionFactory { set; }
     }
 }

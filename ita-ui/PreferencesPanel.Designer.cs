@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesPanel));
             this.panContainer = new System.Windows.Forms.Panel();
             this.panGroups = new System.Windows.Forms.Panel();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.gbUserInterface = new System.Windows.Forms.GroupBox();
             this.labelLanguage = new System.Windows.Forms.Label();
             this.cbxLanguage = new System.Windows.Forms.ComboBox();
@@ -79,6 +81,27 @@
             this.panGroups.Font = null;
             this.panGroups.Name = "panGroups";
             this.toolTip.SetToolTip(this.panGroups, resources.GetString("panGroups.ToolTip"));
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(98, 265);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(87, 28);
+            this.buttonReset.TabIndex = 13;
+            this.buttonReset.Text = "Reset";
+            this.toolTip.SetToolTip(this.buttonReset, "Reset back to previously saved preferences.");
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Enabled = false;
+            this.buttonSave.Location = new System.Drawing.Point(5, 265);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(86, 28);
+            this.buttonSave.TabIndex = 12;
+            this.buttonSave.Text = "Save";
+            this.toolTip.SetToolTip(this.buttonSave, "Save your preferences.");
+            this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // gbUserInterface
             // 
@@ -239,6 +262,7 @@
             this.Font = null;
             this.Name = "PreferencesPanel";
             this.toolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
+            this.Load += new System.EventHandler(this.PreferencesPanel_Load);
             this.panContainer.ResumeLayout(false);
             this.panGroups.ResumeLayout(false);
             this.gbUserInterface.ResumeLayout(false);

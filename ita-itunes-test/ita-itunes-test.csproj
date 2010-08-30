@@ -8,7 +8,7 @@
     <ProjectGuid>{DA9074FC-E55F-4163-8D62-C224FC2DAB6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>iTunesAgent.Service</RootNamespace>
+    <RootNamespace>iTunesAgent.Services</RootNamespace>
     <AssemblyName>ita-itunes-test</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="iTunesServiceImplTest.cs" />
+    <Compile Include="ITunesServiceImplTest.cs" />
+    <Compile Include="MockITunesAppClass.cs" />
+    <Compile Include="MockITunesConnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +56,16 @@
       <Project>{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}</Project>
       <Name>ita-itunes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="iTunesLib">
+      <Guid>{9E93C96F-CF0D-43F6-8BA8-B807A3370712}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>13</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

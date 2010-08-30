@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace iTunesAgent.Service
+namespace iTunesAgent.Services
 {
     public class Playlist
     {

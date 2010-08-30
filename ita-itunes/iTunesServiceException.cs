@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace iTunesAgent.Service
+namespace iTunesAgent.Services.iTunes
 {
     /*!
      * Exception class used by iTunesService implementations.
      */
-    public class iTunesServiceException : ApplicationException
+    public class ITunesServiceException : ApplicationException
     {
 
         /*!
@@ -16,7 +16,7 @@ namespace iTunesAgent.Service
          * 
          * \param message Exception message.
          */
-        public iTunesServiceException(string message)
+        public ITunesServiceException(string message)
             : base(message)
         {
 
@@ -28,7 +28,7 @@ namespace iTunesAgent.Service
          * \param message Exception message.
          * \param inner The inner exception.
          */
-        public iTunesServiceException(string message, Exception inner)
+        public ITunesServiceException(string message, Exception inner)
             : base(message, inner)
         {
 

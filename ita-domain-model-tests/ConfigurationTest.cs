@@ -26,7 +26,7 @@ namespace iTunesAgent.Domain
             XmlSerializer serializer = new XmlSerializer(typeof(Configuration));
             try
             {
-                writeStream = new FileStream("configuration.xml", FileMode.CreateNew);
+                writeStream = new FileStream("configuration.xml", FileMode.Create);
                 serializer.Serialize(writeStream, configuration);
             }
             finally

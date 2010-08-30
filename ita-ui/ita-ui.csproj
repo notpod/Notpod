@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F4099758-4C03-488D-B173-AC0BBEBC0478}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\log4net.dll</HintPath>
+      <HintPath>..\..\..\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -73,6 +73,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelRepository.cs" />
     <Compile Include="PreferencesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +146,15 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Resources\globe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logging.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ita-domain-model\ita-domain-model.csproj">
+      <Project>{9C9C0EA1-306F-415A-B42D-717C02B9CD7E}</Project>
+      <Name>ita-domain-model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

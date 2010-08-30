@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using log4net;
 using iTunesAgent.UI.Properties;
 using System.Threading;
 using System.Globalization;
@@ -14,10 +15,19 @@ namespace iTunesAgent.UI
 {
     public partial class PreferencesPanel : UserControl, ITranslatable
     {
+
+        private ILog l = LogManager.GetLogger(typeof(PreferencesPanel));
+
         public PreferencesPanel()
         {
             InitializeComponent();
             TranslationMgr.Attach(this);
+        }
+
+        private void PreferencesPanel_Load(object sender, EventArgs e)
+        {            
+            l.Debug("Loading PreferencesPanel");
+            
         }
 
         private void ChangeLanguage(string language)
