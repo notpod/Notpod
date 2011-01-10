@@ -1,0 +1,46 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="ita-itunes-test\bin\Debug\ita-itunes-test.dll" />
+    <assembly path="ita-media-connectors-tests\bin\Debug\ita-media-connectors-tests.dll" />
+    <assembly path="ita-domain-model-tests\bin\Debug\ita-domain-model-tests.dll" />
+    <assembly path="ita-sync-tests\bin\Debug\ita-sync-tests.dll" />
+    <assembly path="ita-ui-test\bin\Debug\ita-ui-test.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto">
+    <assembly path="ita-sync\bin\Release\ita-sync.dll" />
+    <assembly path="ita-domain-model\bin\Release\ita-domain-model.dll" />
+    <assembly path="ita-itunes-test\bin\Release\ita-itunes-test.dll" />
+    <assembly path="ita-itunes\bin\Release\ita-itunes.dll" />
+    <assembly path="ita-media-connectors\bin\Release\ita-media-connectors.dll" />
+    <assembly path="ita-media-connectors-tests\bin\Release\ita-media-connectors-tests.dll" />
+    <assembly path="ita-domain-model-tests\bin\Release\ita-domain-model-tests.dll" />
+    <assembly path="ita-ui\bin\Release\ita-ui.exe" />
+    <assembly path="ita-sync-tests\bin\Release\ita-sync-tests.dll" />
+    <assembly path="ita-ui-test\bin\Release\ita-ui-test.dll" />
+  </Config>
+  <Config name="Debug|x86" binpathtype="Auto">
+    <assembly path="ita-sync\bin\Debug\ita-sync.dll" />
+    <assembly path="ita-domain-model\bin\Debug\ita-domain-model.dll" />
+    <assembly path="ita-itunes-test\bin\Debug\ita-itunes-test.dll" />
+    <assembly path="ita-itunes\bin\Debug\ita-itunes.dll" />
+    <assembly path="ita-media-connectors\bin\Debug\ita-media-connectors.dll" />
+    <assembly path="ita-media-connectors-tests\bin\Debug\ita-media-connectors-tests.dll" />
+    <assembly path="ita-domain-model-tests\bin\Debug\ita-domain-model-tests.dll" />
+    <assembly path="ita-ui\bin\Debug\ita-ui.exe" />
+    <assembly path="ita-sync-tests\bin\Debug\ita-sync-tests.dll" />
+    <assembly path="ita-ui-test\bin\x86\Debug\ita-ui-test.dll" />
+  </Config>
+  <Config name="Release|x86" binpathtype="Auto">
+    <assembly path="ita-sync\bin\Release\ita-sync.dll" />
+    <assembly path="ita-domain-model\bin\Release\ita-domain-model.dll" />
+    <assembly path="ita-itunes-test\bin\Release\ita-itunes-test.dll" />
+    <assembly path="ita-itunes\bin\Release\ita-itunes.dll" />
+    <assembly path="ita-media-connectors\bin\Release\ita-media-connectors.dll" />
+    <assembly path="ita-media-connectors-tests\bin\Release\ita-media-connectors-tests.dll" />
+    <assembly path="ita-domain-model-tests\bin\Release\ita-domain-model-tests.dll" />
+    <assembly path="ita-ui\bin\Release\ita-ui.exe" />
+    <assembly path="ita-sync-tests\bin\Release\ita-sync-tests.dll" />
+    <assembly path="ita-ui-test\bin\x86\Release\ita-ui-test.dll" />
+  </Config>
+</NUnitProject>
