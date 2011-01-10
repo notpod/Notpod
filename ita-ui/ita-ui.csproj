@@ -70,6 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUtils.cs" />
+    <Compile Include="ConfigurationChecker.cs" />
+    <Compile Include="ConfigurationCheckerImpl.cs" />
+    <Compile Include="ConfigurationWriter.cs" />
+    <Compile Include="DefaultConfigurationToFileWriter.cs" />
     <Compile Include="DevicesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,12 +169,17 @@
     <None Include="Resources\globe.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\configuration.xml" />
     <Content Include="logging.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ita-domain-model\ita-domain-model.csproj">
       <Project>{9C9C0EA1-306F-415A-B42D-717C02B9CD7E}</Project>
       <Name>ita-domain-model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ita-itunes\ita-itunes.csproj">
+      <Project>{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}</Project>
+      <Name>ita-itunes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
