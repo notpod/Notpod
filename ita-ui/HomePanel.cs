@@ -32,7 +32,7 @@ namespace iTunesAgent.UI
 
         public void OnTranslate()
         {
-            labelITunesStatus.Text = Resources.StrNoITunesDetected;
+            labelMediaSoftwareStatus.Text = Resources.StrNoITunesDetected;
             labelDevicesStatus.Text = Resources.StrNoDevicesManaged;
         }
 
