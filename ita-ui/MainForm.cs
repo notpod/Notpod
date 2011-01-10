@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using log4net;
+using iTunesAgent.Services;
+using iTunesAgent.Services.iTunes;
 
 namespace iTunesAgent.UI
 {
     public partial class MainForm : Form
-    {        
+    {
 
         //Constants used when intercepting system messages
         public const int WM_SYSCOMMAND = 0x112;
@@ -22,6 +24,10 @@ namespace iTunesAgent.UI
 
         private ILog l = LogManager.GetLogger(typeof(MainForm));
 
+        private ModelRepository modelRepository;
+
+        private Dictionary<string, MediaSoftwareService> mediaSoftwareServices = new Dictionary<string, MediaSoftwareService>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -31,7 +37,24 @@ namespace iTunesAgent.UI
         private void MainForm_Load(object sender, EventArgs e)
         {
             InitializePanels();
+            PopulateMediaSoftwareServices();
             LoadPreviousPanel();
+        }
+
+        private void PopulateMediaSoftwareServices()
+        {
+            try
+            {
+                MediaSoftwareService itunesService = new ITunesServiceImpl();
+                itunesService.MediaSoftwareConnectionFactory = new ITunesConnectionFactory();
+                itunesService.Initialize();
+                mediaSoftwareServices.Add("itunes", itunesService);
+            }
+            catch (Exception ex)
+            {
+                l.Error("Failed to create iTunes API stub.", ex);
+                MessageBox.Show(this, "I was unable to communicate with the iTunes interface. You will not be able to synchronize your devices with iTunes.", "Media Software Service initialization failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -41,15 +64,15 @@ namespace iTunesAgent.UI
             panViewPlaceholder.Controls.Add(panels["home"]);
             panel.Dock = DockStyle.Fill;
             SetSelectedColor(buttonHome);
-            
+
         }
 
         private void InitializePanels()
-        {            
+        {
             panels.Add("home", new HomePanel());
             panels.Add("devices", new DevicesPanel());
             panels.Add("preferences", new PreferencesPanel());
-            
+
             setCommonPanelProperties();
         }
 
@@ -120,8 +143,8 @@ namespace iTunesAgent.UI
         }
 
         private void ResetButtonState()
-        {            
-            foreach (Button button in panButtons.Controls.OfType<Button>())            
+        {
+            foreach (Button button in panButtons.Controls.OfType<Button>())
                 button.BackColor = Color.White;
         }
 
@@ -137,5 +160,21 @@ namespace iTunesAgent.UI
             panViewPlaceholder.Invalidate();
         }
 
+        /*!
+         * Accessor for the model repository containing the data model for 
+         * the application.
+         */
+        public ModelRepository ModelRepository
+        {
+            get
+            {
+                return modelRepository;
+            }
+            set
+            {
+                modelRepository = value;
+            }
+
+        }
     }
 }
