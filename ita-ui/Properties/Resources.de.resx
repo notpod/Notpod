@@ -123,6 +123,9 @@
   <data name="LangGerman" xml:space="preserve">
     <value>Deutsch (German)</value>
   </data>
+  <data name="StrDefaultConfigWriteError" xml:space="preserve">
+    <value>Unable to write default configuration. Please ensure the application is run as a user with necessary access to your user directory.</value>
+  </data>
   <data name="StrNoDevicesManaged" xml:space="preserve">
     <value>Im Moment werden keine Geräte verwaltet.</value>
   </data>
