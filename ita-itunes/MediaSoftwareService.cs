@@ -32,6 +32,17 @@ namespace iTunesAgent.Services
          */
         void Initialize();
 
+
+        /*!
+         * Accessor for the media software service version. 
+         */
+        string Version { get; }
+
+        /*!
+         * Accessor for the media software service name.
+         */
+        string Name { get; }
+
         /*!
          * Set the AbstractMediaSoftwareConnetionFactory to use for obtaining a 
          * reference to the media software in use by this service.

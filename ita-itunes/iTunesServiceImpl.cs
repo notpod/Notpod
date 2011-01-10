@@ -20,9 +20,11 @@ namespace iTunesAgent.Services.iTunes
 
         private string version;
 
+        private string name = "iTunes";
+
 
         /*!
-         * Get the iTunes version.
+         * \copydoc MediaSoftwareService::Version
          */
         public string Version
         {
@@ -30,6 +32,18 @@ namespace iTunesAgent.Services.iTunes
             {
                 ValidateState();
                 return version;
+            }
+        }
+
+        /*!
+         * \copydoc MediaSoftwareService::Name 
+         */
+        public string Name
+        {
+            get
+            {
+                ValidateState();
+                return name;
             }
         }
 
