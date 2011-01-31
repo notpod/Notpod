@@ -36,8 +36,8 @@ namespace iTunesAgent.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            InitializePanels();
             PopulateMediaSoftwareServices();
+            InitializePanels();            
             LoadPreviousPanel();
         }
 
@@ -69,7 +69,9 @@ namespace iTunesAgent.UI
 
         private void InitializePanels()
         {
-            panels.Add("home", new HomePanel());
+            HomePanel homePanel = new HomePanel();
+            homePanel.MediaSoftwareServices = mediaSoftwareServices;
+            panels.Add("home", homePanel);
             panels.Add("devices", new DevicesPanel());
             panels.Add("preferences", new PreferencesPanel());
 
