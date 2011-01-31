@@ -20,13 +20,13 @@ namespace iTunesAgent.UI
 
         public HomePanel()
         {
-            InitializeComponent();
-            TranslationMgr.Attach(this);
+            InitializeComponent();            
         }
 
         private void HomePanel_Load(object sender, EventArgs e)
         {
-            UpdatePanel();
+            TranslationMgr.Attach(this);
+            UpdatePanel();            
         }
 
         private void UpdatePanel()

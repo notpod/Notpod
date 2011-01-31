@@ -14,7 +14,11 @@ namespace iTunesAgent.UI
         
         public DevicesPanel()
         {            
-            InitializeComponent();
+            InitializeComponent();            
+        }
+
+        private void DevicesPanel_Load(object sender, EventArgs e)
+        {
             TranslationMgr.Attach(this);
         }
     }

@@ -20,12 +20,12 @@ namespace iTunesAgent.UI
 
         public PreferencesPanel()
         {
-            InitializeComponent();
-            TranslationMgr.Attach(this);
+            InitializeComponent();            
         }
 
         private void PreferencesPanel_Load(object sender, EventArgs e)
-        {            
+        {
+            TranslationMgr.Attach(this);
             l.Debug("Loading PreferencesPanel");
             
         }

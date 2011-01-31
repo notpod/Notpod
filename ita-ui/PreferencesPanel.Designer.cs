@@ -36,9 +36,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.gbUserInterface = new System.Windows.Forms.GroupBox();
             this.labelLanguage = new System.Windows.Forms.Label();
-            this.cbxLanguage = new System.Windows.Forms.ComboBox();
-            this.buttonReset = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.cbxLanguage = new System.Windows.Forms.ComboBox();            
             this.gbBehaviour = new System.Windows.Forms.GroupBox();
             this.cbCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.cbWarnSystemDrive = new System.Windows.Forms.CheckBox();

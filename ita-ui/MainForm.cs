@@ -141,7 +141,7 @@ namespace iTunesAgent.UI
 
         private void SetSelectedColor(object sender)
         {
-            ((Button)sender).BackColor = Color.Orange;
+            ((Button)sender).BackColor = Color.Aquamarine;
         }
 
         private void ResetButtonState()

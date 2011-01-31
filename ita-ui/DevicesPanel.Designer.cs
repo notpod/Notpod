@@ -32,10 +32,10 @@
             this.layoutTableMain = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lvDevices = new System.Windows.Forms.ListView();
-            this.chDeviceName = new System.Windows.Forms.ColumnHeader();
-            this.chDeviceStatus = new System.Windows.Forms.ColumnHeader();
-            this.chDeviceFreeSpace = new System.Windows.Forms.ColumnHeader();
-            this.chDeviceLastSync = new System.Windows.Forms.ColumnHeader();
+            this.chDeviceName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDeviceStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDeviceFreeSpace = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDeviceLastSync = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnDeleteDevice = new System.Windows.Forms.Button();
             this.btnEditDevice = new System.Windows.Forms.Button();
@@ -190,6 +190,7 @@
             this.Controls.Add(this.panContainer);
             this.Name = "DevicesPanel";
             this.Size = new System.Drawing.Size(636, 358);
+            this.Load += new System.EventHandler(this.DevicesPanel_Load);
             this.panContainer.ResumeLayout(false);
             this.layoutTableMain.ResumeLayout(false);
             this.layoutTableMain.PerformLayout();
