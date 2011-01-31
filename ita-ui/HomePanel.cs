@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using iTunesAgent.UI.Properties;
+using iTunesAgent.Services;
+using iTunesAgent.Services.iTunes;
 
 namespace iTunesAgent.UI
 {
     public partial class HomePanel : UserControl, ITranslatable
     {
+        private ModelRepository model;
+
+        private Dictionary<string, MediaSoftwareService> mediaSoftwareServices; 
+
         public HomePanel()
         {
             InitializeComponent();
@@ -20,12 +26,42 @@ namespace iTunesAgent.UI
 
         private void HomePanel_Load(object sender, EventArgs e)
         {
-            updateVersionInformation();
+            UpdatePanel();
         }
 
-        private void updateVersionInformation()
+        private void UpdatePanel()
         {
-            labelVersionInformation.Text = "You are running the newest version, " + Application.ProductVersion;
+            UpdateVersionInformation();
+            UpdateMediaSoftwareInformation();
+        }
+
+        private void UpdateMediaSoftwareInformation()
+        {
+            
+            if(mediaSoftwareServices.Count == 0) {
+
+                labelMediaSoftwareStatus.Text = Resources.StrNoITunesDetected;
+                return;
+            }
+
+            string mediaSoftwareStatus = "";
+                
+            foreach(MediaSoftwareService service in mediaSoftwareServices.Values) {
+                mediaSoftwareStatus += service.Name + " " + service.Version;
+            }
+
+            labelMediaSoftwareStatus.Text = mediaSoftwareStatus;
+        }
+
+        private void UpdateVersionInformation()
+        {
+            labelVersionInformation.Text = Resources.StrHomePanelYouAreRunningVersion + ", " + Application.ProductVersion;
+        }
+
+        public ModelRepository Model
+        {
+            set { model = value; }
+            get { return model; }
         }
 
         #region ITranslatable Members
@@ -34,8 +70,16 @@ namespace iTunesAgent.UI
         {
             labelMediaSoftwareStatus.Text = Resources.StrNoITunesDetected;
             labelDevicesStatus.Text = Resources.StrNoDevicesManaged;
+
+            UpdatePanel();
         }
 
         #endregion
+
+        public Dictionary<string, MediaSoftwareService> MediaSoftwareServices
+        {
+            get { return mediaSoftwareServices; }
+            set { mediaSoftwareServices = value; }
+        }
     }
 }
