@@ -7,10 +7,7 @@ using iTunesAgent.UI.Properties;
 
 namespace iTunesAgent.UI.Configuration
 {
-    /*!
-     * Configuration writer for writing the default 
-     * application configuration to file.
-     */
+    
     public class DefaultConfigurationToFileWriter : ConfigurationWriter
     {
         private string filePath;
@@ -20,11 +17,6 @@ namespace iTunesAgent.UI.Configuration
             return Resources.DEFAULT_CONFIGURATION;
         }
 
-        /*!
-         * Create a new instance of DefaultConfigurationToFileWriter.
-         * 
-         * \param filePath Specifies the file to write the default configuration to.
-         */
         public DefaultConfigurationToFileWriter(string filePath)
         {
             this.filePath = filePath;
