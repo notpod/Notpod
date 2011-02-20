@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using iTunesAgent.Domain;
 
 namespace iTunesAgent.Connectors
 {
     public interface MediaDevicesService
     {
-        string Devices
-        {
-            get;
-        }
+        List<CompatibleDevice> GetDevices();
     }
 }
