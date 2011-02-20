@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using PortableDeviceApiLib;
 using PortableDeviceTypesLib;
+using iTunesAgent.Domain;
+using iTunesAgent.Connectors.Domain;
 
 namespace iTunesAgent.Connectors
 {
 
     public class WindowsPortableDevicesService : MediaDevicesService
     {
+        private PortableDeviceManager deviceManager;
+
+        public WindowsPortableDevicesService()
+        {
+            deviceManager = new PortableDeviceManagerClass();
+        }
+
+
         #region MediaDevicesService Members
 
         public string Devices
@@ -22,126 +33,75 @@ namespace iTunesAgent.Connectors
 
         #endregion
 
-        public void Enumerate()
+        public List<CompatibleDevice> GetDevices()
         {
-            PortableDeviceManagerClass devMgr = new PortableDeviceManagerClass();
 
-            // Create our client information collection
-            PortableDeviceApiLib.IPortableDeviceValues pValues = (PortableDeviceApiLib.IPortableDeviceValues)
-                    new PortableDeviceTypesLib.PortableDeviceValuesClass();
+            //
+            // Probe for number of devices
+            //
+            uint cDevices = 1;
+            deviceManager.GetDevices(null, ref cDevices);
 
-            // Create a new IPortableDevice instance
-            PortableDeviceClass pPortableDevice = new PortableDeviceClass();
+            //
+            // Re-allocate if needed
+            //
+            if (cDevices == 0)
+            {
+                return null;
+            }
 
-            uint i = 0;
+            string deviceID = "";
+            deviceManager.GetDevices(ref deviceID, ref cDevices);
 
-            uint cDevices = 0;
+            List<CompatibleDevice> devices = new List<CompatibleDevice>();
 
-            string strDeviceID = String.Empty;
-
-            string strFriendlyName = String.Empty;
-
-            string strtmp = String.Empty;
-
-            // Retrieve a count of connected WPD devices.
-            devMgr.GetDevices(ref strtmp, ref cDevices);
-
-            Console.Out.WriteLine("Number of devices: " + cDevices);
-
-            // Iterate through the connected WPD devices--searching for 
-            // a TemperatureSensor device. If it's found, open the device
-            // and begin retrieving the temperature property.
-
-            if (cDevices > 0)
+            for (int ndxDevices = 0; ndxDevices < cDevices; ndxDevices++)
             {
 
-                // Retrieve the PnP identifiers for each 
+                PortableDevice portableDevice = new PortableDeviceClass();
 
-                // connected device.
+                PortableDeviceApiLib.IPortableDeviceValues clientValues = (PortableDeviceApiLib.IPortableDeviceValues)new PortableDeviceTypesLib.PortableDeviceValuesClass();
 
-                string strPnPDeviceIDs = String.Empty;
+                //Set the application name
+                PortableDeviceApiLib._tagpropertykey prop = PortableDevicePKeys.WPD_CLIENT_NAME;
+                clientValues.SetStringValue(ref prop, Application.ProductName);
+                
+                //Set the App version
+                prop = PortableDevicePKeys.WPD_CLIENT_MAJOR_VERSION;
+                clientValues.SetFloatValue(ref prop, 1.0f);
+                
+                //Open connection
+                portableDevice.Open(deviceID, clientValues);
 
-                devMgr.GetDevices(ref strPnPDeviceIDs, ref cDevices);
 
-                Console.Out.WriteLine("PnP Device IDs: " + strPnPDeviceIDs);
+                WindowsPortableDevice device = new WindowsPortableDevice();
+                device.Identifier = deviceID;
+                device.Name = RetrieveFriendlyName(portableDevice, deviceID);
+                
+                portableDevice.Close();
 
-                //// For each connected device, retrieve the friendly
-
-                //// name and compare it to the TempSensor's name.
-
-                for (i = 0; i < cDevices; i++)
-                {
-
-                    strFriendlyName = RetrieveFriendlyName(devMgr, strPnPDeviceIDs);
-
-                    Console.Out.Write("Device: " + strFriendlyName);
-
-                }
-
+                devices.Add(device);
             }
+
+            return devices;
 
         }
 
-        string RetrieveFriendlyName(
-
-                        PortableDeviceApiLib.PortableDeviceManagerClass PortableDeviceManager,
-
-                        string PnPDeviceID)
+        private string RetrieveFriendlyName(PortableDeviceApiLib.IPortableDevice portableDevice, string objectId)
         {
+            IPortableDeviceContent content;
+            IPortableDeviceProperties properties;
+            PortableDeviceApiLib.IPortableDeviceValues propertyValues;
 
-            uint cFriendlyName = 0;
+            portableDevice.Content(out content);
+            content.Properties(out properties);
 
-            ushort[] usFriendlyName;
+            properties.GetValues("DEVICE", null, out propertyValues);
 
-            ushort pDeviceFriendlyName = 0;
+            string val = string.Empty;
+            propertyValues.GetStringValue(PortableDevicePKeys.WPD_DEVICE_FRIENDLY_NAME, out val);
 
-            string strFriendlyName = String.Empty;
-
-
-
-            // First, pass NULL as the LPWSTR return string parameter to get the total number
-
-            // of characters to allocate for the string value.
-
-            PortableDeviceManager.GetDeviceFriendlyName(PnPDeviceID, ref pDeviceFriendlyName, ref cFriendlyName);
-
-
-
-            // Second allocate the number of characters needed and retrieve the string value.
-
-
-
-            usFriendlyName = new ushort[cFriendlyName];
-
-            if (usFriendlyName.Length > 0)
-            {
-
-                PortableDeviceManager.GetDeviceFriendlyName(PnPDeviceID, ref pDeviceFriendlyName, ref cFriendlyName);
-
-
-
-                // We need to convert the array of ushorts to a string, one
-
-                // character at a time.
-
-                foreach (ushort letter in usFriendlyName)
-
-                    if (letter != 0)
-
-                        strFriendlyName += (char)letter;
-
-
-
-                // Return the friendly name
-
-                return strFriendlyName;
-
-            }
-
-            else
-
-                return null;
-
+            return val;
         }
 
     }
