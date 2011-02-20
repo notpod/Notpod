@@ -6,16 +6,22 @@ using System.Text;
 namespace iTunesAgent.Connectors
 {
     using NUnit.Framework;
-
-    [TestFixture]
+        
     public class WindowsPortableDevicesServiceTest
     {
 
-        [Test]
-        public void TestEnumerate()
+        
+        public static void Main(String[] args)
         {
             WindowsPortableDevicesService s = new WindowsPortableDevicesService();
-            s.Enumerate();
+            List<CompatibleDevice> devices = s.GetDevices();
+
+            foreach (CompatibleDevice device in devices)
+            {
+                Console.Out.WriteLine("Name: {0}, Identifier: {1}", device.Name, device.Identifier);
+            }
+
+            Console.In.ReadLine();
         }
     }
 }
