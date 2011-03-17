@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using iTunesAgent.Connectors.Domain;
 
 namespace iTunesAgent.Connectors
 {
@@ -14,11 +15,18 @@ namespace iTunesAgent.Connectors
         public static void Main(String[] args)
         {
             WindowsPortableDevicesService s = new WindowsPortableDevicesService();
-            List<CompatibleDevice> devices = s.GetDevices();
+            string[] devices = s.GetDeviceIds();
 
-            foreach (CompatibleDevice device in devices)
+            foreach (string id in devices)
             {
-                Console.Out.WriteLine("Name: {0}, Identifier: {1}", device.Name, device.Identifier);
+                Console.Out.WriteLine("Identifier: {0}", id);
+                Console.Out.WriteLine("Connecting...");
+                WindowsPortableDevice device = (WindowsPortableDevice)s.GetDeviceById(id);
+                device.Connect("ita", 2f, 0f);
+                Console.Out.WriteLine("Name: " + device.Name);
+
+                Console.Out.WriteLine("Disconnecting...");
+                device.Disconnect();
             }
 
             Console.In.ReadLine();
