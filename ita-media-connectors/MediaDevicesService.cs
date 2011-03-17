@@ -8,6 +8,7 @@ namespace iTunesAgent.Connectors
 {
     public interface MediaDevicesService
     {
-        List<CompatibleDevice> GetDevices();
+        string[] GetDeviceIds();
+        CompatibleDevice GetDeviceById(string deviceId);
     }
 }

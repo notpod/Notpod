@@ -33,76 +33,31 @@ namespace iTunesAgent.Connectors
 
         #endregion
 
-        public List<CompatibleDevice> GetDevices()
+        public string[] GetDeviceIds()
         {
-
-            //
-            // Probe for number of devices
-            //
+                        
             uint cDevices = 1;
             deviceManager.GetDevices(null, ref cDevices);
-
-            //
-            // Re-allocate if needed
-            //
+                        
             if (cDevices == 0)
             {
-                return null;
+                return new string[0];
             }
 
-            string deviceID = "";
-            deviceManager.GetDevices(ref deviceID, ref cDevices);
+            string[] idArray = new string[cDevices];
+           
+                deviceManager.GetDevices(ref idArray[0], ref cDevices);
 
-            List<CompatibleDevice> devices = new List<CompatibleDevice>();
-
-            for (int ndxDevices = 0; ndxDevices < cDevices; ndxDevices++)
-            {
-
-                PortableDevice portableDevice = new PortableDeviceClass();
-
-                PortableDeviceApiLib.IPortableDeviceValues clientValues = (PortableDeviceApiLib.IPortableDeviceValues)new PortableDeviceTypesLib.PortableDeviceValuesClass();
-
-                //Set the application name
-                PortableDeviceApiLib._tagpropertykey prop = PortableDevicePKeys.WPD_CLIENT_NAME;
-                clientValues.SetStringValue(ref prop, Application.ProductName);
-                
-                //Set the App version
-                prop = PortableDevicePKeys.WPD_CLIENT_MAJOR_VERSION;
-                clientValues.SetFloatValue(ref prop, 1.0f);
-                
-                //Open connection
-                portableDevice.Open(deviceID, clientValues);
-
-
-                WindowsPortableDevice device = new WindowsPortableDevice();
-                device.Identifier = deviceID;
-                device.Name = RetrieveFriendlyName(portableDevice, deviceID);
-                
-                portableDevice.Close();
-
-                devices.Add(device);
-            }
-
-            return devices;
-
+                return idArray;                        
         }
 
-        private string RetrieveFriendlyName(PortableDeviceApiLib.IPortableDevice portableDevice, string objectId)
+        public CompatibleDevice GetDeviceById(string deviceId)
         {
-            IPortableDeviceContent content;
-            IPortableDeviceProperties properties;
-            PortableDeviceApiLib.IPortableDeviceValues propertyValues;
 
-            portableDevice.Content(out content);
-            content.Properties(out properties);
+            WindowsPortableDevice device = new WindowsPortableDevice(deviceId);
+            return device;
 
-            properties.GetValues("DEVICE", null, out propertyValues);
-
-            string val = string.Empty;
-            propertyValues.GetStringValue(PortableDevicePKeys.WPD_DEVICE_FRIENDLY_NAME, out val);
-
-            return val;
         }
-
+                
     }
 }
