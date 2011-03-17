@@ -33,24 +33,32 @@ namespace iTunesAgent.Connectors
 
         #endregion
 
+        /// <summary>
+        /// Returns the USB identifiers for the connected MTP compatible devices.
+        /// </summary>
+        /// <returns></returns>
         public string[] GetDeviceIds()
         {
-                        
+
             uint cDevices = 1;
             deviceManager.GetDevices(null, ref cDevices);
-                        
+
             if (cDevices == 0)
             {
                 return new string[0];
             }
 
             string[] idArray = new string[cDevices];
-           
-                deviceManager.GetDevices(ref idArray[0], ref cDevices);
+            deviceManager.GetDevices(ref idArray[0], ref cDevices);
 
-                return idArray;                        
+            return idArray;
         }
 
+        /// <summary>
+        /// Returns a WindowsPortableDevice based on the provided ID. The caller must call Connect on the returned device in order to use it.
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <returns></returns>
         public CompatibleDevice GetDeviceById(string deviceId)
         {
 
@@ -58,6 +66,6 @@ namespace iTunesAgent.Connectors
             return device;
 
         }
-                
+
     }
 }
