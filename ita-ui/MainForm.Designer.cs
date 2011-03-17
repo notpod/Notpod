@@ -54,6 +54,7 @@
             this.trayContextMenu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panMainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -179,7 +180,7 @@
             this.btnPreferences.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPreferences.FlatAppearance.BorderSize = 0;
             this.btnPreferences.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnPreferences.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnPreferences.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.btnPreferences.Image = global::iTunesAgent.UI.Properties.Resources.preferences;
             this.btnPreferences.Name = "btnPreferences";
             this.toolTipMain.SetToolTip(this.btnPreferences, resources.GetString("btnPreferences.ToolTip"));
@@ -193,7 +194,7 @@
             this.btnMyDevices.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMyDevices.FlatAppearance.BorderSize = 0;
             this.btnMyDevices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnMyDevices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnMyDevices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.btnMyDevices.Image = global::iTunesAgent.UI.Properties.Resources.media_players;
             this.btnMyDevices.Name = "btnMyDevices";
             this.toolTipMain.SetToolTip(this.btnMyDevices, resources.GetString("btnMyDevices.ToolTip"));
@@ -207,11 +208,11 @@
             this.buttonHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonHome.FlatAppearance.BorderSize = 0;
             this.buttonHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.buttonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.buttonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.buttonHome.Image = global::iTunesAgent.UI.Properties.Resources.home;
             this.buttonHome.Name = "buttonHome";
             this.toolTipMain.SetToolTip(this.buttonHome, resources.GetString("buttonHome.ToolTip"));
-            this.buttonHome.UseVisualStyleBackColor = true;
+            this.buttonHome.UseVisualStyleBackColor = false;
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // panViewPlaceholder
@@ -238,6 +239,7 @@
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.panButtons.ResumeLayout(false);
             this.ResumeLayout(false);
