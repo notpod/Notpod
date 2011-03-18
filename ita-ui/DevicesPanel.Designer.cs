@@ -167,6 +167,7 @@
             this.btnNewDevice.TabIndex = 2;
             this.btnNewDevice.Text = "New device";
             this.btnNewDevice.UseVisualStyleBackColor = true;
+            this.btnNewDevice.Click += new System.EventHandler(this.btnNewDevice_Click);
             // 
             // lblMyDevices
             // 
