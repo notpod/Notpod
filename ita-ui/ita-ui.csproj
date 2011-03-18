@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>iTunesAgent.UI</RootNamespace>
     <AssemblyName>ita-ui</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>Resources\ita-new.ico</ApplicationIcon>
     <FileUpgradeFlags>
@@ -18,6 +18,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,6 +77,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUtils.cs" />
+    <Compile Include="Controls\NewDeviceNamePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceNamePage.Designer.cs">
+      <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceWelcomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceWelcomePage.Designer.cs">
+      <DependentUpon>NewDeviceWelcomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Wizard\NoWizardPagesException.cs" />
     <Compile Include="Components\Wizard\WizardDataStore.cs" />
     <Compile Include="Components\Wizard\AbstractWizardPage.cs">
       <SubType>UserControl</SubType>
@@ -118,8 +132,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\Wizard\AbstractWizardPage.resx">
+      <DependentUpon>AbstractWizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceNamePage.resx">
+      <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceWelcomePage.de.resx">
+      <DependentUpon>NewDeviceWelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceWelcomePage.resx">
+      <DependentUpon>NewDeviceWelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Wizard\WizardForm.resx">
       <DependentUpon>WizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevicesPanel.de.resx">
+      <DependentUpon>DevicesPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevicesPanel.resx">
       <DependentUpon>DevicesPanel.cs</DependentUpon>
@@ -209,6 +238,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>$(ProjectDir)Versioner.exe "$(ProjectDir)Properties\AssemblyInfo.cs"</PreBuildEvent>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if not exist "$(TargetPath).locked" if exist "$(TargetPath)" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
   </PropertyGroup>
 </Project>
