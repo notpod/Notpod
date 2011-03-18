@@ -203,5 +203,14 @@ namespace iTunesAgent.UI.Properties {
                 return ResourceManager.GetString("StrRestartApplicationSoSettingsTakeEffect", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a new device.
+        /// </summary>
+        internal static string StrWizardWelcomeAddNewPage {
+            get {
+                return ResourceManager.GetString("StrWizardWelcomeAddNewPage", resourceCulture);
+            }
+        }
     }
 }

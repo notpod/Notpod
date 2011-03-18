@@ -169,4 +169,7 @@
   <data name="StrMediaSoftwareStatusPrefix" xml:space="preserve">
     <value>The following software have been located:</value>
   </data>
+  <data name="StrWizardWelcomeAddNewPage" xml:space="preserve">
+    <value>Add a new device</value>
+  </data>
 </root>
