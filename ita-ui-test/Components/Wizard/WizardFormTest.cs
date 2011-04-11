@@ -11,13 +11,20 @@ namespace iTunesAgent.UI.Components.Wizard
     {
         MockRepository mock = new MockRepository();
 
-        [Test]
-        [ExpectedException(typeof(NoWizardPagesException))]
-        public void StartWizard_WhenNoPagesAdded_ShouldThrowException()
-        {
-            WizardForm form = new WizardForm();
-            form.StartWizard(null);
-        }
+        //[Test]
+        //[ExpectedException(typeof(NoWizardPagesException))]
+        //public void StartWizard_WhenNoPagesAdded_ShouldThrowException()
+        //{
+        //    WizardForm form = new WizardForm();
+        //    form.StartWizard(null);
+        //}
+
+        //[Test]
+        //public void buttonClick_test()
+        //{
+        //    WizardForm form = new WizardForm();
+            
+        //}
                 
     }
 }
