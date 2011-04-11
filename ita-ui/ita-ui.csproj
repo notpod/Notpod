@@ -77,6 +77,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUtils.cs" />
+    <Compile Include="Components\Wizard\DefaultWizardFormFactory.cs" />
+    <Compile Include="Components\Wizard\IWizardForm.cs" />
+    <Compile Include="Components\Wizard\IWizardFormFactory.cs" />
+    <Compile Include="Components\Wizard\Wizard.cs" />
     <Compile Include="Controls\NewDeviceNamePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
