@@ -26,14 +26,15 @@ namespace iTunesAgent.UI
 
         private void btnNewDevice_Click(object sender, EventArgs e)
         {
-            WizardForm wizard = new WizardForm();
+            Wizard wizard = new Wizard();
             
             NewDeviceWelcomePage welcomePage  = new NewDeviceWelcomePage();
             welcomePage.PageTitle = Resources.StrWizardWelcomeAddNewPage;
+            welcomePage.FinishEnabled = false;
             wizard.Pages.AddLast(welcomePage);
 
             NewDeviceNamePage namePage = new NewDeviceNamePage();
-            namePage.PageTitle = "Name your device";
+            namePage.PageTitle = "Name your device";            
             wizard.Pages.AddLast(namePage);
 
             wizard.StartWizard(this);
