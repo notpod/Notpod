@@ -12,11 +12,7 @@ namespace iTunesAgent.UI.Components.Wizard
     public partial class WizardForm : Form
     {
 
-        private LinkedList<AbstractWizardPage> pages = new LinkedList<AbstractWizardPage>();
-
-        private int currentPage = 0;
-
-        private WizardDataStore dataStore = new WizardDataStore();
+       
 
         public WizardForm()
         {
@@ -24,106 +20,70 @@ namespace iTunesAgent.UI.Components.Wizard
         }
 
 
-        public LinkedList<AbstractWizardPage> Pages
+        
+
+        //private void buttonCancel_Click(object sender, EventArgs e)
+        //{
+        //    this.Close();
+        //}
+
+        //private void buttonNext_Click(object sender, EventArgs e)
+        //{
+        //    if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
+        //    {
+        //        NextPage();
+        //    }
+        //}
+
+        //private void NextPage()
+        //{
+        //    AbstractWizardPage page = pages.ElementAt(currentPage++);
+        //    page.Populate();
+        //    page.DataStore = dataStore;
+        //    SetControlsForPage(page);
+        //    ApplyControlOverrideRules();
+        //    labelPageTitle.Text = page.PageTitle;
+        //    panelWizardPageContainer.Controls.Clear();
+        //    panelWizardPageContainer.Controls.Add(page);
+        //}
+
+        //private void buttonFinish_Click(object sender, EventArgs e)
+        //{
+        //    if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
+        //    {
+        //        Close();
+        //    }
+        //}
+
+        public Control PageContainer
         {
-            get { return pages; }
+            get { return panelWizardPageContainer; }
         }
 
-        public WizardDataStore DataStore
+        public Label LabelPageTitle
         {
-            get { return dataStore; }
+            get { return labelPageTitle; }
         }
 
-        /// <summary>
-        /// Start the wizard by displaying the first page.
-        /// </summary>
-        /// <param name="owner"></param>
-        public void StartWizard(IWin32Window owner)
+        public Button NextButton
         {
-            ValidatePages();
-
-            NextPage();
-
-            if (owner == null)
-            {
-                ShowDialog();
-            }
-            else
-            {
-                ShowDialog(owner);
-            }
-
-
+            get { return buttonNext; }
         }
 
-        private void ApplyControlOverrideRules()
+        public Button BackButton
         {
-            if (pages.Count == 1)
-            {
-                // Cancel button always enabled if only one page.
-                buttonCancel.Enabled = true;                
-            }
-
-            if (currentPage == pages.Count)
-            {
-                buttonNext.Enabled = false;
-            }
-
-            if (currentPage == 0)
-            {
-                buttonBack.Enabled = false;
-            }
+            get { return buttonBack; }
         }
 
-        private void SetControlsForPage(AbstractWizardPage page)
+        public Button FinishButton
         {
-            buttonCancel.Enabled = page.CancelEnabled;
-            buttonBack.Enabled = page.BackEnabled;
-            buttonNext.Enabled = page.NextEnabled;
-            buttonFinish.Enabled = page.FinishEnabled;
+            get { return buttonFinish; }
         }
 
-        private void ValidatePages()
+        public Button CancelButtonObject
         {
-            if (pages.Count == 0)
-            {
-                throw new NoWizardPagesException("Please add at least one before starting the wizard.");
-            }
-
-            
+            get { return buttonCancel; }
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void buttonNext_Click(object sender, EventArgs e)
-        {
-            if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
-            {
-                NextPage();
-            }
-        }
-
-        private void NextPage()
-        {
-            AbstractWizardPage page = pages.ElementAt(currentPage++);
-            page.Populate();
-            page.DataStore = dataStore;
-            SetControlsForPage(page);
-            ApplyControlOverrideRules();
-            labelPageTitle.Text = page.PageTitle;
-            panelWizardPageContainer.Controls.Clear();
-            panelWizardPageContainer.Controls.Add(page);
-        }
-
-        private void buttonFinish_Click(object sender, EventArgs e)
-        {
-            if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
-            {
-                Close();
-            }
-        }
     }
 }

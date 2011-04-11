@@ -22,8 +22,6 @@ namespace iTunesAgent.UI.Components.Wizard
 
         private string pageTitle = "";
 
-        private bool cancelEnabled = true;
-
         private bool nextEnabled = true;
 
         private bool backEnabled = true;
@@ -48,13 +46,7 @@ namespace iTunesAgent.UI.Components.Wizard
             get { return nextEnabled; }
             set { nextEnabled = value; }
         }
-
-        public bool CancelEnabled
-        {
-            get { return cancelEnabled; }
-            set { cancelEnabled = value; }
-        }
-
+               
         public bool BackEnabled
         {
             get { return backEnabled; }
