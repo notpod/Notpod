@@ -19,7 +19,11 @@ namespace iTunesAgent.UI.Controls
 
         public override void Populate()
         {
-            
+            String deviceName = (String)DataStore["deviceName"];
+            if (deviceName != null)
+            {
+                textDeviceName.Text = deviceName;
+            }
         }
 
         public override bool ValidateBeforeNext()
