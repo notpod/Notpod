@@ -77,15 +77,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUtils.cs" />
+    <Compile Include="Components\Wizard\AbstractConditionalWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Wizard\AbstractConditionalWizardPage.Designer.cs">
+      <DependentUpon>AbstractConditionalWizardPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Wizard\DefaultWizardFormFactory.cs" />
     <Compile Include="Components\Wizard\IWizardForm.cs" />
     <Compile Include="Components\Wizard\IWizardFormFactory.cs" />
     <Compile Include="Components\Wizard\Wizard.cs" />
+    <Compile Include="Controls\NewDeviceMSDConfigurationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceMSDConfigurationPage.Designer.cs">
+      <DependentUpon>NewDeviceMSDConfigurationPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NewDeviceNamePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\NewDeviceNamePage.Designer.cs">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeBasedConditionalPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeBasedConditionalPage.Designer.cs">
+      <DependentUpon>NewDeviceTypeBasedConditionalPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeSelectionPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeSelectionPage.Designer.cs">
+      <DependentUpon>NewDeviceTypeSelectionPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\NewDeviceWelcomePage.cs">
       <SubType>UserControl</SubType>
@@ -107,6 +131,12 @@
     <Compile Include="ConfigurationChecker.cs" />
     <Compile Include="ConfigurationCheckerImpl.cs" />
     <Compile Include="ConfigurationWriter.cs" />
+    <Compile Include="Controls\NewDeviceWPDConfigurationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceWPDConfigurationPage.Designer.cs">
+      <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DefaultConfigurationToFileWriter.cs" />
     <Compile Include="DevicesPanel.cs">
       <SubType>UserControl</SubType>
@@ -139,8 +169,14 @@
     <EmbeddedResource Include="Components\Wizard\AbstractWizardPage.resx">
       <DependentUpon>AbstractWizardPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceMSDConfigurationPage.resx">
+      <DependentUpon>NewDeviceMSDConfigurationPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceNamePage.resx">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceTypeSelectionPage.resx">
+      <DependentUpon>NewDeviceTypeSelectionPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceWelcomePage.de.resx">
       <DependentUpon>NewDeviceWelcomePage.cs</DependentUpon>
@@ -150,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Wizard\WizardForm.resx">
       <DependentUpon>WizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceWPDConfigurationPage.resx">
+      <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevicesPanel.de.resx">
       <DependentUpon>DevicesPanel.cs</DependentUpon>
