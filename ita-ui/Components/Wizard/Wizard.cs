@@ -42,7 +42,7 @@ namespace iTunesAgent.UI.Components.Wizard
             activeForm.BackButton.Click += new EventHandler(buttonBack_Click);
             activeForm.NextButton.Click += new EventHandler(buttonNext_Click);
             activeForm.FinishButton.Click += new EventHandler(buttonFinish_Click);
-            
+
             NextPage();
 
             if (owner == null)
@@ -60,19 +60,19 @@ namespace iTunesAgent.UI.Components.Wizard
         private void ApplyControlOverrideRules()
         {
 
-            if (currentPage == pages.Count)
+            if (currentPage == pages.Count - 1)
             {
                 activeForm.NextButton.Enabled = false;
             }
 
-            if (currentPage == 1)
+            if (currentPage == 0)
             {
                 activeForm.BackButton.Enabled = false;
             }
         }
 
         private void SetControlsForPage(AbstractWizardPage page)
-        {            
+        {
             activeForm.BackButton.Enabled = page.BackEnabled;
             activeForm.NextButton.Enabled = page.NextEnabled;
             activeForm.FinishButton.Enabled = page.FinishEnabled;
@@ -95,27 +95,52 @@ namespace iTunesAgent.UI.Components.Wizard
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            
+            PreviousPage();
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
+        private void PreviousPage()
         {
-            if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
+            if (currentPage > 0)
             {
-                NextPage();
+                currentPage--;
+                ShowPageAtIndex(currentPage);
             }
         }
 
-        private void NextPage()
+        private void ShowPageAtIndex(int pageIndex)
         {
-            AbstractWizardPage page = pages.ElementAt(currentPage++);
-            page.Populate();
+            AbstractWizardPage page = pages.ElementAt(pageIndex);
+            if (page.GetType() == typeof(AbstractConditionalWizardPage))
+            {
+                page = ((AbstractConditionalWizardPage)page).GetWizardPage();
+            }
             page.DataStore = dataStore;
+            page.Populate();
             SetControlsForPage(page);
             ApplyControlOverrideRules();
             activeForm.LabelPageTitle.Text = page.PageTitle;
             activeForm.PageContainer.Controls.Clear();
             activeForm.PageContainer.Controls.Add(page);
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            if (!pages.ElementAt(currentPage).ValidateBeforeNext())
+            {
+                return;
+            }
+
+            NextPage();
+
+        }
+
+        private void NextPage()
+        {
+            if (currentPage < pages.Count - 1)
+            {
+                currentPage++;
+                ShowPageAtIndex(currentPage);
+            }
         }
 
         private void buttonFinish_Click(object sender, EventArgs e)
@@ -131,6 +156,6 @@ namespace iTunesAgent.UI.Components.Wizard
             get { return this.wizardFormFactory; }
             set { wizardFormFactory = value; }
         }
-                        
+
     }
 }
