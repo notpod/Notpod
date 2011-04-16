@@ -37,6 +37,22 @@ namespace iTunesAgent.UI
             namePage.PageTitle = "Name your device";            
             wizard.Pages.AddLast(namePage);
 
+            NewDeviceTypeSelectionPage typePage = new NewDeviceTypeSelectionPage();
+            typePage.PageTitle = "Choose your device type";
+            wizard.Pages.AddLast(typePage);
+
+            NewDeviceMSDConfigurationPage msdPage = new NewDeviceMSDConfigurationPage();
+            msdPage.PageTitle = "Configure your device";
+
+            NewDeviceWPDConfigurationPage wpdPage = new NewDeviceWPDConfigurationPage();
+            wpdPage.PageTitle = "Configure your device";
+
+            NewDeviceTypeBasedConditionalPage deviceConfigurationPage = new NewDeviceTypeBasedConditionalPage();
+            deviceConfigurationPage.MassStorageDevicePage = msdPage;
+            deviceConfigurationPage.WindowsPortableDevicePage = wpdPage;
+            wizard.Pages.AddLast(deviceConfigurationPage);
+
+
             wizard.StartWizard(this);
         }
     }
