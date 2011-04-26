@@ -110,9 +110,16 @@ namespace iTunesAgent.UI.Components.Wizard
         private void ShowPageAtIndex(int pageIndex)
         {
             AbstractWizardPage page = pages.ElementAt(pageIndex);
-            if (page.GetType() == typeof(AbstractConditionalWizardPage))
+            
+
+            try
             {
-                page = ((AbstractConditionalWizardPage)page).GetWizardPage();
+                AbstractConditionalWizardPage conditionalPage = (AbstractConditionalWizardPage)page;
+                conditionalPage.DataStore = dataStore;
+                page = conditionalPage.GetWizardPage();
+
+            } catch(Exception ex)  {
+                                
             }
             page.DataStore = dataStore;
             page.Populate();
