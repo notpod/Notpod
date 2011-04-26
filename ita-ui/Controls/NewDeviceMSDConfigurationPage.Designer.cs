@@ -51,6 +51,7 @@
             this.buttonBrowse.TabIndex = 1;
             this.buttonBrowse.Text = "&Click to browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // labelSelectedLocationInfo
             // 

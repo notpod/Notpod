@@ -18,12 +18,35 @@ namespace iTunesAgent.UI.Controls
 
         public override void Populate()
         {
-            
+            string fullPath = (string)DataStore["msdFullPath"];
+            if (!String.IsNullOrEmpty(fullPath))
+            {
+                labelDeviceMusicLocation.Text = fullPath;
+            }
         }
 
         public override bool ValidateBeforeNext()
         {
+
             return base.ValidateBeforeNext();
+        }
+
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog deviceBrowser = new FolderBrowserDialog();
+            DialogResult result = deviceBrowser.ShowDialog(this);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            string fullPath = deviceBrowser.SelectedPath;
+            string drive = fullPath.Substring(0, 2);
+            string path = fullPath.Substring(2);
+            labelDeviceMusicLocation.Text = fullPath;
+
+            DataStore["msdFullPath"] = fullPath;
+            DataStore["msdPathOnDevice"] = path;
         }
 
     }
