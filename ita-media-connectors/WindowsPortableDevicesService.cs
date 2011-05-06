@@ -11,7 +11,7 @@ using iTunesAgent.Connectors.Domain;
 namespace iTunesAgent.Connectors
 {
 
-    public class WindowsPortableDevicesService : MediaDevicesService
+    public class WindowsPortableDevicesService : MediaDevicesService<WindowsPortableDevice>
     {
         private PortableDeviceManager deviceManager;
 
@@ -59,7 +59,7 @@ namespace iTunesAgent.Connectors
         /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        public CompatibleDevice GetDeviceById(string deviceId)
+        public WindowsPortableDevice GetDeviceById(string deviceId)
         {
 
             WindowsPortableDevice device = new WindowsPortableDevice(deviceId);
