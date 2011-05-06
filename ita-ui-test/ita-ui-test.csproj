@@ -75,7 +75,7 @@
     <Compile Include="Components\Wizard\DummyPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Wizard\WizardFormTest.cs" />
+    <Compile Include="Components\Wizard\WizardTest.cs" />
     <Compile Include="ConfigurationCheckerImplTest.cs" />
     <Compile Include="DefaultConfigurationToFileWriterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
