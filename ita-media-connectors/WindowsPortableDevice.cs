@@ -61,7 +61,7 @@ namespace iTunesAgent.Connectors.Domain
             propertyValues.GetStringValue(ref PortableDevicePKeys.WPD_DEVICE_FRIENDLY_NAME, out val);
             this.Name = val;
 
-            
+            this.Identifier = deviceId;
         }
 
         public void Disconnect()
@@ -70,5 +70,11 @@ namespace iTunesAgent.Connectors.Domain
             this.portableDevice.Close();
             isConnected = false;
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
+
     }
 }
