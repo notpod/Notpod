@@ -6,9 +6,9 @@ using iTunesAgent.Domain;
 
 namespace iTunesAgent.Connectors
 {
-    public interface MediaDevicesService
+    public interface MediaDevicesService<T>
     {
         string[] GetDeviceIds();
-        CompatibleDevice GetDeviceById(string deviceId);
+        T GetDeviceById(string deviceId);
     }
 }
