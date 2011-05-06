@@ -88,12 +88,12 @@ namespace iTunesAgent.UI.Components.Wizard
 
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        public void buttonCancel_Click(object sender, EventArgs e)
         {
             activeForm.Close();
         }
 
-        private void buttonBack_Click(object sender, EventArgs e)
+        public void buttonBack_Click(object sender, EventArgs e)
         {
             PreviousPage();
         }
@@ -130,9 +130,9 @@ namespace iTunesAgent.UI.Components.Wizard
             activeForm.PageContainer.Controls.Add(page);
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
+        public void buttonNext_Click(object sender, EventArgs e)
         {
-            if (!pages.ElementAt(currentPage).ValidateBeforeNext())
+            if (!ValidateCurrentPage())
             {
                 return;
             }
@@ -145,17 +145,41 @@ namespace iTunesAgent.UI.Components.Wizard
         {
             if (currentPage < pages.Count - 1)
             {
-                currentPage++;
-                ShowPageAtIndex(currentPage);
+                currentPage++;                
             }
+
+            ShowPageAtIndex(currentPage);
         }
 
-        private void buttonFinish_Click(object sender, EventArgs e)
+        void buttonFinish_Click(object sender, EventArgs e)
         {
-            if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
+            if (!ValidateCurrentPage())
             {
-                activeForm.Close();
+                return;
             }
+
+            activeForm.Close();
+        }
+
+        private bool ValidateCurrentPage()
+        {
+            AbstractWizardPage page = pages.ElementAt(currentPage);
+
+
+            try
+            {
+                AbstractConditionalWizardPage conditionalPage = (AbstractConditionalWizardPage)page;
+                
+                page = conditionalPage.GetWizardPage();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return page.ValidateBeforeNext();
+
         }
 
         public IWizardFormFactory WizardFormFactory
