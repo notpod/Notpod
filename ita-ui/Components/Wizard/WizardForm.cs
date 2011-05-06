@@ -12,48 +12,10 @@ namespace iTunesAgent.UI.Components.Wizard
     public partial class WizardForm : Form
     {
 
-       
-
         public WizardForm()
         {
             InitializeComponent();
         }
-
-
-        
-
-        //private void buttonCancel_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
-
-        //private void buttonNext_Click(object sender, EventArgs e)
-        //{
-        //    if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
-        //    {
-        //        NextPage();
-        //    }
-        //}
-
-        //private void NextPage()
-        //{
-        //    AbstractWizardPage page = pages.ElementAt(currentPage++);
-        //    page.Populate();
-        //    page.DataStore = dataStore;
-        //    SetControlsForPage(page);
-        //    ApplyControlOverrideRules();
-        //    labelPageTitle.Text = page.PageTitle;
-        //    panelWizardPageContainer.Controls.Clear();
-        //    panelWizardPageContainer.Controls.Add(page);
-        //}
-
-        //private void buttonFinish_Click(object sender, EventArgs e)
-        //{
-        //    if (pages.ElementAt(currentPage - 1).ValidateBeforeNext())
-        //    {
-        //        Close();
-        //    }
-        //}
 
         public Control PageContainer
         {
