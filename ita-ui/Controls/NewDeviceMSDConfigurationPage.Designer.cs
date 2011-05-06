@@ -39,9 +39,9 @@
             this.labelInfoTop.AutoSize = true;
             this.labelInfoTop.Location = new System.Drawing.Point(4, 4);
             this.labelInfoTop.Name = "labelInfoTop";
-            this.labelInfoTop.Size = new System.Drawing.Size(381, 13);
+            this.labelInfoTop.Size = new System.Drawing.Size(262, 13);
             this.labelInfoTop.TabIndex = 0;
-            this.labelInfoTop.Text = "Please choose where on your Mass Storage Device you want to copy music to:";
+            this.labelInfoTop.Text = "Please choose the disk drive that is your media player:";
             // 
             // buttonBrowse
             // 
@@ -58,9 +58,9 @@
             this.labelSelectedLocationInfo.AutoSize = true;
             this.labelSelectedLocationInfo.Location = new System.Drawing.Point(3, 77);
             this.labelSelectedLocationInfo.Name = "labelSelectedLocationInfo";
-            this.labelSelectedLocationInfo.Size = new System.Drawing.Size(292, 13);
+            this.labelSelectedLocationInfo.Size = new System.Drawing.Size(100, 13);
             this.labelSelectedLocationInfo.TabIndex = 2;
-            this.labelSelectedLocationInfo.Text = "Music will be copied to the following location on your device:";
+            this.labelSelectedLocationInfo.Text = "Selected disk drive:";
             // 
             // labelDeviceMusicLocation
             // 

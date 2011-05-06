@@ -53,10 +53,10 @@
             this.radioMassStorage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioMassStorage.Location = new System.Drawing.Point(6, 42);
             this.radioMassStorage.Name = "radioMassStorage";
-            this.radioMassStorage.Size = new System.Drawing.Size(146, 17);
+            this.radioMassStorage.Size = new System.Drawing.Size(180, 17);
             this.radioMassStorage.TabIndex = 1;
             this.radioMassStorage.TabStop = true;
-            this.radioMassStorage.Text = "Mass Storage Device";
+            this.radioMassStorage.Text = "Removable Storage Device";
             this.radioMassStorage.UseVisualStyleBackColor = true;
             // 
             // labelMassStorageInfo
@@ -65,9 +65,9 @@
             this.labelMassStorageInfo.Name = "labelMassStorageInfo";
             this.labelMassStorageInfo.Size = new System.Drawing.Size(406, 48);
             this.labelMassStorageInfo.TabIndex = 2;
-            this.labelMassStorageInfo.Text = "A Mass Storage Device is one treated as an external storage device by your comput" +
-                "er. It usually shows up under \"Removable storage\" with a drive letter, such as D" +
-                ":\\, under My Computer.\r\n";
+            this.labelMassStorageInfo.Text = "A Removable Storage Device is one treated as an external storage device by your c" +
+                "omputer. It usually shows up as \"Removable disk\" with a drive letter, such as D:" +
+                "\\, under My Computer.\r\n";
             // 
             // radioWindowsPortableDevice
             // 

@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="labelWPDInfo.Text" xml:space="preserve">
-    <value>A Portable Media Device is a device that normally shows up under "Media Devices" under My Computer. These devices are not associated with a drive letter, but are often identified by Windows as either a portable music player, camera or video player. </value>
+    <value>A Portable Media Device is a device that normally shows up under "Portable Devices" under My Computer. These devices are not associated with a drive letter, but are often identified by Windows as either a portable music player, camera or video player. </value>
   </data>
 </root>
