@@ -59,6 +59,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -98,6 +105,12 @@
     </Compile>
     <Compile Include="Controls\NewDeviceNamePage.Designer.cs">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceSummaryPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceSummaryPage.Designer.cs">
+      <DependentUpon>NewDeviceSummaryPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\NewDeviceTypeBasedConditionalPage.cs">
       <SubType>UserControl</SubType>
@@ -174,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceNamePage.resx">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceSummaryPage.resx">
+      <DependentUpon>NewDeviceSummaryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceTypeSelectionPage.resx">
       <DependentUpon>NewDeviceTypeSelectionPage.cs</DependentUpon>
@@ -270,6 +286,10 @@
     <ProjectReference Include="..\ita-itunes\ita-itunes.csproj">
       <Project>{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}</Project>
       <Name>ita-itunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ita-media-connectors\ita-media-connectors.csproj">
+      <Project>{6BB762C5-A39F-4CF1-8B48-C6FA225F80D4}</Project>
+      <Name>ita-media-connectors</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
