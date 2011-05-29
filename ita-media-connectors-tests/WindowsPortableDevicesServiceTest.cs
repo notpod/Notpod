@@ -21,8 +21,8 @@ namespace iTunesAgent.Connectors
             {
                 Console.Out.WriteLine("Identifier: {0}", id);
                 Console.Out.WriteLine("Connecting...");
-                WindowsPortableDevice device = (WindowsPortableDevice)s.GetDeviceById(id);
-                device.Connect("ita", 2f, 0f);
+                CompatibleDevice device = s.GetDeviceById(id);
+                device.Connect();
                 Console.Out.WriteLine("Name: " + device.Name);
 
                 Console.Out.WriteLine("Disconnecting...");
