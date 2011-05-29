@@ -25,15 +25,15 @@ namespace iTunesAgent.UI.Controls
 
         public override void Populate()
         {
-            WindowsPortableDevice selectedDevice = (WindowsPortableDevice)DataStore["wpdDevice"];
+            CompatibleDevice selectedDevice = (CompatibleDevice)DataStore["wpdDevice"];
                         
             listWPDDevices.Items.Clear();
 
             string[] deviceIds = devicesService.GetDeviceIds();
             foreach (string deviceId in deviceIds)
             {
-                WindowsPortableDevice device = devicesService.GetDeviceById(deviceId);
-                device.Connect("iTunes Agent", 2f, 0f);
+                CompatibleDevice device = devicesService.GetDeviceById(deviceId);
+                device.Connect();
                 device.Disconnect();
                 listWPDDevices.Items.Add(device);
 
