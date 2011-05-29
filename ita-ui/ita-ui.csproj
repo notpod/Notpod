@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>iTunesAgent.UI</RootNamespace>
     <AssemblyName>ita-ui</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>Resources\ita-new.ico</ApplicationIcon>
     <FileUpgradeFlags>
@@ -106,6 +106,12 @@
     <Compile Include="Controls\NewDeviceNamePage.Designer.cs">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NewDevicePlaylistsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDevicePlaylistsPage.Designer.cs">
+      <DependentUpon>NewDevicePlaylistsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NewDeviceSummaryPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceNamePage.resx">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDevicePlaylistsPage.resx">
+      <DependentUpon>NewDevicePlaylistsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceSummaryPage.resx">
       <DependentUpon>NewDeviceSummaryPage.cs</DependentUpon>
