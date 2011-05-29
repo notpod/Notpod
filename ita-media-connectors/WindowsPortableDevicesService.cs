@@ -40,18 +40,20 @@ namespace iTunesAgent.Connectors
         public string[] GetDeviceIds()
         {
 
-            uint cDevices = 1;
-            deviceManager.GetDevices(null, ref cDevices);
+            deviceManager.RefreshDeviceList();  
 
-            if (cDevices == 0)
+            uint numberOfDevices = 0;            
+            deviceManager.GetDevices(null, ref numberOfDevices);
+
+            if (numberOfDevices == 0)
             {
                 return new string[0];
             }
-
-            string[] idArray = new string[cDevices];
-            deviceManager.GetDevices(ref idArray[0], ref cDevices);
-
-            return idArray;
+            
+            string[] deviceIds = new string[numberOfDevices];            
+            deviceManager.GetDevices(deviceIds, ref numberOfDevices);
+            
+            return deviceIds;
         }
 
         /// <summary>
