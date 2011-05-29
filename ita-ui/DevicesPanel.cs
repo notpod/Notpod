@@ -34,30 +34,22 @@ namespace iTunesAgent.UI
             welcomePage.PageTitle = Resources.StrWizardWelcomeAddNewPage;
             welcomePage.FinishEnabled = false;
             wizard.Pages.AddLast(welcomePage);
-
+            
+            NewDeviceWPDConfigurationPage deviceSelectionPage = new NewDeviceWPDConfigurationPage();
+            deviceSelectionPage.DevicesService = new WindowsPortableDevicesService();
+            deviceSelectionPage.PageTitle = Resources.StrWizardConfigureYourDevice;
+            wizard.Pages.AddLast(deviceSelectionPage);
+                        
             NewDeviceNamePage namePage = new NewDeviceNamePage();
-            namePage.PageTitle = "Name your device";            
+            namePage.PageTitle = Resources.StrWizardNamePageTitle;
             wizard.Pages.AddLast(namePage);
 
-            NewDeviceTypeSelectionPage typePage = new NewDeviceTypeSelectionPage();
-            typePage.PageTitle = "Choose your device type";
-            wizard.Pages.AddLast(typePage);
-
-            NewDeviceMSDConfigurationPage msdPage = new NewDeviceMSDConfigurationPage();
-            msdPage.PageTitle = "Configure your device";
-
-            NewDeviceWPDConfigurationPage wpdPage = new NewDeviceWPDConfigurationPage();
-            wpdPage.DevicesService = new WindowsPortableDevicesService();
-            wpdPage.PageTitle = "Configure your device";
-
-            NewDeviceTypeBasedConditionalPage deviceConfigurationPage = new NewDeviceTypeBasedConditionalPage();
-            deviceConfigurationPage.MassStorageDevicePage = msdPage;
-            deviceConfigurationPage.WindowsPortableDevicePage = wpdPage;
-            wizard.Pages.AddLast(deviceConfigurationPage);
+            NewDevicePlaylistsPage playlistPage = new NewDevicePlaylistsPage();
+            playlistPage.PageTitle = Resources.StrWizardPlaylistsPageTitle;
+            wizard.Pages.AddLast(playlistPage);
 
             NewDeviceSummaryPage summaryPage = new NewDeviceSummaryPage();
-            summaryPage.PageTitle = "Summary";
-
+            summaryPage.PageTitle = Resources.StrWizardSummaryPageTitle;
             wizard.Pages.AddLast(summaryPage);
 
 
