@@ -43,6 +43,7 @@ namespace iTunesAgent.UI.Components.Wizard
             activeForm.NextButton.Click += new EventHandler(buttonNext_Click);
             activeForm.FinishButton.Click += new EventHandler(buttonFinish_Click);
 
+            currentPage = -1;
             NextPage();
 
             if (owner == null)
