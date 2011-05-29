@@ -13,7 +13,7 @@ namespace iTunesAgent.Connectors.Domain
     {
         private string deviceId;
 
-        private PortableDeviceClass portableDevice;
+        private PortableDevice portableDevice;
 
         private bool isConnected = false;
 
@@ -21,22 +21,23 @@ namespace iTunesAgent.Connectors.Domain
         {
             this.deviceId = deviceId;
             portableDevice = new PortableDeviceClass();
+                
         }
 
-        public void Connect(string applicationName, float majorVersion, float minorVersion)
+        public override void Connect()
         {
             //Creating propValues for connection
             IPortableDeviceValues clientValues = (IPortableDeviceValues)new PortableDeviceTypesLib.PortableDeviceValuesClass();
 
             //Set the application name
             _tagpropertykey prop = PortableDevicePKeys.WPD_CLIENT_NAME;
-            clientValues.SetStringValue(ref prop, applicationName);
+            clientValues.SetStringValue(ref prop, "iTunes Agent");
             //Set the App version
             prop = PortableDevicePKeys.WPD_CLIENT_MAJOR_VERSION;
-            clientValues.SetFloatValue(ref prop, majorVersion);
+            clientValues.SetFloatValue(ref prop, 2f);
             //Set the app minor version
             prop = PortableDevicePKeys.WPD_CLIENT_MINOR_VERSION;
-            clientValues.SetFloatValue(ref prop, minorVersion);
+            clientValues.SetFloatValue(ref prop, 0f);
 
             //Open connection
             this.portableDevice.Open(this.deviceId, clientValues);
@@ -64,7 +65,7 @@ namespace iTunesAgent.Connectors.Domain
             this.Identifier = deviceId;
         }
 
-        public void Disconnect()
+        public override void Disconnect()
         {
 
             this.portableDevice.Close();
