@@ -172,4 +172,19 @@
   <data name="StrWizardWelcomeAddNewPage" xml:space="preserve">
     <value>Add a new device</value>
   </data>
+  <data name="StrWizardConfigureYourDevice" xml:space="preserve">
+    <value>Configure your device</value>
+  </data>
+  <data name="StrWizardNamePageTitle" xml:space="preserve">
+    <value>Name your device</value>
+  </data>
+  <data name="StrWizardSummaryPageTitle" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="StrWizardTypeSelectionPageTitle" xml:space="preserve">
+    <value>Choose your device type</value>
+  </data>
+  <data name="StrWizardPlaylistsPageTitle" xml:space="preserve">
+    <value>Associate playlists with device</value>
+  </data>
 </root>
