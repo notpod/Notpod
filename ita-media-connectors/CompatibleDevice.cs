@@ -22,5 +22,9 @@ namespace iTunesAgent.Connectors
             get { return name; }
             set { name = value; }
         }
+
+        public abstract void Connect();
+
+        public abstract void Disconnect();
     }
 }
