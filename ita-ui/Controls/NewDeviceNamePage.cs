@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using iTunesAgent.UI.Components.Wizard;
+using iTunesAgent.Connectors;
+using iTunesAgent.Connectors.Domain;
 
 namespace iTunesAgent.UI.Controls
 {
@@ -23,6 +25,12 @@ namespace iTunesAgent.UI.Controls
             if (deviceName != null)
             {
                 textDeviceName.Text = deviceName;
+
+            }
+            else
+            {
+               CompatibleDevice selecteDevice = (CompatibleDevice)DataStore["wpdDevice"];
+                    textDeviceName.Text = "My " + selecteDevice.Name;                
             }
         }
 
@@ -30,7 +38,7 @@ namespace iTunesAgent.UI.Controls
         {
             if (String.IsNullOrEmpty(textDeviceName.Text))
             {
-                MessageBox.Show(this, "You must enter a name for your device before continuing.", 
+                MessageBox.Show(this, "You must enter a name for your device before continuing.",
                     "Seems you forgot something!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
