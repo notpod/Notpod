@@ -31,8 +31,8 @@
             this.labelExplanation = new System.Windows.Forms.Label();
             this.labelDeviceNameInfo = new System.Windows.Forms.Label();
             this.labelDeviceName = new System.Windows.Forms.Label();
-            this.labelLocationInfo = new System.Windows.Forms.Label();
-            this.labelLocation = new System.Windows.Forms.Label();
+            this.cbOpenPlaylistsPanelOnFinish = new System.Windows.Forms.CheckBox();
+            this.labelPlaylistSetup = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelExplanation
@@ -61,35 +61,41 @@
             this.labelDeviceName.TabIndex = 2;
             this.labelDeviceName.Text = "Device name";
             // 
-            // labelLocationInfo
+            // cbOpenPlaylistsPanelOnFinish
             // 
-            this.labelLocationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLocationInfo.Location = new System.Drawing.Point(3, 57);
-            this.labelLocationInfo.Name = "labelLocationInfo";
-            this.labelLocationInfo.Size = new System.Drawing.Size(128, 17);
-            this.labelLocationInfo.TabIndex = 5;
-            this.labelLocationInfo.Text = "Location:";
+            this.cbOpenPlaylistsPanelOnFinish.AutoSize = true;
+            this.cbOpenPlaylistsPanelOnFinish.Checked = true;
+            this.cbOpenPlaylistsPanelOnFinish.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbOpenPlaylistsPanelOnFinish.Location = new System.Drawing.Point(6, 105);
+            this.cbOpenPlaylistsPanelOnFinish.Name = "cbOpenPlaylistsPanelOnFinish";
+            this.cbOpenPlaylistsPanelOnFinish.Size = new System.Drawing.Size(287, 17);
+            this.cbOpenPlaylistsPanelOnFinish.TabIndex = 3;
+            this.cbOpenPlaylistsPanelOnFinish.Text = "Yes, please open the paylist panel when I press \'Finish\'.";
+            this.cbOpenPlaylistsPanelOnFinish.UseVisualStyleBackColor = true;
             // 
-            // labelLocation
+            // labelPlaylistSetup
             // 
-            this.labelLocation.Location = new System.Drawing.Point(16, 74);
-            this.labelLocation.Name = "labelLocation";
-            this.labelLocation.Size = new System.Drawing.Size(457, 53);
-            this.labelLocation.TabIndex = 6;
-            this.labelLocation.Text = "Location";
+            this.labelPlaylistSetup.AutoSize = true;
+            this.labelPlaylistSetup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlaylistSetup.Location = new System.Drawing.Point(3, 89);
+            this.labelPlaylistSetup.Name = "labelPlaylistSetup";
+            this.labelPlaylistSetup.Size = new System.Drawing.Size(339, 13);
+            this.labelPlaylistSetup.TabIndex = 4;
+            this.labelPlaylistSetup.Text = "Do you want to set up playlists for your device right away?";
             // 
             // NewDeviceSummaryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.labelLocation);
-            this.Controls.Add(this.labelLocationInfo);
+            this.Controls.Add(this.labelPlaylistSetup);
+            this.Controls.Add(this.cbOpenPlaylistsPanelOnFinish);
             this.Controls.Add(this.labelDeviceName);
             this.Controls.Add(this.labelDeviceNameInfo);
             this.Controls.Add(this.labelExplanation);
             this.Name = "NewDeviceSummaryPage";
             this.Size = new System.Drawing.Size(476, 300);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,7 +104,7 @@
         private System.Windows.Forms.Label labelExplanation;
         private System.Windows.Forms.Label labelDeviceNameInfo;
         private System.Windows.Forms.Label labelDeviceName;
-        private System.Windows.Forms.Label labelLocationInfo;
-        private System.Windows.Forms.Label labelLocation;
+        private System.Windows.Forms.CheckBox cbOpenPlaylistsPanelOnFinish;
+        private System.Windows.Forms.Label labelPlaylistSetup;
     }
 }

@@ -20,14 +20,12 @@ namespace iTunesAgent.UI.Controls
 
         public override void  Populate()
         {
-            labelDeviceName.Text = (string)DataStore["deviceName"];
-
-            labelLocation.Text = ((WindowsPortableDevice)DataStore["wpdDevice"]).Name;            
-            
+            labelDeviceName.Text = (string)DataStore[WizardDataStoreKeys.NAME];
         }
 
         public override bool ValidateBeforeNext()
         {
+            DataStore[WizardDataStoreKeys.OPEN_PLAYLIST_PANEL] = cbOpenPlaylistsPanelOnFinish.Checked;
             return true;
         }
     }
