@@ -21,7 +21,7 @@ namespace iTunesAgent.UI.Controls
 
         public override void Populate()
         {
-            String deviceName = (String)DataStore["deviceName"];
+            String deviceName = (String)DataStore[WizardDataStoreKeys.NAME];
             if (deviceName != null)
             {
                 textDeviceName.Text = deviceName;
@@ -29,7 +29,7 @@ namespace iTunesAgent.UI.Controls
             }
             else
             {
-               CompatibleDevice selecteDevice = (CompatibleDevice)DataStore["wpdDevice"];
+                CompatibleDevice selecteDevice = (CompatibleDevice)DataStore[WizardDataStoreKeys.DEVICE];
                     textDeviceName.Text = "My " + selecteDevice.Name;                
             }
         }
@@ -43,7 +43,7 @@ namespace iTunesAgent.UI.Controls
                 return false;
             }
 
-            DataStore["deviceName"] = textDeviceName.Text;
+            DataStore[WizardDataStoreKeys.NAME] = textDeviceName.Text;
             return true;
         }
     }

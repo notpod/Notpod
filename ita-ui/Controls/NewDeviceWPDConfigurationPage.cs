@@ -25,7 +25,7 @@ namespace iTunesAgent.UI.Controls
 
         public override void Populate()
         {
-            CompatibleDevice selectedDevice = (CompatibleDevice)DataStore["wpdDevice"];
+            CompatibleDevice selectedDevice = (CompatibleDevice)DataStore[WizardDataStoreKeys.DEVICE];
                         
             listWPDDevices.Items.Clear();
 
@@ -54,7 +54,7 @@ namespace iTunesAgent.UI.Controls
                 return false;
             }
 
-            DataStore["wpdDevice"] = device;
+            DataStore[WizardDataStoreKeys.DEVICE] = device;
             return true;
         }
 
