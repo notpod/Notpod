@@ -160,6 +160,33 @@ namespace iTunesAgent.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Never.
+        /// </summary>
+        internal static string StrDeviceLastSyncNever {
+            get {
+                return ResourceManager.GetString("StrDeviceLastSyncNever", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offline.
+        /// </summary>
+        internal static string StrDeviceStatusOffline {
+            get {
+                return ResourceManager.GetString("StrDeviceStatusOffline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connected.
+        /// </summary>
+        internal static string StrDeviceStatusOnline {
+            get {
+                return ResourceManager.GetString("StrDeviceStatusOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are running the newest version,.
         /// </summary>
         internal static string StrHomePanelYouAreRunningVersion {

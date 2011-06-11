@@ -187,4 +187,13 @@
   <data name="StrWizardPlaylistsPageTitle" xml:space="preserve">
     <value>Associate playlists with device</value>
   </data>
+  <data name="StrDeviceLastSyncNever" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="StrDeviceStatusOffline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="StrDeviceStatusOnline" xml:space="preserve">
+    <value>Connected</value>
+  </data>
 </root>

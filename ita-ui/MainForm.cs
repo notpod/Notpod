@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using log4net;
 using iTunesAgent.Services;
 using iTunesAgent.Services.iTunes;
+using iTunesAgent.Domain;
 
 namespace iTunesAgent.UI
 {
@@ -24,7 +25,7 @@ namespace iTunesAgent.UI
 
         private ILog l = LogManager.GetLogger(typeof(MainForm));
 
-        private ModelRepository modelRepository;
+        private ModelRepository modelRepository = new ModelRepository();
 
         private Dictionary<string, MediaSoftwareService> mediaSoftwareServices = new Dictionary<string, MediaSoftwareService>();
 
@@ -36,9 +37,15 @@ namespace iTunesAgent.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoadConfiguration();
             PopulateMediaSoftwareServices();
             InitializePanels();            
             LoadPreviousPanel();
+        }
+
+        private void LoadConfiguration()
+        {
+            modelRepository["devices"] = new DeviceCollection();
         }
 
         private void PopulateMediaSoftwareServices()
@@ -72,7 +79,11 @@ namespace iTunesAgent.UI
             HomePanel homePanel = new HomePanel();
             homePanel.MediaSoftwareServices = mediaSoftwareServices;
             panels.Add("home", homePanel);
-            panels.Add("devices", new DevicesPanel());
+
+            DevicesPanel devicesPanel = new DevicesPanel();
+            devicesPanel.Model = modelRepository;
+            panels.Add("devices", devicesPanel);
+            
             panels.Add("preferences", new PreferencesPanel());
 
             setCommonPanelProperties();

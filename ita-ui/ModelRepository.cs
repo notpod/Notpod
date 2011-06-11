@@ -39,5 +39,9 @@ namespace iTunesAgent.UI
             xs.Serialize(stream, this[component]);
         }
 
+        public  T Get<T>(string component)
+        {
+            return (T)this[component];
+        }
     }
 }

@@ -106,12 +106,6 @@
     <Compile Include="Controls\NewDeviceNamePage.Designer.cs">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NewDevicePlaylistsPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\NewDevicePlaylistsPage.Designer.cs">
-      <DependentUpon>NewDevicePlaylistsPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\NewDeviceSummaryPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +150,7 @@
     <Compile Include="Controls\NewDeviceWPDConfigurationPage.Designer.cs">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\WizardDataStoreKeys.cs" />
     <Compile Include="DefaultConfigurationToFileWriter.cs" />
     <Compile Include="DevicesPanel.cs">
       <SubType>UserControl</SubType>
@@ -193,9 +188,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceNamePage.resx">
       <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\NewDevicePlaylistsPage.resx">
-      <DependentUpon>NewDevicePlaylistsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceSummaryPage.resx">
       <DependentUpon>NewDeviceSummaryPage.cs</DependentUpon>
