@@ -18,7 +18,7 @@ namespace iTunesAgent.Domain
         {
             DeviceCollection collection = new DeviceCollection();
 
-            MassStorageDevice msd = new MassStorageDevice();
+            Device msd = new Device();
             msd.Name = "Test1";
             msd.Identifier = "file:mydevice.id";
             msd.AddPlaylistAssociation(1234, "pattern", "Playlist1");
@@ -26,7 +26,7 @@ namespace iTunesAgent.Domain
 
             collection.Devices.Add(msd);
 
-            WPDDevice wpd = new WPDDevice();
+            Device wpd = new Device();
             wpd.Name = "Test2";
             wpd.Identifier = "usb:1234567890";
             wpd.AddPlaylistAssociation(4321, "pattern2", "Playlist3");
@@ -93,5 +93,37 @@ namespace iTunesAgent.Domain
             File.Delete("test.xml");
         }
 
+        [Test]
+        public void GetDeviceByIdentifier_shouldReturnNullWhenNoDeviceWithProvidedIdentifier()
+        {
+
+            DeviceCollection collection = new DeviceCollection();
+
+            Assert.IsNull(collection.GetDeviceWithIdentifier("usb:12345"));
+
+            Device testDevice = new Device();
+            testDevice.Identifier = "usb:54321";
+            testDevice.Name = "Test device";
+            collection.Devices.Add(testDevice);
+
+            Assert.IsNull(collection.GetDeviceWithIdentifier("usb:12345"));
+        }
+
+        [Test]
+        public void GetDeviceByIdentifier_shouldReturnDeviceWithMatchingIdentifier()
+        {
+
+            DeviceCollection collection = new DeviceCollection();
+            Device testDevice = new Device();
+            testDevice.Identifier = "usb:54321";
+            testDevice.Name = "Test device";
+            collection.Devices.Add(testDevice);
+
+
+            Assert.AreEqual(testDevice, collection.GetDeviceWithIdentifier("usb:54321"));
+
+
+            Assert.IsNull(collection.GetDeviceWithIdentifier("usb:12345"));
+        }
     }
 }
