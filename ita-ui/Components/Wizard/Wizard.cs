@@ -33,7 +33,7 @@ namespace iTunesAgent.UI.Components.Wizard
         /// Start the wizard by displaying the first page.
         /// </summary>
         /// <param name="owner"></param>
-        public void StartWizard(IWin32Window owner)
+        public DialogResult StartWizard(IWin32Window owner)
         {
             ValidatePages();
 
@@ -46,16 +46,17 @@ namespace iTunesAgent.UI.Components.Wizard
             currentPage = -1;
             NextPage();
 
+            DialogResult formResult = DialogResult.None;
             if (owner == null)
             {
-                activeForm.ShowDialog();
+                formResult = activeForm.ShowDialog();
             }
             else
             {
-                activeForm.ShowDialog(owner);
+                formResult = activeForm.ShowDialog(owner);
             }
 
-
+            return formResult;
         }
 
         private void ApplyControlOverrideRules()
