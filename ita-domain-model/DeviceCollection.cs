@@ -19,5 +19,18 @@ namespace iTunesAgent.Domain
             get { return devices; }
         }
 
+        public Device GetDeviceWithIdentifier(string identifier)
+        {
+            foreach(Device device in devices) {
+
+                if (device.Identifier == identifier)
+                {
+                    return device;
+                }
+            }
+
+            return null;
+        }
+
     }
 }

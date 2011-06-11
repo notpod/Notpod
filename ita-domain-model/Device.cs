@@ -5,10 +5,12 @@ using System.Text;
 using System.Xml.Serialization;
 
 namespace iTunesAgent.Domain
-{
-    [XmlInclude(typeof(MassStorageDevice)), XmlInclude(typeof(WPDDevice))]
-    public abstract class Device
-    {
+{    
+    /// <summary>
+    /// Contains information about a configured device - a device that iTunes Agent is able to communicate with.
+    /// </summary>
+    public class Device
+    {        
         private string name;
 
         private string identifier;
