@@ -92,6 +92,7 @@ namespace iTunesAgent.UI.Components.Wizard
 
         public void buttonCancel_Click(object sender, EventArgs e)
         {
+            activeForm.DialogResult = DialogResult.Cancel;
             activeForm.Close();
         }
 
@@ -160,6 +161,8 @@ namespace iTunesAgent.UI.Components.Wizard
                 return;
             }
 
+
+            activeForm.DialogResult = DialogResult.OK;
             activeForm.Close();
         }
 
