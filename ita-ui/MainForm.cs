@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using log4net;
+using log4net.Config;
 using iTunesAgent.Services;
 using iTunesAgent.Services.iTunes;
 using iTunesAgent.Domain;
+using iTunesAgent.UI.Configuration;
 
 namespace iTunesAgent.UI
 {
@@ -27,16 +29,21 @@ namespace iTunesAgent.UI
 
         private ModelRepository modelRepository = new ModelRepository();
 
+        private ConfigurationChecker configurationChecker = new ConfigurationCheckerImpl();
+
         private Dictionary<string, MediaSoftwareService> mediaSoftwareServices = new Dictionary<string, MediaSoftwareService>();
 
         public MainForm()
         {
             InitializeComponent();
             TranslationMgr.Attach(this);
+            configurationChecker.ConfigurationWriter = new DefaultConfigurationToFileWriter(ApplicationUtils.APP_CONFIG_PATH);            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            BasicConfigurator.Configure();
+            
             LoadConfiguration();
             PopulateMediaSoftwareServices();
             InitializePanels();            
@@ -45,7 +52,7 @@ namespace iTunesAgent.UI
 
         private void LoadConfiguration()
         {
-            modelRepository["devices"] = new DeviceCollection();
+            modelRepository = ApplicationUtils.LoadModelRepository(configurationChecker);
         }
 
         private void PopulateMediaSoftwareServices()
