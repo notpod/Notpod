@@ -32,5 +32,17 @@ namespace iTunesAgent.Domain
             return null;
         }
 
+        public void DeleteByIdentifier(string identifier)
+        {
+            for (int i = 0; i < devices.Count; i++)
+            {
+                if (devices[i].Identifier == identifier)
+                {
+                    devices.RemoveAt(i);
+                }
+
+            }
+        }
+
     }
 }

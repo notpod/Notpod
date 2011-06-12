@@ -58,5 +58,11 @@ namespace iTunesAgent.Domain
                 }
             }
         }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
+
     }
 }
