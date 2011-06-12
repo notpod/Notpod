@@ -11,12 +11,16 @@ using iTunesAgent.UI.Properties;
 using iTunesAgent.UI.Controls;
 using iTunesAgent.Connectors;
 using iTunesAgent.Domain;
+using System.IO;
+using log4net;
 
 namespace iTunesAgent.UI
 {
     public partial class DevicesPanel : UserControl
     {
         private ModelRepository model;
+
+        private ILog l = LogManager.GetLogger(typeof(DevicesPanel));            
 
         public DevicesPanel()
         {
@@ -26,6 +30,7 @@ namespace iTunesAgent.UI
         private void DevicesPanel_Load(object sender, EventArgs e)
         {
             TranslationMgr.Attach(this);
+            RefreshDevicesList();
         }
 
         private void btnNewDevice_Click(object sender, EventArgs e)
@@ -81,11 +86,21 @@ namespace iTunesAgent.UI
 
             Device newDevice = new Device();
             newDevice.Identifier = device.Identifier;
-            newDevice.Name = device.Name;
+            newDevice.Name = name;
 
             deviceCollection.Devices.Add(newDevice);
-
+            FlushDeviceConfigurationToFile();
+            
             RefreshDevicesList();
+        }
+
+        private void FlushDeviceConfigurationToFile()
+        {
+            l.Debug("Attemting to write device configuration to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+            
+            model.Serialize("devices", typeof(DeviceCollection), ApplicationUtils.GetDeviceConfigurationStream(FileMode.Create));
+
+            l.Debug("Device configuration successfully written to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
         }
 
         private void RefreshDevicesList()
@@ -97,8 +112,9 @@ namespace iTunesAgent.UI
 
             foreach (Device device in deviceCollection.Devices)
             {
-                ListViewItem item = new ListViewItem();
+                ListViewItem item = new ListViewItem();                
                 item.Text = device.Name;
+                item.Name = device.Identifier;
                 item.SubItems.Add(Resources.StrDeviceStatusOffline);
                 item.SubItems.Add("Unknown");
                 item.SubItems.Add("Never");
@@ -121,6 +137,23 @@ namespace iTunesAgent.UI
                 model = value;
             }
 
+        }
+
+        private void btnDeleteDevice_Click(object sender, EventArgs e)
+        {
+
+
+            DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
+
+            foreach (ListViewItem listItem in lvDevices.SelectedItems)
+            {
+                string identifier = listItem.Name;
+                deviceCollection.DeleteByIdentifier(identifier);                
+            }
+
+            FlushDeviceConfigurationToFile();
+            
+            RefreshDevicesList();
         }
 
     }

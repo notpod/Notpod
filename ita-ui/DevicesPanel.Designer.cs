@@ -149,6 +149,7 @@
             this.btnDeleteDevice.TabIndex = 0;
             this.btnDeleteDevice.Text = "Delete";
             this.btnDeleteDevice.UseVisualStyleBackColor = true;
+            this.btnDeleteDevice.Click += new System.EventHandler(this.btnDeleteDevice_Click);
             // 
             // btnEditDevice
             // 

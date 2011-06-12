@@ -125,5 +125,20 @@ namespace iTunesAgent.Domain
 
             Assert.IsNull(collection.GetDeviceWithIdentifier("usb:12345"));
         }
+
+        [Test]
+        public void DeleteByIdentifier_shouldDeleteDeviceWithMatchingIdentifier()
+        {
+
+            DeviceCollection collection = new DeviceCollection();
+            Device testDevice = new Device();
+            testDevice.Identifier = "usb:54321";
+            testDevice.Name = "Test device";
+            collection.Devices.Add(testDevice);
+
+            collection.DeleteByIdentifier("usb:54321");
+
+            Assert.IsNull(collection.GetDeviceWithIdentifier("usb:54321"));
+        }
     }
 }

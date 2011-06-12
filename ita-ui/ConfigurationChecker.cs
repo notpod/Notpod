@@ -8,5 +8,8 @@ namespace iTunesAgent.UI.Configuration
     public interface ConfigurationChecker
     {
         void CheckConfiguration();
+
+        ConfigurationWriter ConfigurationWriter { set; get; }
+
     }
 }
