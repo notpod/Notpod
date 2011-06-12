@@ -13,6 +13,7 @@ namespace iTunesAgent.UI
     public class ApplicationUtils
     {
         public static readonly string APP_CONFIG_PATH = GetUserAppDataPath() + "\\ApplicationConfiguration.xml";
+        public static readonly string DEVICES_CONFIG_PATH = GetUserAppDataPath() + "\\Devices.xml";
 
         /*!
          * Populates the ModelRepository with configuration from file.
@@ -21,6 +22,49 @@ namespace iTunesAgent.UI
         {
             ModelRepository repo = new ModelRepository();
 
+            LoadApplicationConfiguration(configurationChecker, repo);
+            LoadStoredDevices(repo);
+
+            return repo;
+        }
+
+        private static void LoadStoredDevices(ModelRepository repo)
+        {
+
+            // If there are no current stored devices config, simply add a new DeviceCollection.
+            if (!File.Exists(DEVICES_CONFIG_PATH))
+            {
+                repo["devices"] = new DeviceCollection();
+                return;
+            }
+
+            Stream read;
+            try
+            {                
+                read = new FileStream(DEVICES_CONFIG_PATH, FileMode.Open);
+            }
+            catch (Exception ex)
+            {
+
+                throw new IOException("Unable to load stored devices configuration.", ex);
+            }
+
+            try
+            {
+                repo.Deserialize("devices", typeof(iTunesAgent.Domain.DeviceCollection), read);
+            }
+            finally
+            {
+
+                if (read != null)
+                {
+                    read.Close();
+                }
+            }
+        }
+
+        private static void LoadApplicationConfiguration(ConfigurationChecker configurationChecker, ModelRepository repo)
+        {
             Stream read;
             try
             {
@@ -46,13 +90,17 @@ namespace iTunesAgent.UI
                     read.Close();
                 }
             }
-
-            return repo;
         }
 
         public static string GetUserAppDataPath()
         {
             return Application.UserAppDataPath;
+        }
+
+        internal static Stream GetDeviceConfigurationStream(FileMode mode)
+        {
+            Stream stream = new FileStream(DEVICES_CONFIG_PATH, mode);
+            return stream;
         }
     }
 }
