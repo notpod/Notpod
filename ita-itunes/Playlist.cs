@@ -10,7 +10,17 @@ namespace iTunesAgent.Services
                 
         private string name;
 
+        private int id;
+
         private string type;
+
+        private int trackCount;
+
+        public int ID
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
 
         public string Name
         {
@@ -23,5 +33,13 @@ namespace iTunesAgent.Services
             get { return this.type; }
             set { this.type = value; }
         }
+
+
+        public int TrackCount
+        {
+            get { return this.trackCount; }
+            set { this.trackCount = value; }
+        }
+
     }
 }

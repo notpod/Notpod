@@ -118,7 +118,9 @@ namespace iTunesAgent.Services.iTunes
 
                 Playlist pl = new Playlist();
                 pl.Name = playlist.Name;
-                pl.PlaylistType = playlist.Kind.ToString();                
+                pl.ID = playlist.playlistID;
+                pl.PlaylistType = playlist.Kind.ToString();
+                pl.TrackCount = playlist.Tracks.Count;
                 listOfPlaylists.Add(pl);
             }
 

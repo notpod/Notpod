@@ -10,6 +10,8 @@ namespace iTunesAgent.Services
     {
         private string name;
 
+        private int id;
+
         private ITPlaylistKind kind; 
 
         public void Delete()
@@ -121,7 +123,8 @@ namespace iTunesAgent.Services
 
         public int playlistID
         {
-            get { throw new NotImplementedException(); }
+            get { return this.id; }
+            set { this.id = value; }
         }
 
         public int sourceID
