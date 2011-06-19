@@ -1,0 +1,15 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="bin\Debug\ita-itunes-test.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto">
+    <assembly path="bin\Release\ita-itunes-test.dll" />
+  </Config>
+  <Config name="Debug|x86" binpathtype="Auto">
+    <assembly path="bin\Debug\ita-itunes-test.dll" />
+  </Config>
+  <Config name="Release|x86" binpathtype="Auto">
+    <assembly path="bin\Release\ita-itunes-test.dll" />
+  </Config>
+</NUnitProject>
