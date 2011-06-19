@@ -47,6 +47,7 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.panButtons = new System.Windows.Forms.Panel();
             this.btnPreferences = new System.Windows.Forms.Button();
+            this.btnPlaylists = new System.Windows.Forms.Button();
             this.btnMyDevices = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
             this.panViewPlaceholder = new System.Windows.Forms.Panel();
@@ -54,7 +55,7 @@
             this.trayContextMenu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panMainPanel.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -168,7 +169,9 @@
             // 
             resources.ApplyResources(this.panButtons, "panButtons");
             this.panButtons.BackColor = System.Drawing.Color.White;
+            this.panButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panButtons.Controls.Add(this.btnPreferences);
+            this.panButtons.Controls.Add(this.btnPlaylists);
             this.panButtons.Controls.Add(this.btnMyDevices);
             this.panButtons.Controls.Add(this.buttonHome);
             this.panButtons.Name = "panButtons";
@@ -180,12 +183,26 @@
             this.btnPreferences.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPreferences.FlatAppearance.BorderSize = 0;
             this.btnPreferences.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnPreferences.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btnPreferences.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnPreferences.Image = global::iTunesAgent.UI.Properties.Resources.preferences;
             this.btnPreferences.Name = "btnPreferences";
             this.toolTipMain.SetToolTip(this.btnPreferences, resources.GetString("btnPreferences.ToolTip"));
             this.btnPreferences.UseVisualStyleBackColor = true;
             this.btnPreferences.Click += new System.EventHandler(this.btnPreferences_Click);
+            // 
+            // btnPlaylists
+            // 
+            resources.ApplyResources(this.btnPlaylists, "btnPlaylists");
+            this.btnPlaylists.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPlaylists.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlaylists.FlatAppearance.BorderSize = 0;
+            this.btnPlaylists.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPlaylists.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnPlaylists.Image = global::iTunesAgent.UI.Properties.Resources.playlist;
+            this.btnPlaylists.Name = "btnPlaylists";
+            this.toolTipMain.SetToolTip(this.btnPlaylists, resources.GetString("btnPlaylists.ToolTip"));
+            this.btnPlaylists.UseVisualStyleBackColor = true;
+            this.btnPlaylists.Click += new System.EventHandler(this.btnPlaylists_Click);
             // 
             // btnMyDevices
             // 
@@ -194,7 +211,7 @@
             this.btnMyDevices.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMyDevices.FlatAppearance.BorderSize = 0;
             this.btnMyDevices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnMyDevices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btnMyDevices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnMyDevices.Image = global::iTunesAgent.UI.Properties.Resources.media_players;
             this.btnMyDevices.Name = "btnMyDevices";
             this.toolTipMain.SetToolTip(this.btnMyDevices, resources.GetString("btnMyDevices.ToolTip"));
@@ -206,9 +223,10 @@
             resources.ApplyResources(this.buttonHome, "buttonHome");
             this.buttonHome.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHome.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonHome.FlatAppearance.BorderSize = 0;
             this.buttonHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.buttonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.buttonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonHome.Image = global::iTunesAgent.UI.Properties.Resources.home;
             this.buttonHome.Name = "buttonHome";
             this.toolTipMain.SetToolTip(this.buttonHome, resources.GetString("buttonHome.ToolTip"));
@@ -239,7 +257,7 @@
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
-            //((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.panButtons.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -267,9 +285,10 @@
         private System.Windows.Forms.ToolStripSeparator tssSynchronizeSeparator1;
         private System.Windows.Forms.ToolStripMenuItem tssSynchronizeNoDevices;
         private System.Windows.Forms.Button buttonHome;
-        private System.Windows.Forms.Button btnPreferences;
         private System.Windows.Forms.Button btnMyDevices;
         private System.Windows.Forms.ToolTip toolTipMain;
+        private System.Windows.Forms.Button btnPreferences;
+        private System.Windows.Forms.Button btnPlaylists;
     }
 }
 

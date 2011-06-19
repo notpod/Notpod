@@ -90,7 +90,9 @@ namespace iTunesAgent.UI
             DevicesPanel devicesPanel = new DevicesPanel();
             devicesPanel.Model = modelRepository;
             panels.Add("devices", devicesPanel);
-            
+
+            panels.Add("playlists", new PlaylistsPanel());
+
             panels.Add("preferences", new PreferencesPanel());
 
             setCommonPanelProperties();
@@ -156,6 +158,13 @@ namespace iTunesAgent.UI
             SetSelectedColor(sender);
             switchToPanel("home");
         }
+        
+        private void btnPlaylists_Click(object sender, EventArgs e)
+        {
+            ResetButtonState();
+            SetSelectedColor(sender);
+            switchToPanel("playlists");
+        }
 
         private void SetSelectedColor(object sender)
         {
@@ -196,5 +205,6 @@ namespace iTunesAgent.UI
             }
 
         }
+
     }
 }
