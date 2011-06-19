@@ -19,13 +19,13 @@ namespace iTunesAgent.Services
          */
         List<Playlist> GetPlaylists();
 
-        /*!
-         * Get a specific playlist by it's name.
-         * 
-         * \param name The name of the playlist.
-         * \return The specified playlist if found, otherwise the method returns null.
-         */
-        Playlist GetPlaylist(string name);
+        
+        /// <summary>
+        /// Get a specific playlist by it's id.
+        /// </summary>
+        /// <param name="id">The name of the playlist.</param>
+        /// <returns>The specified playlist if found, otherwise the method returns null.</returns>
+        Playlist GetPlaylist(string id);
 
         /*!
          * Initialize the iTunesService.
