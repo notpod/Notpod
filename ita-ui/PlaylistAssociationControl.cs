@@ -15,5 +15,18 @@ namespace iTunesAgent.UI
         {
             InitializeComponent();
         }
+
+        public String PlaylistName
+        {
+
+            get { return this.lblPlaylistName.Text; }
+            set { this.lblPlaylistName.Text = value; }
+        }
+
+        public string PlaylistNameToolTip
+        {
+            get { return this.toolTip.GetToolTip(lblPlaylistName); }
+            set { this.toolTip.SetToolTip(lblPlaylistName, value); }
+        }
     }
 }

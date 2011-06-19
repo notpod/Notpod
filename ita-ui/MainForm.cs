@@ -62,7 +62,7 @@ namespace iTunesAgent.UI
                 MediaSoftwareService itunesService = new ITunesServiceImpl();
                 itunesService.MediaSoftwareConnectionFactory = new ITunesConnectionFactory();
                 itunesService.Initialize();
-                mediaSoftwareServices.Add("itunes", itunesService);
+                mediaSoftwareServices.Add(ITunesServiceImpl.SERVICE_NAME, itunesService);
             }
             catch (Exception ex)
             {
@@ -91,7 +91,9 @@ namespace iTunesAgent.UI
             devicesPanel.Model = modelRepository;
             panels.Add("devices", devicesPanel);
 
-            panels.Add("playlists", new PlaylistsPanel());
+            PlaylistsPanel playlistsPanel = new PlaylistsPanel();
+            playlistsPanel.MediaSoftwareService = mediaSoftwareServices[ITunesServiceImpl.SERVICE_NAME];
+            panels.Add("playlists", playlistsPanel);
 
             panels.Add("preferences", new PreferencesPanel());
 

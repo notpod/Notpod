@@ -45,6 +45,7 @@
             this.lblPlaylistName.Size = new System.Drawing.Size(164, 14);
             this.lblPlaylistName.TabIndex = 0;
             this.lblPlaylistName.Text = "Playlist name";
+            this.lblPlaylistName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblAssociationCount
             // 

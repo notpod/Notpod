@@ -54,7 +54,6 @@
             this.tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayout.Size = new System.Drawing.Size(636, 358);
             this.tableLayout.TabIndex = 0;
-            this.tableLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // lblPlaylistAssociations
             // 
