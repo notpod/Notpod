@@ -12,6 +12,8 @@ namespace iTunesAgent.Services.iTunes
      */
     public class ITunesServiceImpl : MediaSoftwareService
     {
+        public static string SERVICE_NAME = "itunes";
+
         private AbstractMediaSoftwareConnectionFactory softwareConnectionFactory;
         
         private iTunesApp itunesCom;
@@ -35,9 +37,6 @@ namespace iTunesAgent.Services.iTunes
             }
         }
 
-        /*!
-         * \copydoc MediaSoftwareService::Name 
-         */
         public string Name
         {
             get
@@ -110,7 +109,21 @@ namespace iTunesAgent.Services.iTunes
         public List<Playlist> GetPlaylists()
         {
             ValidateState();
-            throw new NotImplementedException();
+            IITPlaylistCollection playlists = itunesCom.LibrarySource.Playlists;
+
+            List<Playlist> listOfPlaylists = new List<Playlist>();
+
+            foreach (IITPlaylist playlist in playlists)
+            {
+
+                Playlist pl = new Playlist();
+                pl.Name = playlist.Name;
+                pl.PlaylistType = playlist.Kind.ToString();                
+                listOfPlaylists.Add(pl);
+            }
+
+            return listOfPlaylists;
+
         }
 
         /*!
