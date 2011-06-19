@@ -28,5 +28,20 @@ namespace iTunesAgent.UI
             get { return this.toolTip.GetToolTip(lblPlaylistName); }
             set { this.toolTip.SetToolTip(lblPlaylistName, value); }
         }
+
+        public int AssociationCount
+        {
+            set
+            {
+                if (value == 0)
+                {
+                    this.lblAssociationCount.Text = "Not associations yet.";
+                }
+                else
+                {
+                    this.lblAssociationCount.Text = "Will be synchronized to " + value + " device" + (value > 1 ? "s" : "");
+                }
+            }
+        }
     }
 }

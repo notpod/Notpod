@@ -42,16 +42,16 @@
             this.lblPlaylistName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaylistName.Location = new System.Drawing.Point(1, 1);
             this.lblPlaylistName.Name = "lblPlaylistName";
-            this.lblPlaylistName.Size = new System.Drawing.Size(164, 14);
+            this.lblPlaylistName.Size = new System.Drawing.Size(170, 14);
             this.lblPlaylistName.TabIndex = 0;
             this.lblPlaylistName.Text = "Playlist name";
             this.lblPlaylistName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblAssociationCount
             // 
-            this.lblAssociationCount.Location = new System.Drawing.Point(-1, 18);
+            this.lblAssociationCount.Location = new System.Drawing.Point(1, 18);
             this.lblAssociationCount.Name = "lblAssociationCount";
-            this.lblAssociationCount.Size = new System.Drawing.Size(166, 14);
+            this.lblAssociationCount.Size = new System.Drawing.Size(170, 14);
             this.lblAssociationCount.TabIndex = 1;
             this.lblAssociationCount.Text = "Will be copied to X devices";
             // 
@@ -102,7 +102,7 @@
             this.Controls.Add(this.lblAssociationCount);
             this.Controls.Add(this.lblPlaylistName);
             this.Name = "PlaylistAssociationControl";
-            this.Size = new System.Drawing.Size(168, 58);
+            this.Size = new System.Drawing.Size(170, 58);
             this.ResumeLayout(false);
 
         }

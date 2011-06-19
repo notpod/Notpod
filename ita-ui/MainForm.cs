@@ -93,6 +93,7 @@ namespace iTunesAgent.UI
 
             PlaylistsPanel playlistsPanel = new PlaylistsPanel();
             playlistsPanel.MediaSoftwareService = mediaSoftwareServices[ITunesServiceImpl.SERVICE_NAME];
+            playlistsPanel.Model = modelRepository;
             panels.Add("playlists", playlistsPanel);
 
             panels.Add("preferences", new PreferencesPanel());
