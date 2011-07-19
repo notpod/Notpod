@@ -11,9 +11,24 @@ namespace iTunesAgent.UI
 {
     public partial class PlaylistAssociationControl : UserControl
     {
+
+        private int playlistID;
+
         public PlaylistAssociationControl()
         {
             InitializeComponent();
+        }
+
+        public int PlaylistID
+        {
+            get
+            {
+                return this.playlistID;
+            }
+            set
+            {
+                this.playlistID = value;
+            }
         }
 
         public String PlaylistName
@@ -41,6 +56,30 @@ namespace iTunesAgent.UI
                 {
                     this.lblAssociationCount.Text = "Will be synchronized to " + value + " device" + (value > 1 ? "s" : "");
                 }
+            }
+        }
+
+        public Button AddAssociationButton
+        {
+            get
+            {
+                return this.btnAddAssociation;
+            }
+        }
+
+        public Button EditAssociationsButton
+        {
+            get
+            {
+                return this.btnEditAssociations;
+            }
+        }
+
+        public Button SynchronizePlaylistButton
+        {
+            get
+            {
+                return this.btnSynchronizeNow;
             }
         }
     }

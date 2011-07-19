@@ -52,9 +52,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
-    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Rhino.Mocks.dll</HintPath>
@@ -80,9 +78,22 @@
     <Compile Include="Components\Wizard\WizardTest.cs" />
     <Compile Include="ConfigurationCheckerImplTest.cs" />
     <Compile Include="DefaultConfigurationToFileWriterTest.cs" />
+    <Compile Include="PlaylistsPanelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ita-domain-model\ita-domain-model.csproj">
+      <Project>{9C9C0EA1-306F-415A-B42D-717C02B9CD7E}</Project>
+      <Name>ita-domain-model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ita-itunes\ita-itunes.csproj">
+      <Project>{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}</Project>
+      <Name>ita-itunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ita-mocks\ita-mocks.csproj">
+      <Project>{842A91B2-4E38-40E0-8636-3869CB9EBC2B}</Project>
+      <Name>ita-mocks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ita-ui\ita-ui.csproj">
       <Project>{F4099758-4C03-488D-B173-AC0BBEBC0478}</Project>
       <Name>ita-ui</Name>

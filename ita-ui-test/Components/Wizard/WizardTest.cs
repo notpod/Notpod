@@ -13,13 +13,13 @@ namespace iTunesAgent.UI.Components.Wizard
     public class WizardTest
     {
 
-        //[Test]
-        //[ExpectedException(typeof(NoWizardPagesException))]
-        //public void StartWizard_WhenNoPagesAdded_ShouldThrowException()
-        //{
-        //    Wizard wizard = new Wizard();
-        //    wizard.StartWizard(null);
-        //}
+        [Test]
+        [ExpectedException(typeof(NoWizardPagesException))]
+        public void StartWizard_WhenNoPagesAdded_ShouldThrowException()
+        {
+            Wizard wizard = new Wizard();
+            wizard.StartWizard(null);
+        }
 
         //[Test]
         //public void StartWizard_WhenConditionsAreMet_ShouldCallShowDialogOnForm()
@@ -27,11 +27,12 @@ namespace iTunesAgent.UI.Components.Wizard
         //    MockRepository mock = new MockRepository();
 
         //    Wizard wizard = new Wizard();
-        //    IWizardFormFactory formFactory = mock.StrictMock<IWizardFormFactory>();
-        //    WizardForm mockForm = mock.StrictMock<WizardForm>();
+        //    IWizardFormFactory formFactory = mock.DynamicMock<IWizardFormFactory>();
+        //    WizardForm mockForm = mock.DynamicMock<WizardForm>();
+        //    SetUpCommonExpectationsOnFormFactory(formFactory, mockForm);
+        //    SetUpCommonExpectationsOnForm(mockForm);
 
-        //    AbstractWizardPage page = mock.StrictMock<AbstractWizardPage>();
-        //    //page.Expect(x => x.DataStore).Repeat.Once();
+        //    AbstractWizardPage page = mock.DynamicMock<AbstractWizardPage>();            
         //    wizard.Pages.AddFirst(page);
 
         //    wizard.WizardFormFactory = formFactory;
@@ -57,17 +58,18 @@ namespace iTunesAgent.UI.Components.Wizard
 
             Wizard wizard = new Wizard();
             IWizardFormFactory formFactory = mock.StrictMock<IWizardFormFactory>();
-            WizardForm mockForm = mock.StrictMock<WizardForm>();
+            WizardForm mockForm = mock.DynamicMock<WizardForm>();
 
             DummyPage page = new DummyPage();
             
             wizard.Pages.AddFirst(page);
 
-            wizard.WizardFormFactory = formFactory;
-            SetUpCommonExpectations(formFactory, mockForm);                        
-            
-            Expect.Call(mockForm.Close);
+            wizard.WizardFormFactory = formFactory;            
+            SetUpCommonExpectationsOnFormFactory(formFactory, mockForm);
+            SetUpCommonExpectationsOnForm(mockForm);
 
+            Expect.Call(mockForm.Close);
+            
             mock.ReplayAll();
 
             wizard.StartWizard(null);
@@ -79,16 +81,24 @@ namespace iTunesAgent.UI.Components.Wizard
             mock.VerifyAll();
         }
 
-        private static void SetUpCommonExpectations(IWizardFormFactory formFactory, WizardForm mockForm)
+        private void SetUpCommonExpectationsOnFormFactory(IWizardFormFactory formFactory, WizardForm mockForm)
         {
+
             Expect.Call(formFactory.NewForm()).Return(mockForm);
+       }
+
+        private void SetUpCommonExpectationsOnForm(WizardForm mockForm)
+        {
+
             Expect.Call(mockForm.ShowDialog()).Return(DialogResult.OK);
             Expect.Call(mockForm.CancelButtonObject).Return(new Button());
-            Expect.Call(mockForm.BackButton).Repeat.Times(2).Return(new Button());
-            Expect.Call(mockForm.NextButton).Return(new Button());
-            Expect.Call(mockForm.FinishButton).Return(new Button());
-
-       }
+            Expect.Call(mockForm.BackButton).Repeat.Any().Return(new Button());
+            Expect.Call(mockForm.NextButton).Repeat.Any().Return(new Button());
+            Expect.Call(mockForm.FinishButton).Repeat.Any().Return(new Button());
+            Expect.Call(mockForm.LabelPageTitle).Return(new Label());
+            Expect.Call(mockForm.PageContainer).Repeat.Any().Return(new Panel());
+            
+        }
 
         //[Test]
         //public void buttonNext_Click_WhenNotOnLastPage_ShouldInvokeNextPageInPageList()

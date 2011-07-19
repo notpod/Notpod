@@ -63,7 +63,7 @@
             this.btnEditAssociations.Image = global::iTunesAgent.UI.Properties.Resources.associations;
             this.btnEditAssociations.Location = new System.Drawing.Point(26, 37);
             this.btnEditAssociations.Name = "btnEditAssociations";
-            this.btnEditAssociations.Size = new System.Drawing.Size(18, 18);
+            this.btnEditAssociations.Size = new System.Drawing.Size(16, 16);
             this.btnEditAssociations.TabIndex = 2;
             this.toolTip.SetToolTip(this.btnEditAssociations, "Manage associations");
             this.btnEditAssociations.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             this.button1.Image = global::iTunesAgent.UI.Properties.Resources.remove;
             this.button1.Location = new System.Drawing.Point(50, 37);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(18, 18);
+            this.button1.Size = new System.Drawing.Size(16, 16);
             this.button1.TabIndex = 3;
             this.toolTip.SetToolTip(this.button1, "Remove all associations for this playlist and remove it from iTunes Agent");
             this.button1.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             this.btnSynchronizeNow.Image = global::iTunesAgent.UI.Properties.Resources.download;
             this.btnSynchronizeNow.Location = new System.Drawing.Point(147, 37);
             this.btnSynchronizeNow.Name = "btnSynchronizeNow";
-            this.btnSynchronizeNow.Size = new System.Drawing.Size(18, 18);
+            this.btnSynchronizeNow.Size = new System.Drawing.Size(16, 16);
             this.btnSynchronizeNow.TabIndex = 4;
             this.toolTip.SetToolTip(this.btnSynchronizeNow, "Synchronize this playlist now.");
             this.btnSynchronizeNow.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             this.btnAddAssociation.Image = global::iTunesAgent.UI.Properties.Resources.add_small;
             this.btnAddAssociation.Location = new System.Drawing.Point(3, 37);
             this.btnAddAssociation.Name = "btnAddAssociation";
-            this.btnAddAssociation.Size = new System.Drawing.Size(18, 18);
+            this.btnAddAssociation.Size = new System.Drawing.Size(16, 16);
             this.btnAddAssociation.TabIndex = 5;
             this.toolTip.SetToolTip(this.btnAddAssociation, "Add new association for this playlist.");
             this.btnAddAssociation.UseVisualStyleBackColor = true;

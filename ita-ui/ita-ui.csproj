@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="Controls\WizardDataStoreKeys.cs" />
     <Compile Include="DefaultConfigurationToFileWriter.cs" />
+    <Compile Include="DefaultNewPlaylistAssociationFormFactory.cs" />
     <Compile Include="DevicesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +173,13 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelRepository.cs" />
+    <Compile Include="NewPlaylistAssociationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPlaylistAssociationForm.Designer.cs">
+      <DependentUpon>NewPlaylistAssociationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INewPlaylistAssociationFormFactory.cs" />
     <Compile Include="PlaylistAssociationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPlaylistAssociationForm.resx">
+      <DependentUpon>NewPlaylistAssociationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlaylistAssociationControl.resx">
       <DependentUpon>PlaylistAssociationControl.cs</DependentUpon>

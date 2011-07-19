@@ -17,9 +17,17 @@ namespace iTunesAgent.UI
 
         private ModelRepository model;
 
+        private INewPlaylistAssociationFormFactory newPlaylistAssociationFormFactory;
+
         public PlaylistsPanel()
         {
             InitializeComponent();
+        }
+
+        public INewPlaylistAssociationFormFactory NewPlaylistAssociationFormFactory
+        {
+            get { return this.newPlaylistAssociationFormFactory; }
+            set { this.newPlaylistAssociationFormFactory = value; }
         }
 
 
@@ -35,7 +43,7 @@ namespace iTunesAgent.UI
             set { this.model = value; }
         }
 
-        private void PlaylistsPanel_Load(object sender, EventArgs e)
+        public void PlaylistsPanel_Load(object sender, EventArgs e)
         {
 
             DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
@@ -47,13 +55,31 @@ namespace iTunesAgent.UI
                 PlaylistAssociationControl playlistAssociationControl = new PlaylistAssociationControl();
                 playlistAssociationControl.PlaylistName = playlist.Name;
                 playlistAssociationControl.PlaylistNameToolTip = playlistAssociationControl.PlaylistName;
+                playlistAssociationControl.PlaylistID = playlist.ID;
 
                 int associations = deviceCollection.Devices.Count(d => d.Playlists.Select(p => p.PlaylistID == playlist.ID).Count() > 0);
                 playlistAssociationControl.AssociationCount = associations;
 
+                playlistAssociationControl.AddAssociationButton.Click += new EventHandler(AddAssociationButton_Click);
+                                
                 flowPlaylistAssociations.Controls.Add(playlistAssociationControl);
             }
 
+        }
+        
+        public void AddAssociationButton_Click(object sender, EventArgs e)
+        {                        
+            NewPlaylistAssociationForm newAssociationForm = newPlaylistAssociationFormFactory.NewInstance();
+            newAssociationForm.ShowDialog(this);
+            
+        }
+
+        public Control FlowPlaylistAssociations
+        {
+            get
+            {
+                return this.flowPlaylistAssociations;
+            }
         }
 
 
