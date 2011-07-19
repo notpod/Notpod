@@ -67,6 +67,13 @@ namespace iTunesAgent.UI.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap add_small {
+            get {
+                object obj = ResourceManager.GetObject("add_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap associations {
             get {
                 object obj = ResourceManager.GetObject("associations", resourceCulture);

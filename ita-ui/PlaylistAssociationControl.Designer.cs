@@ -35,6 +35,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.btnSynchronizeNow = new System.Windows.Forms.Button();
+            this.btnAddAssociation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPlaylistName
@@ -60,7 +61,7 @@
             this.btnEditAssociations.FlatAppearance.BorderSize = 0;
             this.btnEditAssociations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditAssociations.Image = global::iTunesAgent.UI.Properties.Resources.associations;
-            this.btnEditAssociations.Location = new System.Drawing.Point(1, 37);
+            this.btnEditAssociations.Location = new System.Drawing.Point(26, 37);
             this.btnEditAssociations.Name = "btnEditAssociations";
             this.btnEditAssociations.Size = new System.Drawing.Size(18, 18);
             this.btnEditAssociations.TabIndex = 2;
@@ -72,7 +73,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::iTunesAgent.UI.Properties.Resources.remove;
-            this.button1.Location = new System.Drawing.Point(25, 37);
+            this.button1.Location = new System.Drawing.Point(50, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(18, 18);
             this.button1.TabIndex = 3;
@@ -91,11 +92,24 @@
             this.toolTip.SetToolTip(this.btnSynchronizeNow, "Synchronize this playlist now.");
             this.btnSynchronizeNow.UseVisualStyleBackColor = true;
             // 
+            // btnAddAssociation
+            // 
+            this.btnAddAssociation.FlatAppearance.BorderSize = 0;
+            this.btnAddAssociation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAssociation.Image = global::iTunesAgent.UI.Properties.Resources.add_small;
+            this.btnAddAssociation.Location = new System.Drawing.Point(3, 37);
+            this.btnAddAssociation.Name = "btnAddAssociation";
+            this.btnAddAssociation.Size = new System.Drawing.Size(18, 18);
+            this.btnAddAssociation.TabIndex = 5;
+            this.toolTip.SetToolTip(this.btnAddAssociation, "Add new association for this playlist.");
+            this.btnAddAssociation.UseVisualStyleBackColor = true;
+            // 
             // PlaylistAssociationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnAddAssociation);
             this.Controls.Add(this.btnSynchronizeNow);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEditAssociations);
@@ -115,5 +129,6 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSynchronizeNow;
+        private System.Windows.Forms.Button btnAddAssociation;
     }
 }
