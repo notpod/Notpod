@@ -294,6 +294,7 @@
     <None Include="Resources\globe.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\add-small.png" />
     <Content Include="Resources\associations.png" />
     <Content Include="Resources\download.png" />
     <Content Include="Resources\playlist.png" />
