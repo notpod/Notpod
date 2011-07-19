@@ -8,6 +8,7 @@ namespace iTunesAgent.Services.iTunes
     using NUnit.Framework;
     using Rhino.Mocks;
     using iTunesLib;
+    using iTunesAgent.Mocks;
 
     /*!
      * Test case for iTunesServiceImpl.
