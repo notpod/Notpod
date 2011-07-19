@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-sync-tests", "ita-sync-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-ui-test", "ita-ui-test\ita-ui-test.csproj", "{B154D805-DB97-4D3C-9F2D-A6FE19F05AAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ita-mocks", "ita-mocks\ita-mocks.csproj", "{842A91B2-4E38-40E0-8636-3869CB9EBC2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Testing|Any CPU = Debug Testing|Any CPU
@@ -167,6 +169,15 @@ Global
 		{B154D805-DB97-4D3C-9F2D-A6FE19F05AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B154D805-DB97-4D3C-9F2D-A6FE19F05AAC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B154D805-DB97-4D3C-9F2D-A6FE19F05AAC}.Release|x86.ActiveCfg = Release|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Debug Testing|Any CPU.ActiveCfg = Debug|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Debug Testing|Any CPU.Build.0 = Debug|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Debug Testing|x86.ActiveCfg = Debug|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842A91B2-4E38-40E0-8636-3869CB9EBC2B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
