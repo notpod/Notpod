@@ -64,30 +64,6 @@ namespace iTunesAgent.UI
 
         }
 
-        [Test]
-        public void AddAssociationButtonClick_ShouldSpawnNewAssociationDialogForCorrectPlaylist()
-        {
-
-            MockRepository mockrepo = new MockRepository();
-
-            PlaylistsPanel playlistsPanel = new PlaylistsPanel();
-
-            INewPlaylistAssociationFormFactory newPlaylistAssociationFormFactory = mockrepo.StrictMock<INewPlaylistAssociationFormFactory>();
-            playlistsPanel.NewPlaylistAssociationFormFactory = newPlaylistAssociationFormFactory;
-
-            NewPlaylistAssociationForm mockedForm = mockrepo.StrictMock<NewPlaylistAssociationForm>();
-
-            Expect.Call(newPlaylistAssociationFormFactory.NewInstance()).Repeat.Once().Return(mockedForm);
-            Expect.Call(mockedForm.ShowDialog(null)).IgnoreArguments().Repeat.Once().Return(DialogResult.OK);
-            mockrepo.ReplayAll();
-
-            PlaylistAssociationControl associationControl = new PlaylistAssociationControl();
-
-            Button button = new Button();
-            button.Parent = associationControl;
-            playlistsPanel.AddAssociationButton_Click(button, null);
-
-            mockrepo.VerifyAll();
-        }
+        
     }
 }
