@@ -96,7 +96,6 @@ namespace iTunesAgent.UI
             newPlaylistAssociationFormFactory.ModelRepository = modelRepository;
 
             PlaylistsPanel playlistsPanel = new PlaylistsPanel();
-            playlistsPanel.NewPlaylistAssociationFormFactory = newPlaylistAssociationFormFactory;
             playlistsPanel.MediaSoftwareService = mediaSoftwareServices[ITunesServiceImpl.SERVICE_NAME];
             playlistsPanel.Model = modelRepository;
             panels.Add("playlists", playlistsPanel);

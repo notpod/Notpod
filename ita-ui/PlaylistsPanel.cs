@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using iTunesAgent.Services;
 using iTunesAgent.Domain;
+using iTunesAgent.UI.Components.Wizard;
+using iTunesAgent.UI.Controls;
 
 namespace iTunesAgent.UI
 {
@@ -17,19 +19,10 @@ namespace iTunesAgent.UI
 
         private ModelRepository model;
 
-        private INewPlaylistAssociationFormFactory newPlaylistAssociationFormFactory;
-
         public PlaylistsPanel()
         {
             InitializeComponent();
         }
-
-        public INewPlaylistAssociationFormFactory NewPlaylistAssociationFormFactory
-        {
-            get { return this.newPlaylistAssociationFormFactory; }
-            set { this.newPlaylistAssociationFormFactory = value; }
-        }
-
 
         public MediaSoftwareService MediaSoftwareService
         {
@@ -69,8 +62,15 @@ namespace iTunesAgent.UI
         
         public void AddAssociationButton_Click(object sender, EventArgs e)
         {                        
-            NewPlaylistAssociationForm newAssociationForm = newPlaylistAssociationFormFactory.NewInstance();
-            newAssociationForm.ShowDialog(this);
+            Wizard wizard = new Wizard();
+                            
+            PlaylistAssociationChooseDevicePage devicePage = new PlaylistAssociationChooseDevicePage();
+            devicePage.Model = model;
+            devicePage.PageTitle = "Choose device";
+            
+            wizard.Pages.AddLast(devicePage);
+            
+            wizard.StartWizard(this);
             
         }
 
