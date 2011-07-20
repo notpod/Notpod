@@ -10,24 +10,45 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using iTunesAgent.UI.Components.Wizard;
+using iTunesAgent.Domain;
 
 namespace iTunesAgent.UI.Controls
 {
 	/// <summary>
 	/// Description of PlaylistAssociationChooseDevicePage.
 	/// </summary>
-	public partial class PlaylistAssociationChooseDevicePage : UserControl
+	public partial class PlaylistAssociationChooseDevicePage : AbstractWizardPage
 	{
+		
+		private ModelRepository model;
+	
+		
 		public PlaylistAssociationChooseDevicePage()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
-			InitializeComponent();
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			InitializeComponent();
+		}
+		
+       public ModelRepository Model {
+
+			get { return model; }
+			set { model = value; }
+		}
+		
+		public override void Populate() 
+		{
+		    DeviceCollection devices = model.Get<DeviceCollection>("devices");
+		    foreach(Device device in devices.Devices) 
+		    {
+		        cbDevices.Items.Add(device);
+		    }
+		
+		}
+		
+		public override bool ValidateBeforeNext()
+		{
+			return true;
 		}
 	}
 }
