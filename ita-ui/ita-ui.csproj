@@ -146,6 +146,10 @@
     <Compile Include="Controls\NewDeviceWPDConfigurationPage.Designer.cs">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PlaylistAssociationChooseDevicePage.cs" />
+    <Compile Include="Controls\PlaylistAssociationChooseDevicePage.Designer.cs">
+      <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\WizardDataStoreKeys.cs" />
     <Compile Include="DefaultConfigurationToFileWriter.cs" />
     <Compile Include="DefaultNewPlaylistAssociationFormFactory.cs" />
@@ -222,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceWPDConfigurationPage.resx">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaylistAssociationChooseDevicePage.resx">
+      <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevicesPanel.de.resx">
       <DependentUpon>DevicesPanel.cs</DependentUpon>
