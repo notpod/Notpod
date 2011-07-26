@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="Components\Wizard\WizardTest.cs" />
     <Compile Include="ConfigurationCheckerImplTest.cs" />
+    <Compile Include="Controls\PlaylistAssociationChooseDevicePageTest.cs" />
     <Compile Include="DefaultConfigurationToFileWriterTest.cs" />
     <Compile Include="PlaylistsPanelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,7 +100,9 @@
       <Name>ita-ui</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controls" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
