@@ -146,6 +146,10 @@
     <Compile Include="Controls\NewDeviceWPDConfigurationPage.Designer.cs">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PlaylistAssociationBrowseFolder.cs" />
+    <Compile Include="Controls\PlaylistAssociationBrowseFolder.Designer.cs">
+      <DependentUpon>PlaylistAssociationBrowseFolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PlaylistAssociationChooseDevicePage.cs" />
     <Compile Include="Controls\PlaylistAssociationChooseDevicePage.Designer.cs">
       <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
@@ -226,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewDeviceWPDConfigurationPage.resx">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaylistAssociationBrowseFolder.resx">
+      <DependentUpon>PlaylistAssociationBrowseFolder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PlaylistAssociationChooseDevicePage.resx">
       <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
