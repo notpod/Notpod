@@ -15,40 +15,61 @@ using iTunesAgent.Domain;
 
 namespace iTunesAgent.UI.Controls
 {
-	/// <summary>
-	/// Description of PlaylistAssociationChooseDevicePage.
-	/// </summary>
-	public partial class PlaylistAssociationChooseDevicePage : AbstractWizardPage
-	{
-		
-		private ModelRepository model;
-	
-		
-		public PlaylistAssociationChooseDevicePage()
-		{
-			
-			InitializeComponent();
-		}
-		
-       public ModelRepository Model {
+    /// <summary>
+    /// Description of PlaylistAssociationChooseDevicePage.
+    /// </summary>
+    public partial class PlaylistAssociationChooseDevicePage : AbstractWizardPage
+    {
+        
+        private ModelRepository model;
+        
+        
+        public PlaylistAssociationChooseDevicePage()
+        {
+            
+            InitializeComponent();
+        }
+        
+        public ModelRepository Model {
 
-			get { return model; }
-			set { model = value; }
-		}
-		
-		public override void Populate() 
-		{
-		    DeviceCollection devices = model.Get<DeviceCollection>("devices");
-		    foreach(Device device in devices.Devices) 
-		    {
-		        cbDevices.Items.Add(device);
-		    }
-		
-		}
-		
-		public override bool ValidateBeforeNext()
-		{
-			return true;
-		}
-	}
+            get { return model; }
+            set { model = value; }
+        }
+        
+        public override void Populate()
+        {
+            DeviceCollection devices = model.Get<DeviceCollection>("devices");
+            foreach(Device device in devices.Devices)
+            {
+                cbDevices.Items.Add(device);
+            }
+            
+            
+            Device previouslySelectedDevice = (Device)this.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDDEVICE];
+            if(previouslySelectedDevice != null)
+            {
+                cbDevices.SelectedItem = previouslySelectedDevice;
+            }
+        }
+        
+        public override bool ValidateBeforeNext()
+        {
+            Device selectedDevice = (Device)cbDevices.SelectedItem;
+            if(selectedDevice == null) {
+                
+                MessageBox.Show(this, "Please select the device you want to associate with the playlist.", "Select device", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            
+            this.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDDEVICE] = selectedDevice;
+            return true;
+        }
+        
+        #if DEBUG
+        public ComboBox SelectedDeviceComboBox {
+            
+            get { return cbDevices; }
+        }
+        #endif
+    }
 }
