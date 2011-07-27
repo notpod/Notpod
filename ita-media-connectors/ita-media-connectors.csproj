@@ -80,8 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompatibleDevice.cs" />
+    <Compile Include="IDevicesManager.cs" />
     <Compile Include="MediaDevicesService.cs" />
     <Compile Include="PortableDevicePKeys.cs" />
+    <Compile Include="SupportedDevicesManager.cs" />
     <Compile Include="WindowsPortableDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowsPortableDevicesService.cs" />
