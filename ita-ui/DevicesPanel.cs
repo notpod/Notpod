@@ -45,10 +45,12 @@ namespace iTunesAgent.UI
             NewDeviceWPDConfigurationPage deviceSelectionPage = new NewDeviceWPDConfigurationPage();
             deviceSelectionPage.DevicesService = new WindowsPortableDevicesService();
             deviceSelectionPage.PageTitle = Resources.StrWizardConfigureYourDevice;
+            deviceSelectionPage.FinishEnabled = false;
             wizard.Pages.AddLast(deviceSelectionPage);
 
             NewDeviceNamePage namePage = new NewDeviceNamePage();
             namePage.PageTitle = Resources.StrWizardNamePageTitle;
+            namePage.FinishEnabled = false;
             wizard.Pages.AddLast(namePage);
 
             NewDeviceSummaryPage summaryPage = new NewDeviceSummaryPage();
