@@ -10,101 +10,116 @@ using iTunesAgent.Services;
 using iTunesAgent.Domain;
 using iTunesAgent.UI.Components.Wizard;
 using iTunesAgent.UI.Controls;
+using log4net;
+using System.IO;
 
 namespace iTunesAgent.UI
 {
-    public partial class PlaylistsPanel : UserControl
-    {
-        private MediaSoftwareService mediaSoftwareService;
+	public partial class PlaylistsPanel : UserControl
+	{
+		private MediaSoftwareService mediaSoftwareService;
 
-        private ModelRepository model;
+		private ModelRepository model;
 
-        public PlaylistsPanel()
-        {
-            InitializeComponent();
-        }
+		private ILog l = LogManager.GetLogger(typeof(PlaylistsPanel));
+		
+		public PlaylistsPanel()
+		{
+			InitializeComponent();
+		}
 
-        public MediaSoftwareService MediaSoftwareService
-        {
-            get { return this.mediaSoftwareService; }
-            set { this.mediaSoftwareService = value; }
-        }
+		public MediaSoftwareService MediaSoftwareService
+		{
+			get { return this.mediaSoftwareService; }
+			set { this.mediaSoftwareService = value; }
+		}
 
-        public ModelRepository Model
-        {
-            get { return this.model; }
-            set { this.model = value; }
-        }
+		public ModelRepository Model
+		{
+			get { return this.model; }
+			set { this.model = value; }
+		}
 
-        public void PlaylistsPanel_Load(object sender, EventArgs e)
-        {
+		public void PlaylistsPanel_Load(object sender, EventArgs e)
+		{
 
-            DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
+			DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
 
-            List<Playlist> playlists = mediaSoftwareService.GetPlaylists();
-            foreach (Playlist playlist in playlists)
-            {
+			List<Playlist> playlists = mediaSoftwareService.GetPlaylists();
+			foreach (Playlist playlist in playlists)
+			{
 
-                PlaylistAssociationControl playlistAssociationControl = new PlaylistAssociationControl();
-                playlistAssociationControl.PlaylistName = playlist.Name;
-                playlistAssociationControl.PlaylistNameToolTip = playlistAssociationControl.PlaylistName;
-                playlistAssociationControl.PlaylistID = playlist.ID;
+				PlaylistAssociationControl playlistAssociationControl = new PlaylistAssociationControl();
+				playlistAssociationControl.PlaylistName = playlist.Name;
+				playlistAssociationControl.PlaylistNameToolTip = playlistAssociationControl.PlaylistName;
+				playlistAssociationControl.PlaylistID = playlist.ID;
 
-                var filtered = from d in deviceColletion.Devices where (from p in d.Playlists where p.PlaylistID == playlist.ID select p) > 0 select d;
-                int associations = filtered.Count;
-                    //deviceCollection.Devices.Select(d => d.Playlists.Select(p => p.PlaylistID == playlist.ID).Count() > 0).Count();
-                playlistAssociationControl.AssociationCount = associations;
+				UpdateAssociationCountForControl(playlistAssociationControl, deviceCollection);
+				
+				playlistAssociationControl.AddAssociationButton.Click += new EventHandler(AddAssociationButton_Click);
+				
+				flowPlaylistAssociations.Controls.Add(playlistAssociationControl);
+			}
 
-                playlistAssociationControl.AddAssociationButton.Click += new EventHandler(AddAssociationButton_Click);
-                
-                flowPlaylistAssociations.Controls.Add(playlistAssociationControl);
-            }
+		}
+		
+		public void AddAssociationButton_Click(object sender, EventArgs e)
+		{
+			Wizard wizard = new Wizard();
+			
+			PlaylistAssociationChooseDevicePage devicePage = new PlaylistAssociationChooseDevicePage();
+			devicePage.Model = model;
+			devicePage.PageTitle = "Choose device";
+			
+			wizard.Pages.AddLast(devicePage);
+			
+			PlaylistAssociationBrowseFolder browsePage = new PlaylistAssociationBrowseFolder();
+			browsePage.PageTitle = "Choose where music is copied to";
+			
+			wizard.Pages.AddLast(browsePage);
+			
+			DialogResult result = wizard.StartWizard(this);
+			
+			
+			if(result == DialogResult.Cancel)
+			{
+				return;
+			}
+			
+			Device selectedDevice = (Device)wizard.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDDEVICE];
+			String selectedPath = (String)wizard.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDPATH];
+			
+			Button senderButton = (Button)sender;
+			PlaylistAssociationControl playlistAssociationControl = (PlaylistAssociationControl)senderButton.Parent;
+			
+			PlaylistAssociation playlistAssociation = new PlaylistAssociation(playlistAssociationControl.PlaylistID, "", selectedPath);
+			selectedDevice.Playlists.Add(playlistAssociation);
+			
+			l.Debug("Attemting to write device configuration to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+			model.Serialize("devices", typeof(DeviceCollection), ApplicationUtils.GetDeviceConfigurationStream(FileMode.Create));
+			l.Debug("Device configuration successfully written to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+			
+			DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
+			UpdateAssociationCountForControl(playlistAssociationControl, deviceCollection);
+		}
+		
+		private void UpdateAssociationCountForControl(PlaylistAssociationControl control, DeviceCollection deviceCollection)
+		{
+			
+			var filtered = from d in deviceCollection.Devices where (from p in d.Playlists where p.PlaylistID == control.PlaylistID select p).Count() > 0 select d;
+			int associations = filtered.Count();
+			control.AssociationCount = associations;
+		}
 
-        }
-        
-        public void AddAssociationButton_Click(object sender, EventArgs e)
-        {
-            Wizard wizard = new Wizard();
-            
-            PlaylistAssociationChooseDevicePage devicePage = new PlaylistAssociationChooseDevicePage();
-            devicePage.Model = model;
-            devicePage.PageTitle = "Choose device";
-            
-            wizard.Pages.AddLast(devicePage);
-            
-            PlaylistAssociationBrowseFolder browsePage = new PlaylistAssociationBrowseFolder();
-            browsePage.PageTitle = "Choose where music is copied to";
-            
-            wizard.Pages.AddLast(browsePage);
-            
-            DialogResult result = wizard.StartWizard(this);
-            
-            
-            if(result == DialogResult.Cancel)
-            {
-                return;
-            }
-            
-            Device selectedDevice = (Device)wizard.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDDEVICE];
-            String selectedPath = (String)wizard.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDPATH];
-            
-            Button senderButton = (Button)sender;
-            PlaylistAssociationControl playlistAssociationControl = (PlaylistAssociationControl)senderButton.Parent;
-            
-            PlaylistAssociation playlistAssociation = new PlaylistAssociation(playlistAssociationControl.PlaylistID, "", selectedPath);
-            selectedDevice.Playlists.Add(playlistAssociation);
-            
-        }
-
-        public Control FlowPlaylistAssociations
-        {
-            get
-            {
-                return this.flowPlaylistAssociations;
-            }
-        }
+		public Control FlowPlaylistAssociations
+		{
+			get
+			{
+				return this.flowPlaylistAssociations;
+			}
+		}
 
 
 
-    }
+	}
 }
