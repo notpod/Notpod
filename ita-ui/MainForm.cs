@@ -89,6 +89,7 @@ namespace iTunesAgent.UI
 
             DevicesPanel devicesPanel = new DevicesPanel();
             devicesPanel.Model = modelRepository;
+            devicesPanel.MainForm = this;
             panels.Add("devices", devicesPanel);
 
 
@@ -157,6 +158,11 @@ namespace iTunesAgent.UI
             ResetButtonState();
             SetSelectedColor(sender);
             switchToPanel("devices");
+        }
+        
+        public void SwithcToMyDevicesPanel() 
+        {
+        	btnMyDevices_Click(btnMyDevices, null);
         }
 
         private void buttonHome_Click(object sender, EventArgs e)

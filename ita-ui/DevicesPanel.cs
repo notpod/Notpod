@@ -19,6 +19,10 @@ namespace iTunesAgent.UI
     public partial class DevicesPanel : UserControl
     {
         private ModelRepository model;
+        
+        private MainForm mainForm;
+        
+		
 
         private ILog l = LogManager.GetLogger(typeof(DevicesPanel));            
 
@@ -94,6 +98,11 @@ namespace iTunesAgent.UI
             FlushDeviceConfigurationToFile();
             
             RefreshDevicesList();
+            
+            if(openDevicePanel) {
+            	
+            	mainForm.SwithcToMyDevicesPanel();
+            }
         }
 
         private void FlushDeviceConfigurationToFile()
@@ -140,6 +149,12 @@ namespace iTunesAgent.UI
             }
 
         }
+        
+        public MainForm MainForm 
+        {		
+        	get { return mainForm; }
+			set { mainForm = value; }
+		}
 
         private void btnDeleteDevice_Click(object sender, EventArgs e)
         {
