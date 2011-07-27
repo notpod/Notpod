@@ -36,6 +36,7 @@ namespace iTunesAgent.Connectors
 		}
 		
 		[Test]
+		[Ignore]
 		public void CheckForConfiguredDevices_ShouldCallGetDeviceIdsOnPortableDevicesService()
 		{
 			
