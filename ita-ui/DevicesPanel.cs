@@ -16,162 +16,169 @@ using log4net;
 
 namespace iTunesAgent.UI
 {
-    public partial class DevicesPanel : UserControl
-    {
-        private ModelRepository model;
-        
-        private MainForm mainForm;
-        
+	public partial class DevicesPanel : UserControl
+	{
+		private ModelRepository model;
+		
+		private MainForm mainForm;
+		
+		private WindowsPortableDevicesService portableDevicesService;
 		
 
-        private ILog l = LogManager.GetLogger(typeof(DevicesPanel));            
+		private ILog l = LogManager.GetLogger(typeof(DevicesPanel));
 
-        public DevicesPanel()
-        {
-            InitializeComponent();
-        }
+		public DevicesPanel()
+		{
+			InitializeComponent();
+		}
 
-        private void DevicesPanel_Load(object sender, EventArgs e)
-        {
-            TranslationMgr.Attach(this);
-            RefreshDevicesList();
-        }
+		private void DevicesPanel_Load(object sender, EventArgs e)
+		{
+			TranslationMgr.Attach(this);
+			RefreshDevicesList();
+		}
 
-        private void btnNewDevice_Click(object sender, EventArgs e)
-        {
-            Wizard wizard = new Wizard();
+		private void btnNewDevice_Click(object sender, EventArgs e)
+		{
+			Wizard wizard = new Wizard();
 
-            NewDeviceWelcomePage welcomePage = new NewDeviceWelcomePage();
-            welcomePage.PageTitle = Resources.StrWizardWelcomeAddNewPage;
-            welcomePage.FinishEnabled = false;
-            wizard.Pages.AddLast(welcomePage);
+			NewDeviceWelcomePage welcomePage = new NewDeviceWelcomePage();
+			welcomePage.PageTitle = Resources.StrWizardWelcomeAddNewPage;
+			welcomePage.FinishEnabled = false;
+			wizard.Pages.AddLast(welcomePage);
 
-            NewDeviceWPDConfigurationPage deviceSelectionPage = new NewDeviceWPDConfigurationPage();
-            deviceSelectionPage.DevicesService = new WindowsPortableDevicesService();
-            deviceSelectionPage.PageTitle = Resources.StrWizardConfigureYourDevice;
-            deviceSelectionPage.FinishEnabled = false;
-            wizard.Pages.AddLast(deviceSelectionPage);
+			NewDeviceWPDConfigurationPage deviceSelectionPage = new NewDeviceWPDConfigurationPage();
+			deviceSelectionPage.DevicesService = portableDevicesService;
+			deviceSelectionPage.PageTitle = Resources.StrWizardConfigureYourDevice;
+			deviceSelectionPage.FinishEnabled = false;
+			wizard.Pages.AddLast(deviceSelectionPage);
 
-            NewDeviceNamePage namePage = new NewDeviceNamePage();
-            namePage.PageTitle = Resources.StrWizardNamePageTitle;
-            namePage.FinishEnabled = false;
-            wizard.Pages.AddLast(namePage);
+			NewDeviceNamePage namePage = new NewDeviceNamePage();
+			namePage.PageTitle = Resources.StrWizardNamePageTitle;
+			namePage.FinishEnabled = false;
+			wizard.Pages.AddLast(namePage);
 
-            NewDeviceSummaryPage summaryPage = new NewDeviceSummaryPage();
-            summaryPage.PageTitle = Resources.StrWizardSummaryPageTitle;
-            wizard.Pages.AddLast(summaryPage);
+			NewDeviceSummaryPage summaryPage = new NewDeviceSummaryPage();
+			summaryPage.PageTitle = Resources.StrWizardSummaryPageTitle;
+			wizard.Pages.AddLast(summaryPage);
 
 
-            DialogResult result = wizard.StartWizard(this);
+			DialogResult result = wizard.StartWizard(this);
 
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
+			if (result == DialogResult.Cancel)
+			{
+				return;
+			}
 
-            AddNewDeviceFromWizardDataStore(wizard);
-        }
+			AddNewDeviceFromWizardDataStore(wizard);
+		}
 
-        private void AddNewDeviceFromWizardDataStore(Wizard wizard)
-        {
-            CompatibleDevice device = (CompatibleDevice)wizard.DataStore[WizardDataStoreKeys.DEVICE];
-            String name = (String)wizard.DataStore[WizardDataStoreKeys.NAME];
-            bool openDevicePanel = (bool)wizard.DataStore[WizardDataStoreKeys.OPEN_PLAYLIST_PANEL];
+		private void AddNewDeviceFromWizardDataStore(Wizard wizard)
+		{
+			CompatibleDevice device = (CompatibleDevice)wizard.DataStore[WizardDataStoreKeys.DEVICE];
+			String name = (String)wizard.DataStore[WizardDataStoreKeys.NAME];
+			bool openDevicePanel = (bool)wizard.DataStore[WizardDataStoreKeys.OPEN_PLAYLIST_PANEL];
 
-            DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
+			DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
 
-            if (deviceCollection.GetDeviceWithIdentifier(device.Identifier) != null)
-            {
-                MessageBox.Show(this, "The device you are adding has already been added. You can only "
-                    + "add a device once.\n\nIf you want several playlists synchronized to the same "
-                    + "device, use the Playlists view to assign more playlists to your device.", 
-                    "Device already added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			if (deviceCollection.GetDeviceWithIdentifier(device.Identifier) != null)
+			{
+				MessageBox.Show(this, "The device you are adding has already been added. You can only "
+				                + "add a device once.\n\nIf you want several playlists synchronized to the same "
+				                + "device, use the Playlists view to assign more playlists to your device.",
+				                "Device already added", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                return;
-            }
+				return;
+			}
 
-            Device newDevice = new Device();
-            newDevice.Identifier = device.Identifier;
-            newDevice.Name = name;
+			Device newDevice = new Device();
+			newDevice.Identifier = device.Identifier;
+			newDevice.Name = name;
 
-            deviceCollection.Devices.Add(newDevice);
-            FlushDeviceConfigurationToFile();
-            
-            RefreshDevicesList();
-            
-            if(openDevicePanel) {
-            	
-            	mainForm.SwithcToMyDevicesPanel();
-            }
-        }
+			deviceCollection.Devices.Add(newDevice);
+			FlushDeviceConfigurationToFile();
+			
+			RefreshDevicesList();
+			
+			if(openDevicePanel) {
+				
+				mainForm.SwithcToMyDevicesPanel();
+			}
+		}
 
-        private void FlushDeviceConfigurationToFile()
-        {
-            l.Debug("Attemting to write device configuration to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
-            
-            model.Serialize("devices", typeof(DeviceCollection), ApplicationUtils.GetDeviceConfigurationStream(FileMode.Create));
+		private void FlushDeviceConfigurationToFile()
+		{
+			l.Debug("Attemting to write device configuration to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+			
+			model.Serialize("devices", typeof(DeviceCollection), ApplicationUtils.GetDeviceConfigurationStream(FileMode.Create));
 
-            l.Debug("Device configuration successfully written to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
-        }
+			l.Debug("Device configuration successfully written to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+		}
 
-        private void RefreshDevicesList()
-        {
+		private void RefreshDevicesList()
+		{
 
-            DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
+			DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
 
-            lvDevices.Items.Clear();
+			lvDevices.Items.Clear();
 
-            foreach (Device device in deviceCollection.Devices)
-            {
-                ListViewItem item = new ListViewItem();                
-                item.Text = device.Name;
-                item.Name = device.Identifier;
-                item.SubItems.Add(Resources.StrDeviceStatusOffline);
-                item.SubItems.Add("Unknown");
-                item.SubItems.Add("Never");
-                lvDevices.Items.Add(item);
+			foreach (Device device in deviceCollection.Devices)
+			{
+				ListViewItem item = new ListViewItem();
+				item.Text = device.Name;
+				item.Name = device.Identifier;
+				item.SubItems.Add(Resources.StrDeviceStatusOffline);
+				item.SubItems.Add("Unknown");
+				item.SubItems.Add("Never");
+				lvDevices.Items.Add(item);
 
-            }
+			}
 
-            lvDevices.Refresh();
+			lvDevices.Refresh();
 
-        }
+		}
 
-        public ModelRepository Model
-        {
-            get
-            {
-                return model;
-            }
-            set
-            {
-                model = value;
-            }
+		public ModelRepository Model
+		{
+			get
+			{
+				return model;
+			}
+			set
+			{
+				model = value;
+			}
 
-        }
-        
-        public MainForm MainForm 
-        {		
-        	get { return mainForm; }
+		}
+		
+		public WindowsPortableDevicesService PortableDevicesService {
+			get { return portableDevicesService; }
+			set { portableDevicesService = value; }
+		}
+
+		
+		public MainForm MainForm
+		{
+			get { return mainForm; }
 			set { mainForm = value; }
 		}
 
-        private void btnDeleteDevice_Click(object sender, EventArgs e)
-        {
+		private void btnDeleteDevice_Click(object sender, EventArgs e)
+		{
 
 
-            DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
+			DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
 
-            foreach (ListViewItem listItem in lvDevices.SelectedItems)
-            {
-                string identifier = listItem.Name;
-                deviceCollection.DeleteByIdentifier(identifier);                
-            }
+			foreach (ListViewItem listItem in lvDevices.SelectedItems)
+			{
+				string identifier = listItem.Name;
+				deviceCollection.DeleteByIdentifier(identifier);
+			}
 
-            FlushDeviceConfigurationToFile();
-            
-            RefreshDevicesList();
-        }
+			FlushDeviceConfigurationToFile();
+			
+			RefreshDevicesList();
+		}
 
-    }
+	}
 }

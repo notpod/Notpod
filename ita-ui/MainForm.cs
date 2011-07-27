@@ -12,6 +12,7 @@ using iTunesAgent.Services;
 using iTunesAgent.Services.iTunes;
 using iTunesAgent.Domain;
 using iTunesAgent.UI.Configuration;
+using iTunesAgent.Connectors;
 
 namespace iTunesAgent.UI
 {
@@ -28,6 +29,10 @@ namespace iTunesAgent.UI
         private ILog l = LogManager.GetLogger(typeof(MainForm));
 
         private ModelRepository modelRepository = new ModelRepository();
+        
+        private WindowsPortableDevicesService portableDevicesService;
+        
+        private SupportedDevicesManager supportedDevicesManager;
 
         private ConfigurationChecker configurationChecker = new ConfigurationCheckerImpl();
 
@@ -45,11 +50,22 @@ namespace iTunesAgent.UI
             BasicConfigurator.Configure();
             
             LoadConfiguration();
+            InitializeDevicesManager();
             PopulateMediaSoftwareServices();
             InitializePanels();            
             LoadPreviousPanel();
         }
 
+        private void InitializeDevicesManager()
+        {
+        	
+        	portableDevicesService = new WindowsPortableDevicesService();
+        	supportedDevicesManager = new SupportedDevicesManager();
+        	supportedDevicesManager.PortableDevicesService = portableDevicesService;
+        	supportedDevicesManager.ConfiguredDevices = modelRepository.Get<DeviceCollection>("devices");
+        	       	
+        }
+        
         private void LoadConfiguration()
         {
             modelRepository = ApplicationUtils.LoadModelRepository(configurationChecker);
@@ -89,6 +105,7 @@ namespace iTunesAgent.UI
 
             DevicesPanel devicesPanel = new DevicesPanel();
             devicesPanel.Model = modelRepository;
+            devicesPanel.PortableDevicesService = portableDevicesService;
             devicesPanel.MainForm = this;
             panels.Add("devices", devicesPanel);
 
