@@ -59,10 +59,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
@@ -150,8 +146,17 @@
     <Compile Include="Controls\NewDeviceWPDConfigurationPage.Designer.cs">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PlaylistAssociationBrowseFolder.cs" />
+    <Compile Include="Controls\PlaylistAssociationBrowseFolder.Designer.cs">
+      <DependentUpon>PlaylistAssociationBrowseFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaylistAssociationChooseDevicePage.cs" />
+    <Compile Include="Controls\PlaylistAssociationChooseDevicePage.Designer.cs">
+      <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\WizardDataStoreKeys.cs" />
     <Compile Include="DefaultConfigurationToFileWriter.cs" />
+    <Compile Include="DefaultNewPlaylistAssociationFormFactory.cs" />
     <Compile Include="DevicesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +177,25 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelRepository.cs" />
+    <Compile Include="NewPlaylistAssociationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPlaylistAssociationForm.Designer.cs">
+      <DependentUpon>NewPlaylistAssociationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INewPlaylistAssociationFormFactory.cs" />
+    <Compile Include="PlaylistAssociationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlaylistAssociationControl.Designer.cs">
+      <DependentUpon>PlaylistAssociationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaylistsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlaylistsPanel.Designer.cs">
+      <DependentUpon>PlaylistsPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreferencesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,6 +231,12 @@
     <EmbeddedResource Include="Controls\NewDeviceWPDConfigurationPage.resx">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaylistAssociationBrowseFolder.resx">
+      <DependentUpon>PlaylistAssociationBrowseFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaylistAssociationChooseDevicePage.resx">
+      <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DevicesPanel.de.resx">
       <DependentUpon>DevicesPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +251,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPlaylistAssociationForm.resx">
+      <DependentUpon>NewPlaylistAssociationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistAssociationControl.resx">
+      <DependentUpon>PlaylistAssociationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistsPanel.resx">
+      <DependentUpon>PlaylistsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreferencesPanel.de.resx">
       <DependentUpon>PreferencesPanel.cs</DependentUpon>
@@ -276,6 +315,11 @@
     <None Include="Resources\globe.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\add-small.png" />
+    <Content Include="Resources\associations.png" />
+    <Content Include="Resources\download.png" />
+    <Content Include="Resources\playlist.png" />
+    <Content Include="Resources\remove.png" />
     <None Include="Resources\configuration.xml" />
     <Content Include="logging.xml" />
   </ItemGroup>

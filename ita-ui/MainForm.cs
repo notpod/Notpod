@@ -62,7 +62,7 @@ namespace iTunesAgent.UI
                 MediaSoftwareService itunesService = new ITunesServiceImpl();
                 itunesService.MediaSoftwareConnectionFactory = new ITunesConnectionFactory();
                 itunesService.Initialize();
-                mediaSoftwareServices.Add("itunes", itunesService);
+                mediaSoftwareServices.Add(ITunesServiceImpl.SERVICE_NAME, itunesService);
             }
             catch (Exception ex)
             {
@@ -90,7 +90,16 @@ namespace iTunesAgent.UI
             DevicesPanel devicesPanel = new DevicesPanel();
             devicesPanel.Model = modelRepository;
             panels.Add("devices", devicesPanel);
-            
+
+
+            DefaultNewPlaylistAssociationFormFactory newPlaylistAssociationFormFactory = new DefaultNewPlaylistAssociationFormFactory();
+            newPlaylistAssociationFormFactory.ModelRepository = modelRepository;
+
+            PlaylistsPanel playlistsPanel = new PlaylistsPanel();
+            playlistsPanel.MediaSoftwareService = mediaSoftwareServices[ITunesServiceImpl.SERVICE_NAME];
+            playlistsPanel.Model = modelRepository;
+            panels.Add("playlists", playlistsPanel);
+
             panels.Add("preferences", new PreferencesPanel());
 
             setCommonPanelProperties();
@@ -156,6 +165,13 @@ namespace iTunesAgent.UI
             SetSelectedColor(sender);
             switchToPanel("home");
         }
+        
+        private void btnPlaylists_Click(object sender, EventArgs e)
+        {
+            ResetButtonState();
+            SetSelectedColor(sender);
+            switchToPanel("playlists");
+        }
 
         private void SetSelectedColor(object sender)
         {
@@ -196,5 +212,6 @@ namespace iTunesAgent.UI
             }
 
         }
+
     }
 }

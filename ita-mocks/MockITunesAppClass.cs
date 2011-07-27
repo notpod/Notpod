@@ -9,6 +9,9 @@ namespace iTunesAgent.Services
     
     public class MockITunesAppClass : iTunesApp
     {
+
+        private IITSource librarySource;
+
         public MockITunesAppClass()
         {
         }
@@ -265,7 +268,8 @@ namespace iTunesAgent.Services
 
         public IITSource LibrarySource
         {
-            get { throw new NotImplementedException(); }
+            get { return this.librarySource; }
+            set { this.librarySource = value; }
         }
 
         public string LibraryXMLPath
