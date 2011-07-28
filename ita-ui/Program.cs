@@ -19,7 +19,7 @@ namespace iTunesAgent.UI
         static void Main()
         {
             
-            XmlConfigurator.Configure(new FileInfo("logging.xml"));
+        	XmlConfigurator.Configure(new FileInfo("logging.xml"));
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -36,7 +36,6 @@ namespace iTunesAgent.UI
             Thread.CurrentThread.CurrentUICulture = Application.CurrentCulture;
 
             MainForm form = new MainForm();
-            ModelRepository repo = new ModelRepository();
             
             Application.Run(form);
                                   

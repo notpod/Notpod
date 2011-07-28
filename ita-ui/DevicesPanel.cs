@@ -24,6 +24,9 @@ namespace iTunesAgent.UI
 		
 		private WindowsPortableDevicesService portableDevicesService;
 		
+		private SupportedDevicesManager supportedDevicesManager;
+		
+		
 
 		private ILog l = LogManager.GetLogger(typeof(DevicesPanel));
 
@@ -115,7 +118,7 @@ namespace iTunesAgent.UI
 			l.Debug("Device configuration successfully written to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
 		}
 
-		private void RefreshDevicesList()
+		public void RefreshDevicesList()
 		{
 
 			DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
@@ -127,7 +130,15 @@ namespace iTunesAgent.UI
 				ListViewItem item = new ListViewItem();
 				item.Text = device.Name;
 				item.Name = device.Identifier;
-				item.SubItems.Add(Resources.StrDeviceStatusOffline);
+				
+				CompatibleDevice connectedDevice = supportedDevicesManager.GetConnectedDevice(device.Identifier);
+				if(connectedDevice == null) 
+				{
+					item.SubItems.Add(Resources.StrDeviceStatusOffline);
+				} else {
+					
+					item.SubItems.Add(Resources.StrDeviceStatusOnline);
+				}
 				item.SubItems.Add("Unknown");
 				item.SubItems.Add("Never");
 				lvDevices.Items.Add(item);
@@ -154,6 +165,11 @@ namespace iTunesAgent.UI
 		public WindowsPortableDevicesService PortableDevicesService {
 			get { return portableDevicesService; }
 			set { portableDevicesService = value; }
+		}
+
+		public SupportedDevicesManager SupportedDevicesManager {
+			get { return supportedDevicesManager; }
+			set { supportedDevicesManager = value; }
 		}
 
 		

@@ -19,10 +19,8 @@ namespace iTunesAgent.UI
     public partial class MainForm : Form
     {
 
-        //Constants used when intercepting system messages
-        public const int WM_SYSCOMMAND = 0x112;
-        public const int SC_MINIMIZE = 0xF020;
-
+        
+                
         // List holding the different panels (configuration, my devices etc)
         private Dictionary<String, UserControl> panels = new Dictionary<string, UserControl>();
 
@@ -63,7 +61,18 @@ namespace iTunesAgent.UI
         	supportedDevicesManager = new SupportedDevicesManager();
         	supportedDevicesManager.PortableDevicesService = portableDevicesService;
         	supportedDevicesManager.ConfiguredDevices = modelRepository.Get<DeviceCollection>("devices");
-        	       	
+        	supportedDevicesManager.NewDeviceConnected += new NewDeviceConnectedHandler(NewDeviceConnectedEventHandler);       	
+        }
+        
+        public void NewDeviceConnectedEventHandler(CompatibleDevice connectedDevice) 
+        {
+        	DevicesPanel devicesPanel = GetDevicesPanel();
+        	devicesPanel.RefreshDevicesList();
+        }
+        
+        private DevicesPanel GetDevicesPanel() {
+        	
+        	return (DevicesPanel)panels["devices"];
         }
         
         private void LoadConfiguration()
@@ -106,6 +115,7 @@ namespace iTunesAgent.UI
             DevicesPanel devicesPanel = new DevicesPanel();
             devicesPanel.Model = modelRepository;
             devicesPanel.PortableDevicesService = portableDevicesService;
+            devicesPanel.SupportedDevicesManager = supportedDevicesManager;
             devicesPanel.MainForm = this;
             panels.Add("devices", devicesPanel);
 
@@ -138,11 +148,14 @@ namespace iTunesAgent.UI
         /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == WM_SYSCOMMAND)
+        	
+        	l.Info(String.Format("Msg: {0} WParam: {1}", m.Msg, m.WParam));
+        	
+            if (m.Msg == WMConstants.WM_SYSCOMMAND)
             {
                 switch (m.WParam.ToInt32())
                 {
-                    case SC_MINIMIZE:
+                    case WMConstants.SC_MINIMIZE:
                         {
                             Hide();
                             return;
@@ -152,6 +165,22 @@ namespace iTunesAgent.UI
                             break;
                         }
                 }
+            } 
+            else if(m.Msg == WMConstants.WM_DEVICECHANGE) 
+            {
+            	switch(m.WParam.ToInt32())
+            	{
+            		case WMConstants.DBT_DEVICEARRIVAL: 
+            			{
+            				supportedDevicesManager.CheckForNewDevices();
+            				break;
+            			}
+            		case WMConstants.DBT_DEVICEREMOVECOMPLETE:
+            			{
+            				supportedDevicesManager.CheckForRemovedDevices();
+            				break;
+            			}
+            	}
             }
 
             //Let the base class handle the rest.
