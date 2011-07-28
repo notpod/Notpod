@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
+using System.Windows.Forms;using System.Threading;
 using log4net;
 using log4net.Config;
 using iTunesAgent.Services;
@@ -20,7 +20,7 @@ namespace iTunesAgent.UI
     {
 
         
-                
+        
         // List holding the different panels (configuration, my devices etc)
         private Dictionary<String, UserControl> panels = new Dictionary<string, UserControl>();
 
@@ -31,6 +31,8 @@ namespace iTunesAgent.UI
         private WindowsPortableDevicesService portableDevicesService;
         
         private SupportedDevicesManager supportedDevicesManager;
+        
+        private readonly object syncLock = new object();
 
         private ConfigurationChecker configurationChecker = new ConfigurationCheckerImpl();
 
@@ -40,7 +42,7 @@ namespace iTunesAgent.UI
         {
             InitializeComponent();
             TranslationMgr.Attach(this);
-            configurationChecker.ConfigurationWriter = new DefaultConfigurationToFileWriter(ApplicationUtils.APP_CONFIG_PATH);            
+            configurationChecker.ConfigurationWriter = new DefaultConfigurationToFileWriter(ApplicationUtils.APP_CONFIG_PATH);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -50,29 +52,30 @@ namespace iTunesAgent.UI
             LoadConfiguration();
             InitializeDevicesManager();
             PopulateMediaSoftwareServices();
-            InitializePanels();            
+            InitializePanels();
             LoadPreviousPanel();
+            
         }
 
         private void InitializeDevicesManager()
         {
-        	
-        	portableDevicesService = new WindowsPortableDevicesService();
-        	supportedDevicesManager = new SupportedDevicesManager();
-        	supportedDevicesManager.PortableDevicesService = portableDevicesService;
-        	supportedDevicesManager.ConfiguredDevices = modelRepository.Get<DeviceCollection>("devices");
-        	supportedDevicesManager.NewDeviceConnected += new NewDeviceConnectedHandler(NewDeviceConnectedEventHandler);       	
+            
+            portableDevicesService = new WindowsPortableDevicesService();
+            supportedDevicesManager = new SupportedDevicesManager();
+            supportedDevicesManager.PortableDevicesService = portableDevicesService;
+            supportedDevicesManager.ConfiguredDevices = modelRepository.Get<DeviceCollection>("devices");
+            supportedDevicesManager.NewDeviceConnected += new NewDeviceConnectedHandler(NewDeviceConnectedEventHandler);
         }
         
-        public void NewDeviceConnectedEventHandler(CompatibleDevice connectedDevice) 
+        public void NewDeviceConnectedEventHandler(CompatibleDevice connectedDevice)
         {
-        	DevicesPanel devicesPanel = GetDevicesPanel();
-        	devicesPanel.RefreshDevicesList();
+            DevicesPanel devicesPanel = GetDevicesPanel();
+            devicesPanel.RefreshDevicesList();
         }
         
         private DevicesPanel GetDevicesPanel() {
-        	
-        	return (DevicesPanel)panels["devices"];
+            
+            return (DevicesPanel)panels["devices"];
         }
         
         private void LoadConfiguration()
@@ -143,48 +146,45 @@ namespace iTunesAgent.UI
         }
 
         /// <summary>
-        /// WndProc override to enable minimize to tray.
+        /// WndProc override.
         /// </summary>
         /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
-        	
-        	l.Info(String.Format("Msg: {0} WParam: {1}", m.Msg, m.WParam));
-        	
-            if (m.Msg == WMConstants.WM_SYSCOMMAND)
-            {
-                switch (m.WParam.ToInt32())
-                {
-                    case WMConstants.SC_MINIMIZE:
-                        {
-                            Hide();
-                            return;
-                        }
-                    default:
-                        {
-                            break;
-                        }
-                }
-            } 
-            else if(m.Msg == WMConstants.WM_DEVICECHANGE) 
-            {
-            	switch(m.WParam.ToInt32())
-            	{
-            		case WMConstants.DBT_DEVICEARRIVAL: 
-            			{
-            				supportedDevicesManager.CheckForNewDevices();
-            				break;
-            			}
-            		case WMConstants.DBT_DEVICEREMOVECOMPLETE:
-            			{
-            				supportedDevicesManager.CheckForRemovedDevices();
-            				break;
-            			}
-            	}
+            switch(m.Msg) {
+                    
+                case WMConstants.WM_SYSCOMMAND:
+                    
+                    if(m.WParam.ToInt32() == WMConstants.SC_MINIMIZE)
+                    {
+                        Hide();
+                        return;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                case WMConstants.WM_DEVICECHANGE:
+                    
+                    if(m.WParam.ToInt32() == WMConstants.DBT_DEVICEARRIVAL)
+                    {
+                        supportedDevicesManager.CheckForNewDevices();
+                        return;
+                    }
+                    else if(m.WParam.ToInt32() == WMConstants.DBT_DEVICEREMOVECOMPLETE)
+                    {
+                        supportedDevicesManager.CheckForRemovedDevices();
+                        return;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
             }
-
-            //Let the base class handle the rest.
             base.WndProc(ref m);
+            
         }
 
         private void trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -206,9 +206,9 @@ namespace iTunesAgent.UI
             switchToPanel("devices");
         }
         
-        public void SwithcToMyDevicesPanel() 
+        public void SwithcToMyDevicesPanel()
         {
-        	btnMyDevices_Click(btnMyDevices, null);
+            btnMyDevices_Click(btnMyDevices, null);
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
@@ -239,7 +239,7 @@ namespace iTunesAgent.UI
         /// <summary>
         /// Switch to the panel named panel_name.
         /// </summary>
-        /// <param name="panel_name">Name of panel to switch to. This panel 
+        /// <param name="panel_name">Name of panel to switch to. This panel
         /// must be loaded into the panels array.</param>
         private void switchToPanel(string panel_name)
         {
@@ -249,7 +249,7 @@ namespace iTunesAgent.UI
         }
 
         /*!
-         * Accessor for the model repository containing the data model for 
+         * Accessor for the model repository containing the data model for
          * the application.
          */
         public ModelRepository ModelRepository

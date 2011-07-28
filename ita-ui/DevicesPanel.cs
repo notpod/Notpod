@@ -145,7 +145,8 @@ namespace iTunesAgent.UI
 
 			}
 
-			lvDevices.Refresh();
+			lvDevices.Invalidate();
+			MessageBox.Show("DeviceListRefresh");
 
 		}
 
