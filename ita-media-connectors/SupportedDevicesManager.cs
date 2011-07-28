@@ -30,7 +30,7 @@ namespace iTunesAgent.Connectors
 		{
 		}
 		
-		public void CheckForConfiguredDevices()
+		public void CheckForNewDevices()
 		{
 			
 			string[] idsOfConnectedDevices = portableDevicesService.GetDeviceIds();
@@ -59,7 +59,19 @@ namespace iTunesAgent.Connectors
 		bool CheckIfDeviceAlreadyRecognized(string id)
 		{
 			
-			return (from d in configuredDevices.Devices where d.Identifier == id select d).Count() > 0;
+			return (from d in connectedDevices where d.Identifier == id select d).Count() > 0;
+			
+		}
+		
+		public CompatibleDevice GetConnectedDevice(string identifier) 
+		{
+			IEnumerable<CompatibleDevice> devices = (from d in connectedDevices where d.Identifier == identifier select d);
+			return devices.FirstOrDefault();
+		}
+		
+		public void CheckForRemovedDevices()
+		{
+			
 			
 		}
 		
@@ -82,8 +94,7 @@ namespace iTunesAgent.Connectors
 			
 			if(NewDeviceConnected != null) 
 			{
-				EventArgs args = new EventArgs();
-				NewDeviceConnected(args);
+				NewDeviceConnected(device);
 			}
 		}
 

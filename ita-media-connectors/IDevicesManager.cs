@@ -11,7 +11,7 @@ using System;
 namespace iTunesAgent.Connectors
 {
 	
-	public delegate void NewDeviceConnectedHandler(EventArgs e);
+	public delegate void NewDeviceConnectedHandler(CompatibleDevice device);
 	/// <summary>
 	/// Provides an interface for managers handling devices the application can work with.
 	/// </summary>
@@ -24,7 +24,11 @@ namespace iTunesAgent.Connectors
 		/// Instruct the manager to look for new devices connected to the system, that are 
 		/// configured for use with the application.
 		/// </summary>
-		void CheckForConfiguredDevices();
+		void CheckForNewDevices();
+		
+		void CheckForRemovedDevices();
+		
+		CompatibleDevice GetConnectedDevice(string identifier);
 						
 		/// <summary>
 		/// Get a reference to a specific device by it's identifier.

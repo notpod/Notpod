@@ -45,7 +45,7 @@ namespace iTunesAgent.Connectors
 			Expect.Call(portableDevicesService.GetDeviceIds()).Return(listOfIds);
 			mocks.ReplayAll();
 			
-			manager.CheckForConfiguredDevices();
+			manager.CheckForNewDevices();
 			
 			mocks.VerifyAll();
 		}
