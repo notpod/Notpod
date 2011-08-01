@@ -22,5 +22,6 @@ namespace iTunesAgent.UI
         public const int WM_DEVICECHANGE = 0x0219;        
         public const int DBT_DEVICEARRIVAL = 0x8000;        
         public const int DBT_DEVICEREMOVECOMPLETE = 0x8004;
+        public const int DBT_DEVNODES_CHANGED = 0x0007;
 	}
 }

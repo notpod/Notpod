@@ -5,7 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;using System.Threading;
+using System.Windows.Forms;
+using System.Threading;
 using log4net;
 using log4net.Config;
 using iTunesAgent.Services;
@@ -71,6 +72,9 @@ namespace iTunesAgent.UI
         {
             DevicesPanel devicesPanel = GetDevicesPanel();
             devicesPanel.RefreshDevicesList();
+            
+            trayIcon.ShowBalloonTip(2000, "New device connected", connectedDevice.Name 
+                                    + " has been connected and is ready to be synchronized.", ToolTipIcon.Info);
         }
         
         private DevicesPanel GetDevicesPanel() {
@@ -151,6 +155,7 @@ namespace iTunesAgent.UI
         /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
+            
             switch(m.Msg) {
                     
                 case WMConstants.WM_SYSCOMMAND:
@@ -160,27 +165,19 @@ namespace iTunesAgent.UI
                         Hide();
                         return;
                     }
-                    else
-                    {
-                        break;
-                    }
+                    
+                    break;
                     
                 case WMConstants.WM_DEVICECHANGE:
                     
-                    if(m.WParam.ToInt32() == WMConstants.DBT_DEVICEARRIVAL)
-                    {
+                    
+                    if(m.WParam.ToInt32() == WMConstants.DBT_DEVNODES_CHANGED)
+                    {                        
                         supportedDevicesManager.CheckForNewDevices();
-                        return;
-                    }
-                    else if(m.WParam.ToInt32() == WMConstants.DBT_DEVICEREMOVECOMPLETE)
-                    {
                         supportedDevicesManager.CheckForRemovedDevices();
-                        return;
                     }
-                    else
-                    {
-                        break;
-                    }
+                    break;
+                    
                     
             }
             base.WndProc(ref m);
