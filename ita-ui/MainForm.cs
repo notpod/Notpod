@@ -66,6 +66,18 @@ namespace iTunesAgent.UI
             supportedDevicesManager.PortableDevicesService = portableDevicesService;
             supportedDevicesManager.ConfiguredDevices = modelRepository.Get<DeviceCollection>("devices");
             supportedDevicesManager.NewDeviceConnected += new NewDeviceConnectedHandler(NewDeviceConnectedEventHandler);
+            supportedDevicesManager.DeviceRemoved += new DeviceRemovedHandler(DeviceRemovedEventHandler);
+        }
+        
+        public void DeviceRemovedEventHandler(CompatibleDevice removedDevice) 
+        {
+            DevicesPanel devicesPanel = GetDevicesPanel();
+            devicesPanel.RefreshDevicesList();
+            
+            trayIcon.ShowBalloonTip(2000, "Device removed", removedDevice.Name
+                                    + " has been removed from the system.", ToolTipIcon.Info);
+        
+                        
         }
         
         public void NewDeviceConnectedEventHandler(CompatibleDevice connectedDevice)
@@ -73,7 +85,7 @@ namespace iTunesAgent.UI
             DevicesPanel devicesPanel = GetDevicesPanel();
             devicesPanel.RefreshDevicesList();
             
-            trayIcon.ShowBalloonTip(2000, "New device connected", connectedDevice.Name 
+            trayIcon.ShowBalloonTip(2000, "New device connected", connectedDevice.Name
                                     + " has been connected and is ready to be synchronized.", ToolTipIcon.Info);
         }
         
@@ -172,7 +184,7 @@ namespace iTunesAgent.UI
                     
                     
                     if(m.WParam.ToInt32() == WMConstants.DBT_DEVNODES_CHANGED)
-                    {                        
+                    {
                         supportedDevicesManager.CheckForNewDevices();
                         supportedDevicesManager.CheckForRemovedDevices();
                     }

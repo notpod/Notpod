@@ -12,6 +12,9 @@ namespace iTunesAgent.Connectors
 {
 	
 	public delegate void NewDeviceConnectedHandler(CompatibleDevice device);
+	
+	public delegate void DeviceRemovedHandler(CompatibleDevice device);
+	
 	/// <summary>
 	/// Provides an interface for managers handling devices the application can work with.
 	/// </summary>
@@ -19,6 +22,8 @@ namespace iTunesAgent.Connectors
 	{
 		
 		event NewDeviceConnectedHandler NewDeviceConnected;
+		
+		event DeviceRemovedHandler DeviceRemoved;
 		
 		/// <summary>
 		/// Instruct the manager to look for new devices connected to the system, that are 

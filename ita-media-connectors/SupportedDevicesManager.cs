@@ -71,7 +71,19 @@ namespace iTunesAgent.Connectors
 		
 		public void CheckForRemovedDevices()
 		{
-			
+			string[] idsOfConnectedDevices = portableDevicesService.GetDeviceIds();
+			foreach(CompatibleDevice device in connectedDevices) {
+				
+			    IEnumerable<string> stillConnected = from id in idsOfConnectedDevices where id == device.Identifier select id;
+			    
+			    if(stillConnected.Count() > 0)
+				{					
+					continue;
+				}
+				
+			    connectedDevices.Remove(device);												
+				OnDeviceRemoved(device);
+			}
 			
 		}
 		
@@ -97,8 +109,18 @@ namespace iTunesAgent.Connectors
 				NewDeviceConnected(device);
 			}
 		}
+		
+		protected virtual void OnDeviceRemoved(CompatibleDevice device) {
+		    
+		    if(DeviceRemoved != null) 
+		    {		        
+		        DeviceRemoved(device);
+		    }
+		}
 
 		
 		public event NewDeviceConnectedHandler NewDeviceConnected;
+		
+		public event DeviceRemovedHandler DeviceRemoved;
 	}
 }
