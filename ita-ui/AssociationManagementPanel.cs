@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using iTunesAgent.UI.Properties;
+using iTunesAgent.Services;
 
 namespace iTunesAgent.UI
 {
@@ -20,6 +21,8 @@ namespace iTunesAgent.UI
     public partial class AssociationManagementPanel : UserControl
     {
         private MainForm mainForm;
+        
+        private MediaSoftwareService mediaSoftwareService;
         
         private ModelRepository model;
         
@@ -54,14 +57,21 @@ namespace iTunesAgent.UI
             get { return mainForm; }
             set { mainForm = value; }
         }
-       
+        
+        public MediaSoftwareService MediaSoftwareService {
+            get { return mediaSoftwareService; }
+            set { mediaSoftwareService = value; }
+        }
+
+        
         
         // Using ParentChanged event to update playlist information, as it will always trigger when the panel is added to the container.
         void ParentChangedHandler(object sender, EventArgs e)
         {
-        	
-            int playlistID = model.Get<int>("editAssociationsPlaylistID");                                    
-            lblWhereAmI.Text = String.Format("{0} >> {1}", Resources.StrPlaylistAssociationWhereAmIPrefix, playlistID);
+            
+            int playlistID = model.Get<int>("editAssociationsPlaylistID");
+            Playlist playlist = mediaSoftwareService.GetPlaylist(playlistID);
+            lblWhereAmI.Text = String.Format("{0} >> {1}", Resources.StrPlaylistAssociationWhereAmIPrefix, playlist.Name);
         }
     }
 }
