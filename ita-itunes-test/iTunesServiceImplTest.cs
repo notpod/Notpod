@@ -88,28 +88,10 @@ namespace iTunesAgent.Services.iTunes
         [Test]
         public void TestGetPlaylists_always_returnsListWithPlaylistsEqualToThatReturnedFromITunes()
         {
-            MockRepository mocks = new MockRepository();
-
             ITunesServiceImpl service = GetServiceInstance();
             service.Initialize();
 
-            MockLibrarySource librarySource = new MockLibrarySource();
-            MockPlaylistCollection playlistCollection = new MockPlaylistCollection();
-            librarySource.Playlists = playlistCollection;
-
-            List<IITPlaylist> playlistsToReturn = new List<IITPlaylist>();
-            IITPlaylist playlist1 = new MockPlaylist();
-            playlist1.Name = "Playlist 1";
-            ((MockPlaylist)playlist1).Kind = ITPlaylistKind.ITPlaylistKindLibrary;
-
-            IITPlaylist playlist2 = new MockPlaylist();
-            playlist2.Name = "Playlist 2";
-            ((MockPlaylist)playlist2).Kind = ITPlaylistKind.ITPlaylistKindUser;
-
-            playlistsToReturn.Add(playlist1);
-            playlistsToReturn.Add(playlist2);
-
-            playlistCollection.Playlists = playlistsToReturn;
+            MockLibrarySource librarySource = CreateAndSetUpLibrarySource();
                         
             mockITunesApp.LibrarySource = librarySource;
 
@@ -119,6 +101,62 @@ namespace iTunesAgent.Services.iTunes
             Assert.AreEqual("Playlist 1", playlists[0].Name);
             Assert.AreEqual("Playlist 2", playlists[1].Name);
 
+        }
+        
+        MockLibrarySource CreateAndSetUpLibrarySource()
+        {
+            MockLibrarySource librarySource = new MockLibrarySource();
+            MockPlaylistCollection playlistCollection = new MockPlaylistCollection();
+            librarySource.Playlists = playlistCollection;
+
+            List<IITPlaylist> playlistsToReturn = new List<IITPlaylist>();
+            MockPlaylist playlist1 = new MockPlaylist();
+            playlist1.Name = "Playlist 1";
+            playlist1.playlistID = 1;
+            ((MockPlaylist)playlist1).Kind = ITPlaylistKind.ITPlaylistKindLibrary;
+
+            MockPlaylist playlist2 = new MockPlaylist();
+            playlist2.Name = "Playlist 2";
+            playlist2.playlistID = 2;
+            ((MockPlaylist)playlist2).Kind = ITPlaylistKind.ITPlaylistKindUser;
+
+            playlistsToReturn.Add(playlist1);
+            playlistsToReturn.Add(playlist2);
+
+            playlistCollection.Playlists = playlistsToReturn;
+            
+            return librarySource;
+        }
+        
+        [Test]
+        public void GetPlaylist_ShouldReturnPlaylistForTheGivenID() 
+        {            
+            ITunesServiceImpl service = GetServiceInstance();
+            service.Initialize();
+
+            MockLibrarySource librarySource = CreateAndSetUpLibrarySource();
+                        
+            mockITunesApp.LibrarySource = librarySource;
+
+            Playlist playlist = service.GetPlaylist(2);
+
+            Assert.NotNull(playlist);
+            Assert.AreEqual(2, playlist.ID);            
+        }
+        
+        [Test]
+        public void GetPlaylist_ShouldReturNullWhenNoPlaylistWithTheGivenID() 
+        {            
+            ITunesServiceImpl service = GetServiceInstance();
+            service.Initialize();
+
+            MockLibrarySource librarySource = CreateAndSetUpLibrarySource();
+                        
+            mockITunesApp.LibrarySource = librarySource;
+
+            Playlist playlist = service.GetPlaylist(42);
+
+            Assert.Null(playlist);   
         }
     }
 }

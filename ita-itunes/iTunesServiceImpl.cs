@@ -128,13 +128,14 @@ namespace iTunesAgent.Services.iTunes
 
         }
 
-        /*!
-         * \copydoc MediaSoftwareService::GetPlaylist(string)
-         */
-        public Playlist GetPlaylist(string name)
+        public Playlist GetPlaylist(int id)
         {
             ValidateState();
-            throw new NotImplementedException();
+            
+            List<Playlist> playlists = GetPlaylists();
+            IEnumerable<Playlist> filtered = from p in playlists where p.ID == id select p;
+            
+            return filtered.FirstOrDefault();
         }
 
         #endregion

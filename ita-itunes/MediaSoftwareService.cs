@@ -25,7 +25,7 @@ namespace iTunesAgent.Services
         /// </summary>
         /// <param name="id">The name of the playlist.</param>
         /// <returns>The specified playlist if found, otherwise the method returns null.</returns>
-        Playlist GetPlaylist(string id);
+        Playlist GetPlaylist(int id);
 
         /*!
          * Initialize the iTunesService.

@@ -16,7 +16,7 @@ namespace iTunesAgent.Mocks
             return playlists;
         }
 
-        public Playlist GetPlaylist(string id)
+        public Playlist GetPlaylist(int id)
         {
             throw new NotImplementedException();
         }
