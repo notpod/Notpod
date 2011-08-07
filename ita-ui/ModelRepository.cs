@@ -37,6 +37,7 @@ namespace iTunesAgent.UI
         {
             XmlSerializer xs = new XmlSerializer(type);
             xs.Serialize(stream, this[component]);
+            stream.Close();
         }
 
         public  T Get<T>(string component)
