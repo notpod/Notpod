@@ -7,11 +7,15 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections;
+using System.Linq;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using iTunesAgent.UI.Properties;
 using iTunesAgent.Services;
+using iTunesAgent.Domain;
+
 
 namespace iTunesAgent.UI
 {
@@ -68,10 +72,23 @@ namespace iTunesAgent.UI
         // Using ParentChanged event to update playlist information, as it will always trigger when the panel is added to the container.
         void ParentChangedHandler(object sender, EventArgs e)
         {
-            
+            PopulatePlaylistAssociationData();
+        }
+        
+        void PopulatePlaylistAssociationData() 
+        {
             int playlistID = model.Get<int>("editAssociationsPlaylistID");
             Playlist playlist = mediaSoftwareService.GetPlaylist(playlistID);
             lblWhereAmI.Text = String.Format("{0} >> {1}", Resources.StrPlaylistAssociationWhereAmIPrefix, playlist.Name);
+
+            DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
+            var devicesAssociatedWithPlaylist = from d in deviceCollection.Devices where (from p in d.Playlists where p.PlaylistID == playlistID select p).Count() > 0 select d;
+            
+            listAssociatedDevices.Items.Clear();
+            foreach(Device device in devicesAssociatedWithPlaylist) 
+            {
+                listAssociatedDevices.Items.Add(device);
+            }
         }
     }
 }
