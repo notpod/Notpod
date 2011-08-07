@@ -130,6 +130,7 @@ namespace iTunesAgent.UI
         	this.btnNew.TabIndex = 3;
         	this.btnNew.Text = "Add";
         	this.btnNew.UseVisualStyleBackColor = true;
+        	this.btnNew.Click += new System.EventHandler(this.BtnNewClick);
         	// 
         	// btnEdit
         	// 

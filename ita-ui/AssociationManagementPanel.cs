@@ -12,10 +12,13 @@ using System.Linq;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 using iTunesAgent.UI.Properties;
 using iTunesAgent.Services;
 using iTunesAgent.Domain;
-
+using iTunesAgent.UI.Components.Wizard;
+using iTunesAgent.UI.Controls;
+using log4net;
 
 namespace iTunesAgent.UI
 {
@@ -29,6 +32,8 @@ namespace iTunesAgent.UI
         private MediaSoftwareService mediaSoftwareService;
         
         private ModelRepository model;
+        
+        private ILog l = LogManager.GetLogger(typeof(AssociationManagementPanel));
         
         public AssociationManagementPanel()
         {
@@ -78,9 +83,19 @@ namespace iTunesAgent.UI
         void PopulatePlaylistAssociationData() 
         {
             int playlistID = model.Get<int>("editAssociationsPlaylistID");
+            
+            UpdatePlaylistName(playlistID);
+            UpdateAssociatedPlaylists(playlistID);
+        }
+        
+        void UpdatePlaylistName(int playlistID) 
+        {
             Playlist playlist = mediaSoftwareService.GetPlaylist(playlistID);
             lblWhereAmI.Text = String.Format("{0} >> {1}", Resources.StrPlaylistAssociationWhereAmIPrefix, playlist.Name);
-
+        }
+        
+        void UpdateAssociatedPlaylists(int playlistID)
+        {
             DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
             var devicesAssociatedWithPlaylist = from d in deviceCollection.Devices where (from p in d.Playlists where p.PlaylistID == playlistID select p).Count() > 0 select d;
             
@@ -89,6 +104,44 @@ namespace iTunesAgent.UI
             {
                 listAssociatedDevices.Items.Add(device);
             }
+        }
+        
+        void BtnNewClick(object sender, EventArgs e)
+        {
+        	 int playlistID = model.Get<int>("editAssociationsPlaylistID");
+            
+            Wizard wizard = new Wizard();
+            
+            PlaylistAssociationChooseDevicePage devicePage = new PlaylistAssociationChooseDevicePage();
+            devicePage.Model = model;
+            devicePage.PageTitle = "Choose device";
+            
+            wizard.Pages.AddLast(devicePage);
+            
+            PlaylistAssociationBrowseFolder browsePage = new PlaylistAssociationBrowseFolder();
+            browsePage.PageTitle = "Choose where music is copied to";
+            
+            wizard.Pages.AddLast(browsePage);
+            
+            DialogResult result = wizard.StartWizard(this);
+            
+            
+            if(result == DialogResult.Cancel)
+            {
+                return;
+            }
+            
+            Device selectedDevice = (Device)wizard.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDDEVICE];
+            String selectedPath = (String)wizard.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDPATH];
+            
+            PlaylistAssociation playlistAssociation = new PlaylistAssociation(playlistID, "", selectedPath);
+            selectedDevice.Playlists.Add(playlistAssociation);
+            
+            l.Debug("Attemting to write device configuration to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+            model.Serialize("devices", typeof(DeviceCollection), ApplicationUtils.GetDeviceConfigurationStream(FileMode.Create));
+            l.Debug("Device configuration successfully written to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+            
+            UpdateAssociatedPlaylists(playlistID);
         }
     }
 }
