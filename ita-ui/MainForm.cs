@@ -145,14 +145,20 @@ namespace iTunesAgent.UI
             PlaylistsPanel playlistsPanel = new PlaylistsPanel();
             playlistsPanel.MediaSoftwareService = mediaSoftwareServices[ITunesServiceImpl.SERVICE_NAME];
             playlistsPanel.Model = modelRepository;
+            playlistsPanel.MainForm = this;
             panels.Add("playlists", playlistsPanel);
+            
+            AssociationManagementPanel associationsPanel = new AssociationManagementPanel();
+            associationsPanel.MainForm = this;
+            associationsPanel.Model = modelRepository;
+            panels.Add("associations", associationsPanel);
 
             panels.Add("preferences", new PreferencesPanel());
 
-            setCommonPanelProperties();
+            SetCommonPanelProperties();
         }
 
-        private void setCommonPanelProperties()
+        private void SetCommonPanelProperties()
         {
             foreach (Control c in panels.Values)
             {
@@ -205,14 +211,14 @@ namespace iTunesAgent.UI
         {
             ResetButtonState();
             SetSelectedColor(sender);
-            switchToPanel("preferences");
+            SwitchToPanel("preferences");
         }
 
         private void btnMyDevices_Click(object sender, EventArgs e)
         {
             ResetButtonState();
             SetSelectedColor(sender);
-            switchToPanel("devices");
+            SwitchToPanel("devices");
         }
         
         public void SwithcToMyDevicesPanel()
@@ -224,14 +230,14 @@ namespace iTunesAgent.UI
         {
             ResetButtonState();
             SetSelectedColor(sender);
-            switchToPanel("home");
+            SwitchToPanel("home");
         }
         
         private void btnPlaylists_Click(object sender, EventArgs e)
         {
             ResetButtonState();
             SetSelectedColor(sender);
-            switchToPanel("playlists");
+            SwitchToPanel("playlists");
         }
 
         private void SetSelectedColor(object sender)
@@ -250,11 +256,14 @@ namespace iTunesAgent.UI
         /// </summary>
         /// <param name="panel_name">Name of panel to switch to. This panel
         /// must be loaded into the panels array.</param>
-        private void switchToPanel(string panel_name)
+        public void SwitchToPanel(string panel_name)
         {
             panViewPlaceholder.Controls.Clear();
-            panViewPlaceholder.Controls.Add(panels[panel_name]);
+            UserControl panel = panels[panel_name];            
+            panel.Invalidate();
+            panViewPlaceholder.Controls.Add(panel);                        
             panViewPlaceholder.Invalidate();
+            
         }
 
         /*!

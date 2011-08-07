@@ -74,6 +74,12 @@ namespace iTunesAgent.UI
                 return this.btnEditAssociations;
             }
         }
+        
+        public Button ClearAllAssociationsButton
+        {
+            
+            get { return this.btnClearAll; }
+        }
 
         public Button SynchronizePlaylistButton
         {

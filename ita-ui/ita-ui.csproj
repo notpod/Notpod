@@ -80,6 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUtils.cs" />
+    <Compile Include="AssociationManagementPanel.cs" />
+    <Compile Include="AssociationManagementPanel.Designer.cs">
+      <DependentUpon>AssociationManagementPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Wizard\AbstractConditionalWizardPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +209,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WMConstants.cs" />
+    <EmbeddedResource Include="AssociationManagementPanel.resx">
+      <DependentUpon>AssociationManagementPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Wizard\AbstractWizardPage.resx">
       <DependentUpon>AbstractWizardPage.cs</DependentUpon>
     </EmbeddedResource>
