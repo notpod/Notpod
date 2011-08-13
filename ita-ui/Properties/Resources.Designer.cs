@@ -134,7 +134,7 @@ namespace iTunesAgent.UI.Properties {
         
         internal static System.Drawing.Icon ita_new {
             get {
-                object obj = ResourceManager.GetObject("ita_new", resourceCulture);
+                object obj = ResourceManager.GetObject("ita-new", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
