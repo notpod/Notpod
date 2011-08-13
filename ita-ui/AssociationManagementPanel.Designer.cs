@@ -65,7 +65,7 @@ namespace iTunesAgent.UI
         	this.panelLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
         	this.panelLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
         	this.panelLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-        	this.panelLayout.Size = new System.Drawing.Size(636, 358);
+        	this.panelLayout.Size = new System.Drawing.Size(558, 358);
         	this.panelLayout.TabIndex = 0;
         	// 
         	// lblPlaylistAssociations
@@ -78,7 +78,7 @@ namespace iTunesAgent.UI
         	this.lblPlaylistAssociations.Location = new System.Drawing.Point(5, 0);
         	this.lblPlaylistAssociations.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
         	this.lblPlaylistAssociations.Name = "lblPlaylistAssociations";
-        	this.lblPlaylistAssociations.Size = new System.Drawing.Size(628, 50);
+        	this.lblPlaylistAssociations.Size = new System.Drawing.Size(550, 50);
         	this.lblPlaylistAssociations.TabIndex = 4;
         	this.lblPlaylistAssociations.Text = "Playlist associations";
         	this.lblPlaylistAssociations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -90,7 +90,7 @@ namespace iTunesAgent.UI
         	this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.panelContent.Location = new System.Drawing.Point(3, 53);
         	this.panelContent.Name = "panelContent";
-        	this.panelContent.Size = new System.Drawing.Size(630, 262);
+        	this.panelContent.Size = new System.Drawing.Size(552, 262);
         	this.panelContent.TabIndex = 7;
         	// 
         	// lblWhereAmI
@@ -98,7 +98,7 @@ namespace iTunesAgent.UI
         	this.lblWhereAmI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.lblWhereAmI.Location = new System.Drawing.Point(3, 0);
         	this.lblWhereAmI.Name = "lblWhereAmI";
-        	this.lblWhereAmI.Size = new System.Drawing.Size(627, 29);
+        	this.lblWhereAmI.Size = new System.Drawing.Size(546, 29);
         	this.lblWhereAmI.TabIndex = 0;
         	this.lblWhereAmI.Text = "Associations >> Playlist name";
         	// 
@@ -107,7 +107,7 @@ namespace iTunesAgent.UI
         	this.listAssociatedDevices.FormattingEnabled = true;
         	this.listAssociatedDevices.Location = new System.Drawing.Point(3, 32);
         	this.listAssociatedDevices.Name = "listAssociatedDevices";
-        	this.listAssociatedDevices.Size = new System.Drawing.Size(627, 225);
+        	this.listAssociatedDevices.Size = new System.Drawing.Size(546, 225);
         	this.listAssociatedDevices.TabIndex = 1;
         	// 
         	// panelButtonContainer
@@ -119,7 +119,7 @@ namespace iTunesAgent.UI
         	this.panelButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.panelButtonContainer.Location = new System.Drawing.Point(3, 321);
         	this.panelButtonContainer.Name = "panelButtonContainer";
-        	this.panelButtonContainer.Size = new System.Drawing.Size(630, 34);
+        	this.panelButtonContainer.Size = new System.Drawing.Size(552, 34);
         	this.panelButtonContainer.TabIndex = 8;
         	// 
         	// btnNew
@@ -134,7 +134,7 @@ namespace iTunesAgent.UI
         	// 
         	// btnEdit
         	// 
-        	this.btnEdit.Location = new System.Drawing.Point(443, 3);
+        	this.btnEdit.Location = new System.Drawing.Point(365, 3);
         	this.btnEdit.Name = "btnEdit";
         	this.btnEdit.Size = new System.Drawing.Size(89, 28);
         	this.btnEdit.TabIndex = 2;
@@ -143,12 +143,13 @@ namespace iTunesAgent.UI
         	// 
         	// btnDelete
         	// 
-        	this.btnDelete.Location = new System.Drawing.Point(538, 3);
+        	this.btnDelete.Location = new System.Drawing.Point(460, 3);
         	this.btnDelete.Name = "btnDelete";
         	this.btnDelete.Size = new System.Drawing.Size(89, 28);
         	this.btnDelete.TabIndex = 1;
         	this.btnDelete.Text = "Delete";
         	this.btnDelete.UseVisualStyleBackColor = true;
+        	this.btnDelete.Click += new System.EventHandler(this.BtnDeleteClick);
         	// 
         	// btnBack
         	// 
@@ -167,7 +168,7 @@ namespace iTunesAgent.UI
         	this.AutoSize = true;
         	this.Controls.Add(this.panelLayout);
         	this.Name = "AssociationManagementPanel";
-        	this.Size = new System.Drawing.Size(636, 358);
+        	this.Size = new System.Drawing.Size(558, 358);
         	this.ParentChanged += new System.EventHandler(this.ParentChangedHandler);
         	this.panelLayout.ResumeLayout(false);
         	this.panelLayout.PerformLayout();

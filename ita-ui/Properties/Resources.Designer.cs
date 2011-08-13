@@ -186,6 +186,15 @@ namespace iTunesAgent.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have to select a device to remove it&apos;s association to this playlist..
+        /// </summary>
+        internal static string StrAssocationManagmentSelectDevice {
+            get {
+                return ResourceManager.GetString("StrAssocationManagmentSelectDevice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to write default configuration. Please ensure the application is run as a user with necessary access to your user directory..
         /// </summary>
         internal static string StrDefaultConfigWriteError {
@@ -218,6 +227,15 @@ namespace iTunesAgent.UI.Properties {
         internal static string StrDeviceStatusOnline {
             get {
                 return ResourceManager.GetString("StrDeviceStatusOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string StrGeneralInformation {
+            get {
+                return ResourceManager.GetString("StrGeneralInformation", resourceCulture);
             }
         }
         

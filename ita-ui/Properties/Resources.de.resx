@@ -144,4 +144,10 @@
   <data name="StrWizardWelcomeAddNewPage" xml:space="preserve">
     <value>Add a new device</value>
   </data>
+  <data name="StrAssocationManagmentSelectDevice" xml:space="preserve">
+    <value>You have to select a device to remove it's association to this playlist.</value>
+  </data>
+  <data name="StrGeneralInformation" xml:space="preserve">
+    <value>Information</value>
+  </data>
 </root>

@@ -7,7 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel;
 using System.Drawing;
@@ -80,7 +80,7 @@ namespace iTunesAgent.UI
             PopulatePlaylistAssociationData();
         }
         
-        void PopulatePlaylistAssociationData() 
+        void PopulatePlaylistAssociationData()
         {
             int playlistID = model.Get<int>("editAssociationsPlaylistID");
             
@@ -88,7 +88,7 @@ namespace iTunesAgent.UI
             UpdateAssociatedPlaylists(playlistID);
         }
         
-        void UpdatePlaylistName(int playlistID) 
+        void UpdatePlaylistName(int playlistID)
         {
             Playlist playlist = mediaSoftwareService.GetPlaylist(playlistID);
             lblWhereAmI.Text = String.Format("{0} >> {1}", Resources.StrPlaylistAssociationWhereAmIPrefix, playlist.Name);
@@ -100,7 +100,7 @@ namespace iTunesAgent.UI
             var devicesAssociatedWithPlaylist = from d in deviceCollection.Devices where (from p in d.Playlists where p.PlaylistID == playlistID select p).Count() > 0 select d;
             
             listAssociatedDevices.Items.Clear();
-            foreach(Device device in devicesAssociatedWithPlaylist) 
+            foreach(Device device in devicesAssociatedWithPlaylist)
             {
                 listAssociatedDevices.Items.Add(device);
             }
@@ -108,7 +108,7 @@ namespace iTunesAgent.UI
         
         void BtnNewClick(object sender, EventArgs e)
         {
-        	 int playlistID = model.Get<int>("editAssociationsPlaylistID");
+            int playlistID = model.Get<int>("editAssociationsPlaylistID");
             
             Wizard wizard = new Wizard();
             
@@ -137,11 +137,35 @@ namespace iTunesAgent.UI
             PlaylistAssociation playlistAssociation = new PlaylistAssociation(playlistID, "", selectedPath);
             selectedDevice.Playlists.Add(playlistAssociation);
             
+            
+            SerializeDeviceConfiguration();
+            
+            UpdateAssociatedPlaylists(playlistID);
+        }
+
+        void SerializeDeviceConfiguration()
+        {
             l.Debug("Attemting to write device configuration to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
             model.Serialize("devices", typeof(DeviceCollection), ApplicationUtils.GetDeviceConfigurationStream(FileMode.Create));
             l.Debug("Device configuration successfully written to: " + ApplicationUtils.DEVICES_CONFIG_PATH);
+        }
+        
+        void BtnDeleteClick(object sender, EventArgs e)
+        {
+            Device selectedDevice = (Device)listAssociatedDevices.SelectedItem;
+            if(selectedDevice == null)
+            {
+                MessageBox.Show(this, Resources.StrAssocationManagmentSelectDevice, Resources.StrGeneralInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             
-            UpdateAssociatedPlaylists(playlistID);
+            int playlistID = model.Get<int>("editAssociationsPlaylistID");
+            IEnumerable<PlaylistAssociation> association = from p in selectedDevice.Playlists where p.PlaylistID == playlistID select p;
+            
+            selectedDevice.Playlists.Remove(association.FirstOrDefault());
+            
+            SerializeDeviceConfiguration();
+            UpdateAssociatedPlaylists(playlistID);            
         }
     }
 }
