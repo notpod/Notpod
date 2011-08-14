@@ -151,6 +151,7 @@ namespace iTunesAgent.UI
             AssociationManagementPanel associationsPanel = new AssociationManagementPanel();
             associationsPanel.MainForm = this;
             associationsPanel.MediaSoftwareService = mediaSoftwareServices[ITunesServiceImpl.SERVICE_NAME];
+            associationsPanel.DevicesManager = supportedDevicesManager;
             associationsPanel.Model = modelRepository;
             panels.Add("associations", associationsPanel);
 

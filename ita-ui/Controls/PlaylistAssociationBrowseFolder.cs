@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using iTunesAgent.UI.Components.Wizard;
 using iTunesAgent.Domain;
 using iTunesAgent.UI.Properties;
+using iTunesAgent.Connectors;
 
 namespace iTunesAgent.UI.Controls
 {
@@ -21,7 +22,10 @@ namespace iTunesAgent.UI.Controls
     /// </summary>
     public partial class PlaylistAssociationBrowseFolder : AbstractWizardPage
     {
-                
+        
+        private IDevicesManager devicesManager;
+        
+        
         public PlaylistAssociationBrowseFolder()
         {
             //
@@ -35,20 +39,20 @@ namespace iTunesAgent.UI.Controls
         }
         
         
-        public override void Populate() 
+        public override void Populate()
         {
             ResetSelectedPath();
             
         }
         
-        private void ResetSelectedPath() 
+        private void ResetSelectedPath()
         {
             // We ensure the selected path is reset.
             this.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDPATH] = null;
             lblSelectedDestination.Text = "";
         }
         
-        public override bool ValidateBeforeNext() 
+        public override bool ValidateBeforeNext()
         {
             return true;
         }
@@ -58,6 +62,8 @@ namespace iTunesAgent.UI.Controls
             Device selectedDevice = (Device)DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDDEVICE];
             
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+                        
+            folderBrowser.RootFolder = Environment.SpecialFolder.MyComputer;
             
             // TODO Need to set root folder of the browser to the root of the selected device.
             
@@ -69,5 +75,11 @@ namespace iTunesAgent.UI.Controls
             }
             
         }
+        
+        public IDevicesManager DevicesManager {
+            get { return devicesManager; }
+            set { devicesManager = value; }
+        }
+
     }
 }

@@ -18,6 +18,7 @@ using iTunesAgent.Services;
 using iTunesAgent.Domain;
 using iTunesAgent.UI.Components.Wizard;
 using iTunesAgent.UI.Controls;
+using iTunesAgent.Connectors;
 using log4net;
 
 namespace iTunesAgent.UI
@@ -30,6 +31,8 @@ namespace iTunesAgent.UI
         private MainForm mainForm;
         
         private MediaSoftwareService mediaSoftwareService;
+        
+        private IDevicesManager devicesManager;
         
         private ModelRepository model;
         
@@ -71,8 +74,11 @@ namespace iTunesAgent.UI
             get { return mediaSoftwareService; }
             set { mediaSoftwareService = value; }
         }
-
         
+        public IDevicesManager DevicesManager {
+            get { return devicesManager; }
+            set { devicesManager = value; }
+        }
         
         // Using ParentChanged event to update playlist information, as it will always trigger when the panel is added to the container.
         void ParentChangedHandler(object sender, EventArgs e)
@@ -120,6 +126,7 @@ namespace iTunesAgent.UI
             
             PlaylistAssociationBrowseFolder browsePage = new PlaylistAssociationBrowseFolder();
             browsePage.PageTitle = "Choose where music is copied to";
+            browsePage.DevicesManager = devicesManager;
             
             wizard.Pages.AddLast(browsePage);
             
@@ -165,7 +172,7 @@ namespace iTunesAgent.UI
             selectedDevice.Playlists.Remove(association.FirstOrDefault());
             
             SerializeDeviceConfiguration();
-            UpdateAssociatedPlaylists(playlistID);            
+            UpdateAssociatedPlaylists(playlistID);
         }
     }
 }
