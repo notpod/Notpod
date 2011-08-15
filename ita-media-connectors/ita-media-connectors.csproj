@@ -82,6 +82,9 @@
     <Compile Include="CompatibleDevice.cs" />
     <Compile Include="IDevicesManager.cs" />
     <Compile Include="MediaDevicesService.cs" />
+    <Compile Include="PortableDeviceFile.cs" />
+    <Compile Include="PortableDeviceFolder.cs" />
+    <Compile Include="PortableDeviceObject.cs" />
     <Compile Include="PortableDevicePKeys.cs" />
     <Compile Include="SupportedDevicesManager.cs" />
     <Compile Include="WindowsPortableDevice.cs" />
