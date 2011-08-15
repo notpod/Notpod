@@ -14,6 +14,7 @@ using iTunesAgent.Services.iTunes;
 using iTunesAgent.Domain;
 using iTunesAgent.UI.Configuration;
 using iTunesAgent.Connectors;
+using iTunesAgent.Connectors.Domain;
 
 namespace iTunesAgent.UI
 {
@@ -55,7 +56,8 @@ namespace iTunesAgent.UI
             PopulateMediaSoftwareServices();
             InitializePanels();
             LoadPreviousPanel();
-            
+
+            supportedDevicesManager.CheckForNewDevices();            
         }
 
         private void InitializeDevicesManager()
@@ -67,6 +69,7 @@ namespace iTunesAgent.UI
             supportedDevicesManager.ConfiguredDevices = modelRepository.Get<DeviceCollection>("devices");
             supportedDevicesManager.NewDeviceConnected += new NewDeviceConnectedHandler(NewDeviceConnectedEventHandler);
             supportedDevicesManager.DeviceRemoved += new DeviceRemovedHandler(DeviceRemovedEventHandler);
+            
         }
         
         public void DeviceRemovedEventHandler(CompatibleDevice removedDevice) 
