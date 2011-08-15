@@ -10,6 +10,7 @@ using System;
 using iTunesAgent.Domain;
 using System.Collections.Generic;
 using System.Linq;
+using iTunesAgent.Connectors.Domain;
 
 namespace iTunesAgent.Connectors
 {
