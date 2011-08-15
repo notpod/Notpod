@@ -10,6 +10,7 @@ using iTunesAgent.UI.Components.Wizard;
 using iTunesAgent.UI.Properties;
 using iTunesAgent.UI.Controls;
 using iTunesAgent.Connectors;
+using iTunesAgent.Connectors.Domain;
 using iTunesAgent.Domain;
 using System.IO;
 using log4net;
