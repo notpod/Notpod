@@ -14,6 +14,7 @@ using iTunesAgent.UI.Components.Wizard;
 using iTunesAgent.Domain;
 using iTunesAgent.UI.Properties;
 using iTunesAgent.Connectors;
+using iTunesAgent.Connectors.Domain;
 
 namespace iTunesAgent.UI.Controls
 {
@@ -62,7 +63,7 @@ namespace iTunesAgent.UI.Controls
             Device selectedDevice = (Device)DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDDEVICE];
             
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-                        
+            
             folderBrowser.RootFolder = Environment.SpecialFolder.MyComputer;
             
             // TODO Need to set root folder of the browser to the root of the selected device.
@@ -70,8 +71,23 @@ namespace iTunesAgent.UI.Controls
             DialogResult result = folderBrowser.ShowDialog(this);
             if(result == DialogResult.OK) {
                 
+                
+                CompatibleDevice device = devicesManager.GetConnectedDevice(selectedDevice.Identifier);
+                bool folderExistsOnDevice = device.CheckPath(folderBrowser.SelectedPath);
+                
+                if(!folderExistsOnDevice)
+                {
+                    
+                    MessageBox.Show(this, String.Format("The folder you selected ({0}) was not found on the device '{1}'. Are you sure you browsed the correct device?",
+                                                        folderBrowser.SelectedPath, selectedDevice.Name), "Unable to verify folder location",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                    
+                }
+                
                 this.DataStore[WizardDataStoreKeys.PLAYLIST_ASSOCIATION_SELECTEDPATH] = folderBrowser.SelectedPath;
                 lblSelectedDestination.Text = String.Format("{0}:\n{1}", Resources.StrPlaylistAssociationCurrentlySelected, folderBrowser.SelectedPath);
+                
             }
             
         }
