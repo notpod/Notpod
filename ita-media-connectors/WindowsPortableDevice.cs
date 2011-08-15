@@ -14,9 +14,9 @@ namespace iTunesAgent.Connectors.Domain
         private string deviceId;
 
         private PortableDevice portableDevice;
-
-        private bool isConnected = false;
-
+        
+        private PortableDeviceFolder deviceContents;
+        
         public WindowsPortableDevice(string deviceId)
         {
             this.deviceId = deviceId;
@@ -44,6 +44,8 @@ namespace iTunesAgent.Connectors.Domain
             
             SetValues();
 
+            RefreshContents();
+            
             this.isConnected = true;           
         }
 
@@ -71,11 +73,51 @@ namespace iTunesAgent.Connectors.Domain
             this.portableDevice.Close();
             isConnected = false;
         }
+        
+        public override PortableDeviceFolder GetContents()
+        {
+            return deviceContents;
+        }
+        
+        public override void RefreshContents() 
+        {
+            var root = new PortableDeviceFolder("DEVICE", "DEVICE");
+
+            IPortableDeviceContent content;
+            this.portableDevice.Content(out content);
+            EnumerateContents(ref content, root);
+
+            deviceContents = root;
+        }
+        
+        public override bool CheckPath(String path) 
+        {
+            
+            string[] partsOfPath = path.Split('\\');
+            
+            PortableDeviceFolder currentFolder = deviceContents;
+            for(int i = 0; i < partsOfPath.Length; i++) 
+            {
+                
+                IEnumerable<PortableDeviceObject> matchingFolder = from f in currentFolder.Files where f.Name == partsOfPath[i] select f;
+                if(matchingFolder.Count() == 0)
+                {
+                    return false;
+                }
+                
+                currentFolder = (PortableDeviceFolder)matchingFolder.First();
+            }
+            
+            return true;
+            
+        }
 
         public override string ToString()
         {
             return this.Name;
         }
+        
+        
 
     }
 }
