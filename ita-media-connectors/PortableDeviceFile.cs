@@ -1,4 +1,4 @@
-﻿namespace PortableDevices
+﻿namespace iTunesAgent.Connectors.Domain
 {
     public class PortableDeviceFile : PortableDeviceObject
     {

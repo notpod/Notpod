@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PortableDevices
+namespace iTunesAgent.Connectors.Domain
 {
     public class PortableDeviceFolder : PortableDeviceObject
     {
