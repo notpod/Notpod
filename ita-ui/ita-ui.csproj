@@ -298,6 +298,7 @@
     <Compile Include="TranslationMgr.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.txt" />
     <None Include="Resources\ita-new.ico" />
   </ItemGroup>
   <ItemGroup>
