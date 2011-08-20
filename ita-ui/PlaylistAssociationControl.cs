@@ -88,5 +88,20 @@ namespace iTunesAgent.UI
                 return this.btnSynchronizeNow;
             }
         }
+        
+        public Label PlaylistNameLabel 
+        {
+            get { return this.lblPlaylistName; }
+        }
+        
+        void LblPlaylistNameMouseEnter(object sender, EventArgs e)
+        {
+        	lblPlaylistName.ForeColor = Color.Blue;        	
+        }
+        
+        void LblPlaylistNameMouseLeave(object sender, EventArgs e)
+        {
+        	lblPlaylistName.ForeColor = Color.Black;
+        }
     }
 }

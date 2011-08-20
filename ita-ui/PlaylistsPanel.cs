@@ -46,6 +46,8 @@ namespace iTunesAgent.UI
         public void PlaylistsPanel_Load(object sender, EventArgs e)
         {
 
+            flowPlaylistAssociations.Visible = false;
+            
             DeviceCollection deviceCollection = model.Get<DeviceCollection>("devices");
 
             List<Playlist> playlists = mediaSoftwareService.GetPlaylists();
@@ -61,16 +63,19 @@ namespace iTunesAgent.UI
                 
                 playlistAssociationControl.AddAssociationButton.Click += new EventHandler(AddAssociationButton_Click);
                 playlistAssociationControl.EditAssociationsButton.Click += new EventHandler(EditAssociationsButton_Click);
+                playlistAssociationControl.PlaylistNameLabel.Click += new EventHandler(EditAssociationsButton_Click);
                 
                 flowPlaylistAssociations.Controls.Add(playlistAssociationControl);
             }
 
+            
+            flowPlaylistAssociations.Visible = true;
         }
         
         public void EditAssociationsButton_Click(object sender, EventArgs e)
         {
-            Button senderButton = (Button)sender;
-            PlaylistAssociationControl playlistAssociationControl = (PlaylistAssociationControl)senderButton.Parent;
+            Control clickedObject = (Control)sender;
+            PlaylistAssociationControl playlistAssociationControl = (PlaylistAssociationControl)clickedObject.Parent;
             
             model["editAssociationsPlaylistID"] = playlistAssociationControl.PlaylistID;
             mainForm.SwitchToPanel("associations");

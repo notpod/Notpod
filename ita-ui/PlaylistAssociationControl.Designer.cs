@@ -40,7 +40,7 @@
         	// 
         	// lblPlaylistName
         	// 
-        	this.lblPlaylistName.Cursor = System.Windows.Forms.Cursors.Default;
+        	this.lblPlaylistName.Cursor = System.Windows.Forms.Cursors.Hand;
         	this.lblPlaylistName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.lblPlaylistName.Location = new System.Drawing.Point(1, 1);
         	this.lblPlaylistName.Name = "lblPlaylistName";
@@ -48,6 +48,8 @@
         	this.lblPlaylistName.TabIndex = 0;
         	this.lblPlaylistName.Text = "Playlist name";
         	this.lblPlaylistName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        	this.lblPlaylistName.MouseEnter += new System.EventHandler(this.LblPlaylistNameMouseEnter);
+        	this.lblPlaylistName.MouseLeave += new System.EventHandler(this.LblPlaylistNameMouseLeave);
         	// 
         	// lblAssociationCount
         	// 
