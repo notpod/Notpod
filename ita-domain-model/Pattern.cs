@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -14,6 +15,10 @@ namespace iTunesAgent.Domain
         private string name;
 
         private string format;
+        
+        private string compilationformat;
+        
+        private string description;
 
         private Pattern()
         {
@@ -48,5 +53,18 @@ namespace iTunesAgent.Domain
             set { format = value; }
             get { return format; }
         }
+
+        [XmlElement("compilationformat")]        
+        public string Compilationformat {
+            get { return compilationformat; }
+            set { compilationformat = value; }
+        }
+        
+        [XmlElement("description")]
+        public string Description {
+            get { return description; }
+            set { description = value; }
+        }
+
     }
 }
