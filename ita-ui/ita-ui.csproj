@@ -150,9 +150,9 @@
     <Compile Include="Controls\NewDeviceWPDConfigurationPage.Designer.cs">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PlaylistAssociationBrowseFolder.cs" />
-    <Compile Include="Controls\PlaylistAssociationBrowseFolder.Designer.cs">
-      <DependentUpon>PlaylistAssociationBrowseFolder.cs</DependentUpon>
+    <Compile Include="Controls\PlaylistAssociationSettings.cs" />
+    <Compile Include="Controls\PlaylistAssociationSettings.Designer.cs">
+      <DependentUpon>PlaylistAssociationSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\PlaylistAssociationChooseDevicePage.cs" />
     <Compile Include="Controls\PlaylistAssociationChooseDevicePage.Designer.cs">
@@ -239,8 +239,8 @@
     <EmbeddedResource Include="Controls\NewDeviceWPDConfigurationPage.resx">
       <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\PlaylistAssociationBrowseFolder.resx">
-      <DependentUpon>PlaylistAssociationBrowseFolder.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\PlaylistAssociationSettings.resx">
+      <DependentUpon>PlaylistAssociationSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PlaylistAssociationChooseDevicePage.resx">
       <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
@@ -286,6 +286,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ApplicationConfiguration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Devices.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Pattern.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
