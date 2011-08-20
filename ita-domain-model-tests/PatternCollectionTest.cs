@@ -17,7 +17,7 @@ namespace iTunesAgent.Domain
         {
             PatternCollection collection = new PatternCollection();
 
-            Pattern pattern = Pattern.Instance("itunes", "%MACRO1%\\%MACRO2%");
+            Pattern pattern = Pattern.Instance("itunes", "iTunes", "%MACRO1%\\%MACRO2%");
             collection.Patterns.Add(pattern);
 
             XmlSerializer serializer = new XmlSerializer(collection.GetType());
@@ -43,6 +43,7 @@ namespace iTunesAgent.Domain
                 Assert.NotNull(deserializedCollection);
                 Assert.AreEqual(1, deserializedCollection.Patterns.Count);
                 Assert.AreEqual("itunes", deserializedCollection.Patterns[0].Id);
+                Assert.AreEqual("iTunes", deserializedCollection.Patterns[0].Name);
                 Assert.AreEqual("%MACRO1%\\%MACRO2%", deserializedCollection.Patterns[0].Format);
 
             }
