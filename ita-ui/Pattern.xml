@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<patterncollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <patterns>
+        <id>itunes</id>
+        <name>iTunes pattern</name>
+        <format>%ARTIST%\%ALBUM%\%TRACKNUMSPACE%%NAME%</format>
+        <compilationpattern>Compilations\%ALBUM%\%TRACKNUMSPACE%%NAME%</compilationpattern>
+        <description>This pattern places the tracks the same way iTunes places tracks in a managed iTunes music folder. Files are organized by Artist\Album\TrackNumber Name. This pattern is recommended for the Sony Ericsson W800i (Walkman phone).</description>
+    </patterns>
+    <patterns>
+        <id>one-folder</id>
+        <name>Artist Folder</name>
+        <format>%ARTIST% - %ALBUM%\%TRACKNUMSPACE%%NAME%</format>
+        <compilationpattern>%ALBUM%\%TRACKNUMSPACE%%NAME%</compilationpattern>
+        <description>This pattern organizes the tracks in folders named by Artist and album. Files are organized like this: Artist - Album\TrackNumber Name.</description>
+    </patterns>
+    <patterns>
+        <id>flat</id>
+        <name>Flat</name>
+        <format>%ARTIST% - %NAME%</format>
+        <compilationpattern />
+        <description>This pattern organizes all tracks in the root media folder of the device. All tracks from all artists are in one folder and names like this: Artist - Name.</description>
+    </patterns>
+</patterncollection>

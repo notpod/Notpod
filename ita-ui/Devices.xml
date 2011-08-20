@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<devicecollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <devices>
+    <name>My Canon DIGITAL IXUS 100 IS</name>
+    <identifier>\\?\usb#vid_04a9&amp;pid_31c2#407bd3c858b94b4a8dca67c939dbec89#{6ac27878-a6fa-4155-ba85-f98f491d4f33}</identifier>
+    <playlists>
+      <playlistid>104</playlistid>
+      <folder>C:\iTATest</folder>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>104</playlistid>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>104</playlistid>
+      <folder>C:\iTATest</folder>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>181</playlistid>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>113</playlistid>
+      <folder>E:\</folder>
+      <pattern />
+    </playlists>
+  </devices>
+  <devices>
+    <name>My E:\</name>
+    <identifier>\\?\wpdbusenumroot#umb#2&amp;37c186b&amp;0&amp;storage#volume#_??_usbstor#disk&amp;ven_jetflash&amp;prod_transcend_8gb&amp;rev_8.07#nm2fhgz9&amp;0##{6ac27878-a6fa-4155-ba85-f98f491d4f33}</identifier>
+    <playlists>
+      <playlistid>162</playlistid>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>181</playlistid>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>203</playlistid>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>106</playlistid>
+      <pattern />
+    </playlists>
+    <playlists>
+      <playlistid>113</playlistid>
+      <folder>E:\Music</folder>
+      <pattern />
+    </playlists>
+  </devices>
+</devicecollection>

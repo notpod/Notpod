@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <usebaloon>true</usebaloon>
+  <closewithitunes>true</closewithitunes>
+  <itafolder>true</itafolder>
+  <warnonsystemdrive>true</warnonsystemdrive>
+  <checkforupdates>true</checkforupdates>
+</configuration>
