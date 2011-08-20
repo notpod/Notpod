@@ -12,8 +12,15 @@ namespace iTunesAgent.UI
 {
     public class ApplicationUtils
     {
+        #if DEBUG
+        public static readonly string APP_CONFIG_PATH = "ApplicationConfiguration.xml";
+        public static readonly string DEVICES_CONFIG_PATH = "Devices.xml";
+        public static readonly string PATTERN_CONFIG_PATH = "Pattern.xml";
+        #else
         public static readonly string APP_CONFIG_PATH = GetUserAppDataPath() + "\\ApplicationConfiguration.xml";
         public static readonly string DEVICES_CONFIG_PATH = GetUserAppDataPath() + "\\Devices.xml";
+        public static readonly string PATTERN_CONFIG_PATH = GetUserAppDataPath() + "\\Pattern.xml";
+        #endif
 
         /*!
          * Populates the ModelRepository with configuration from file.
@@ -24,8 +31,42 @@ namespace iTunesAgent.UI
 
             LoadApplicationConfiguration(configurationChecker, repo);
             LoadStoredDevices(repo);
+            LoadStoredPatterns(repo);
 
             return repo;
+        }
+        
+        static void LoadStoredPatterns(ModelRepository repo)
+        {
+            // If there are no current stored devices config, simply add a new DeviceCollection.
+            if (!File.Exists(PATTERN_CONFIG_PATH))
+            {
+                repo["patterns"] = new PatternCollection();
+                return;
+            }
+
+            Stream read;
+            try
+            {
+                read = new FileStream(PATTERN_CONFIG_PATH, FileMode.Open);
+            }
+            catch (Exception ex)
+            {
+                throw new IOException("Unable to load stored patterns.", ex);
+            }
+
+            try
+            {
+                repo.Deserialize("patterns", typeof(iTunesAgent.Domain.PatternCollection), read);
+            }
+            finally
+            {
+
+                if (read != null)
+                {
+                    read.Close();
+                }
+            }
         }
 
         private static void LoadStoredDevices(ModelRepository repo)
@@ -40,7 +81,7 @@ namespace iTunesAgent.UI
 
             Stream read;
             try
-            {                
+            {
                 read = new FileStream(DEVICES_CONFIG_PATH, FileMode.Open);
             }
             catch (Exception ex)
