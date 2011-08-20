@@ -91,7 +91,7 @@ namespace iTunesAgent.UI
             
             wizard.Pages.AddLast(devicePage);
             
-            PlaylistAssociationBrowseFolder browsePage = new PlaylistAssociationBrowseFolder();
+            PlaylistAssociationSettings browsePage = new PlaylistAssociationSettings();
             browsePage.PageTitle = "Choose where music is copied to";
             
             wizard.Pages.AddLast(browsePage);
