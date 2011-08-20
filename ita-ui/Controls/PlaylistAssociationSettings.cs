@@ -21,13 +21,13 @@ namespace iTunesAgent.UI.Controls
     /// <summary>
     /// Description of PlaylistAssociationBrowseFolder.
     /// </summary>
-    public partial class PlaylistAssociationBrowseFolder : AbstractWizardPage
+    public partial class PlaylistAssociationSettings : AbstractWizardPage
     {
         
         private IDevicesManager devicesManager;
         
         
-        public PlaylistAssociationBrowseFolder()
+        public PlaylistAssociationSettings()
         {
             //
             // The InitializeComponent() call is required for Windows Forms designer support.

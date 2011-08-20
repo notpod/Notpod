@@ -8,7 +8,7 @@
  */
 namespace iTunesAgent.UI.Controls
 {
-    partial class PlaylistAssociationBrowseFolder
+    partial class PlaylistAssociationSettings
     {
         /// <summary>
         /// Designer variable used to keep track of non-visual components.
