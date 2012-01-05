@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4099758-4C03-488D-B173-AC0BBEBC0478}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iTunesAgent.UI</RootNamespace>
+    <AssemblyName>notpod-ui</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Resources\ita-new.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationUtils.cs" />
+    <Compile Include="AssociationManagementPanel.cs" />
+    <Compile Include="AssociationManagementPanel.Designer.cs">
+      <DependentUpon>AssociationManagementPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Wizard\AbstractConditionalWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Wizard\AbstractConditionalWizardPage.Designer.cs">
+      <DependentUpon>AbstractConditionalWizardPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Wizard\DefaultWizardFormFactory.cs" />
+    <Compile Include="Components\Wizard\IWizardForm.cs" />
+    <Compile Include="Components\Wizard\IWizardFormFactory.cs" />
+    <Compile Include="Components\Wizard\Wizard.cs" />
+    <Compile Include="Controls\NewDeviceMSDConfigurationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceMSDConfigurationPage.Designer.cs">
+      <DependentUpon>NewDeviceMSDConfigurationPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceNamePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceNamePage.Designer.cs">
+      <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceSummaryPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceSummaryPage.Designer.cs">
+      <DependentUpon>NewDeviceSummaryPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeBasedConditionalPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeBasedConditionalPage.Designer.cs">
+      <DependentUpon>NewDeviceTypeBasedConditionalPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeSelectionPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceTypeSelectionPage.Designer.cs">
+      <DependentUpon>NewDeviceTypeSelectionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewDeviceWelcomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceWelcomePage.Designer.cs">
+      <DependentUpon>NewDeviceWelcomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Wizard\NoWizardPagesException.cs" />
+    <Compile Include="Components\Wizard\WizardDataStore.cs" />
+    <Compile Include="Components\Wizard\AbstractWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Wizard\WizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\Wizard\WizardForm.Designer.cs">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationChecker.cs" />
+    <Compile Include="ConfigurationCheckerImpl.cs" />
+    <Compile Include="ConfigurationWriter.cs" />
+    <Compile Include="Controls\NewDeviceWPDConfigurationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewDeviceWPDConfigurationPage.Designer.cs">
+      <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaylistAssociationSettings.cs" />
+    <Compile Include="Controls\PlaylistAssociationSettings.Designer.cs">
+      <DependentUpon>PlaylistAssociationSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaylistAssociationChooseDevicePage.cs" />
+    <Compile Include="Controls\PlaylistAssociationChooseDevicePage.Designer.cs">
+      <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WizardDataStoreKeys.cs" />
+    <Compile Include="DefaultConfigurationToFileWriter.cs" />
+    <Compile Include="DefaultNewPlaylistAssociationFormFactory.cs" />
+    <Compile Include="DevicesPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DevicesPanel.Designer.cs">
+      <DependentUpon>DevicesPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomePanel.Designer.cs">
+      <DependentUpon>HomePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ITranslatable.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelRepository.cs" />
+    <Compile Include="NewPlaylistAssociationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPlaylistAssociationForm.Designer.cs">
+      <DependentUpon>NewPlaylistAssociationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INewPlaylistAssociationFormFactory.cs" />
+    <Compile Include="PlaylistAssociationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlaylistAssociationControl.Designer.cs">
+      <DependentUpon>PlaylistAssociationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaylistsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlaylistsPanel.Designer.cs">
+      <DependentUpon>PlaylistsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreferencesPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PreferencesPanel.Designer.cs">
+      <DependentUpon>PreferencesPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WMConstants.cs" />
+    <EmbeddedResource Include="AssociationManagementPanel.resx">
+      <DependentUpon>AssociationManagementPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Wizard\AbstractWizardPage.resx">
+      <DependentUpon>AbstractWizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceMSDConfigurationPage.resx">
+      <DependentUpon>NewDeviceMSDConfigurationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceNamePage.resx">
+      <DependentUpon>NewDeviceNamePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceSummaryPage.resx">
+      <DependentUpon>NewDeviceSummaryPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceTypeSelectionPage.resx">
+      <DependentUpon>NewDeviceTypeSelectionPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceWelcomePage.de.resx">
+      <DependentUpon>NewDeviceWelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceWelcomePage.resx">
+      <DependentUpon>NewDeviceWelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Wizard\WizardForm.resx">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewDeviceWPDConfigurationPage.resx">
+      <DependentUpon>NewDeviceWPDConfigurationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaylistAssociationSettings.resx">
+      <DependentUpon>PlaylistAssociationSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaylistAssociationChooseDevicePage.resx">
+      <DependentUpon>PlaylistAssociationChooseDevicePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevicesPanel.de.resx">
+      <DependentUpon>DevicesPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevicesPanel.resx">
+      <DependentUpon>DevicesPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePanel.de.resx">
+      <DependentUpon>HomePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePanel.resx">
+      <DependentUpon>HomePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPlaylistAssociationForm.resx">
+      <DependentUpon>NewPlaylistAssociationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistAssociationControl.resx">
+      <DependentUpon>PlaylistAssociationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistsPanel.resx">
+      <DependentUpon>PlaylistsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreferencesPanel.de.resx">
+      <DependentUpon>PreferencesPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreferencesPanel.resx">
+      <DependentUpon>PreferencesPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="ApplicationConfiguration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Devices.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Pattern.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="TranslationMgr.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.txt" />
+    <None Include="Resources\ita-new.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devices-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_players.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\globe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add-small.png" />
+    <Content Include="Resources\associations.png" />
+    <Content Include="Resources\download.png" />
+    <Content Include="Resources\playlist.png" />
+    <Content Include="Resources\remove.png" />
+    <None Include="Resources\configuration.xml" />
+    <Content Include="logging.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ita-domain-model\notpod-domain-model.csproj">
+      <Project>{9C9C0EA1-306F-415A-B42D-717C02B9CD7E}</Project>
+      <Name>notpod-domain-model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ita-itunes\notpod-itunes.csproj">
+      <Project>{F1E2C41D-8A1C-402E-9F75-0F8077E3D86D}</Project>
+      <Name>notpod-itunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ita-media-connectors\notpod-media-connectors.csproj">
+      <Project>{6BB762C5-A39F-4CF1-8B48-C6FA225F80D4}</Project>
+      <Name>notpod-media-connectors</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if not exist "$(TargetPath).locked" if exist "$(TargetPath)" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
+</Project>
